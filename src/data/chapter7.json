@@ -1,0 +1,1548 @@
+{
+  "chapter": {
+    "number": 7,
+    "title": "Polynomial Equations and Factoring"
+  },
+  "sections": [
+    {
+      "id": "7.1",
+      "title": "Adding and Subtracting Polynomials",
+      "coreConcepts": [
+        {
+          "id": "7.1.ex1",
+          "type": "example",
+          "title": "Finding the Degree of a Monomial",
+          "description": "The degree of a monomial is the sum of the exponents of all its variables. A nonzero constant has degree 0.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "table",
+              "label": "Examples of Monomial Degrees",
+              "headers": ["Monomial", "Degree", "Reason"],
+              "rows": [
+                ["$5x^2$", "2", "Exponent of $x$ is 2"],
+                ["$-1.8m^5$", "5", "Exponent of $m$ is 5"],
+                ["$\\frac{3}{4}ab^2$", "3", "$1 + 2 = 3$"],
+                ["$-7$", "0", "Nonzero constant"]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.1.cc1",
+          "title": "Polynomials",
+          "description": "A polynomial is a monomial or a sum of monomials. Each monomial is called a term of the polynomial. A polynomial with two terms is a binomial. A polynomial with three terms is a trinomial.",
+          "patterns": [
+            {
+              "algebra": "Binomial",
+              "example": "$5x + 2$"
+            },
+            {
+              "algebra": "Trinomial",
+              "example": "$x^2 + 5x + 2$"
+            }
+          ],
+          "notes": "The degree of a polynomial is the greatest degree of its terms. A polynomial in one variable is in standard form when the exponents decrease from left to right. The leading coefficient is the coefficient of the first term.",
+          "extras": [
+            {
+              "type": "diagram",
+              "label": "Anatomy of a Polynomial",
+              "content": "$\\underset{\\text{leading coefficient}}{\\boxed{2}}x^{\\overbrace{3}^{\\text{degree}}} - 5x^2 + x \\underset{\\text{constant term}}{\\boxed{-3}}$"
+            },
+            {
+              "type": "table",
+              "label": "Classifying Polynomials",
+              "headers": ["Polynomial", "Standard Form", "Degree", "Type of Polynomial"],
+              "rows": [
+                ["$-3x$", "$-3x$", "1", "monomial"],
+                ["$4 + 5x^2 - x$", "$5x^2 - x + 4$", "2", "trinomial"],
+                ["$8q + q^5$", "$q^5 + 8q$", "5", "binomial"]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.1.ex2",
+          "type": "example",
+          "title": "Adding Polynomials",
+          "description": "To add polynomials, add like terms. You can use a vertical or horizontal format.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: $(2x^3 - 5x^2 + x) + (2x^2 + x^3 - 1)$",
+              "items": [
+                {"step": "Align", "detail": "Group like terms: $(2x^3 + x^3) + (-5x^2 + 2x^2) + x + (-1)$"},
+                {"step": "Add", "detail": "$3x^3 - 3x^2 + x - 1$"}
+              ],
+              "result": "$(2x^3 - 5x^2 + x) + (2x^2 + x^3 - 1) = 3x^3 - 3x^2 + x - 1$"
+            },
+            {
+              "type": "steps",
+              "label": "Subtracting Polynomials",
+              "items": [
+                {"step": "Distribute", "detail": "Distribute the negative sign to each term of the polynomial being subtracted."},
+                {"step": "Combine", "detail": "Then add like terms."}
+              ],
+              "result": "$(4x^2 - 3x + 5) - (3x^2 - x - 8) = 4x^2 - 3x + 5 - 3x^2 + x + 8 = x^2 - 2x + 13$"
+            }
+          ]
+        },
+        {
+          "id": "7.1.ex3",
+          "type": "example",
+          "title": "Solving a Real-Life Problem",
+          "description": "Polynomials can model real-world situations such as profit, area, and trajectory calculations.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "callout",
+              "label": "Tip",
+              "content": "When solving real-life problems, define variables clearly and write polynomial expressions that represent the situation. Then simplify by combining like terms."
+            }
+          ]
+        }
+      ],
+      "monitoringProgress": [
+        {
+          "id": "7.1.mp0",
+          "instruction": "Find the degree of each monomial.",
+          "problems": [
+            {
+              "num": 1,
+              "text": "$-3x^4$",
+              "answer": "4"
+            },
+            {
+              "num": 2,
+              "text": "$\\frac{7}{2}b^3c^2$",
+              "answer": "5"
+            },
+            {
+              "num": 3,
+              "text": "$12.5$",
+              "answer": "0"
+            },
+            {
+              "num": 4,
+              "text": "$-2a^2b^4$",
+              "answer": "6"
+            }
+          ]
+        },
+        {
+          "id": "7.1.mp1",
+          "instruction": "Write the polynomial in standard form. Identify the degree and leading coefficient of the polynomial. Then classify the polynomial by the number of terms.",
+          "problems": [
+            {
+              "num": 5,
+              "text": "$4 - 9z$",
+              "answer": [
+                {"label": "Standard Form", "value": "$-9z + 4$"},
+                {"label": "Degree", "value": "1"},
+                {"label": "Leading Coefficient", "value": "$-9$"},
+                {"label": "Classification", "value": "binomial"}
+              ]
+            },
+            {
+              "num": 6,
+              "text": "$t^2 - t^3 - 10t$",
+              "answer": [
+                {"label": "Standard Form", "value": "$-t^3 + t^2 - 10t$"},
+                {"label": "Degree", "value": "3"},
+                {"label": "Leading Coefficient", "value": "$-1$"},
+                {"label": "Classification", "value": "trinomial"}
+              ]
+            },
+            {
+              "num": 7,
+              "text": "$2.8x + x^3$",
+              "answer": [
+                {"label": "Standard Form", "value": "$x^3 + 2.8x$"},
+                {"label": "Degree", "value": "3"},
+                {"label": "Leading Coefficient", "value": "$1$"},
+                {"label": "Classification", "value": "binomial"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.1.mp2",
+          "instruction": "Find the sum or difference.",
+          "problems": [
+            {
+              "num": 8,
+              "text": "$(2x^2 + 5) + (3x^2 - 4)$",
+              "answer": "$5x^2 + 1$"
+            },
+            {
+              "num": 9,
+              "text": "$(-3x + 8) + (-5x - 1)$",
+              "answer": "$-8x + 7$"
+            },
+            {
+              "num": 10,
+              "text": "$(x^2 - 3x + 4) - (x^2 + 7x + 2)$",
+              "answer": "$-10x + 2$"
+            },
+            {
+              "num": 11,
+              "text": "$(4x^2 + x - 5) - (-x^2 + 3x + 2)$",
+              "answer": "$5x^2 - 2x - 7$"
+            }
+          ]
+        },
+        {
+          "id": "7.1.mp3",
+          "instruction": "Solve the real-life problem using polynomials.",
+          "problems": [
+            {
+              "num": 12,
+              "text": "A person throws a ball straight up. The height $h$ (in feet) after $t$ seconds is $h = -16t^2 + 40t + 5$. What is the height after $2$ seconds?",
+              "answer": "$21$"
+            }
+          ]
+        }
+      ],
+      "conceptSummary": null
+    },
+    {
+      "id": "7.2",
+      "title": "Multiplying Polynomials",
+      "coreConcepts": [
+        {
+          "id": "7.2.ex1",
+          "type": "example",
+          "title": "Multiplying Monomials",
+          "description": "To multiply monomials, multiply the coefficients and add the exponents of like bases.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Examples",
+              "items": [
+                {"step": "a.", "detail": "$(3x)(2x) = (3 \\cdot 2)(x \\cdot x) = 6x^2$"},
+                {"step": "b.", "detail": "$(-2x^2)(5x) = (-2 \\cdot 5)(x^2 \\cdot x) = -10x^3$"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.2.cc1",
+          "title": "FOIL Method",
+          "description": "The FOIL Method is a shortcut for multiplying two binomials. Find the sum of the products of the First terms, Outer terms, Inner terms, and Last terms.",
+          "patterns": [
+            {
+              "algebra": "$(x + 1)(x + 2)$",
+              "example": "$= x^2 + 2x + x + 2 = x^2 + 3x + 2$"
+            }
+          ],
+          "notes": "First: $x(x) = x^2$, Outer: $x(2) = 2x$, Inner: $1(x) = x$, Last: $1(2) = 2$",
+          "extras": [
+            {
+              "type": "steps",
+              "label": "FOIL Breakdown: $(x + 1)(x + 2)$",
+              "items": [
+                {"step": "First", "detail": "$x \\cdot x = x^2$", "color": "red"},
+                {"step": "Outer", "detail": "$x \\cdot 2 = 2x$", "color": "blue"},
+                {"step": "Inner", "detail": "$1 \\cdot x = x$", "color": "green"},
+                {"step": "Last", "detail": "$1 \\cdot 2 = 2$", "color": "purple"}
+              ],
+              "result": "$(x+1)(x+2) = x^2 + 2x + x + 2 = x^2 + 3x + 2$"
+            }
+          ]
+        },
+        {
+          "id": "7.2.ex2",
+          "type": "example",
+          "title": "Multiplying a Binomial and a Trinomial",
+          "description": "Use the Distributive Property to multiply each term of the binomial by each term of the trinomial, then combine like terms.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: $(x + 2)(x^2 - 3x + 4)$",
+              "items": [
+                {"step": "Distribute", "detail": "$x(x^2 - 3x + 4) + 2(x^2 - 3x + 4)$"},
+                {"step": "Multiply", "detail": "$x^3 - 3x^2 + 4x + 2x^2 - 6x + 8$"},
+                {"step": "Combine", "detail": "$x^3 - x^2 - 2x + 8$"}
+              ],
+              "result": "$(x + 2)(x^2 - 3x + 4) = x^3 - x^2 - 2x + 8$"
+            }
+          ]
+        },
+        {
+          "id": "7.2.ex3",
+          "type": "example",
+          "title": "Solving a Real-Life Problem",
+          "description": "The length of a rectangular region is 2 feet less than twice the width $w$. Find the area in terms of $w$.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Solution",
+              "items": [
+                {"step": "Setup", "detail": "Length $= 2w - 2$, Width $= w$"},
+                {"step": "Area", "detail": "$A = w(2w - 2) = 2w^2 - 2w$"}
+              ],
+              "result": "The area is $2w^2 - 2w$ square feet."
+            }
+          ]
+        }
+      ],
+      "monitoringProgress": [
+        {
+          "id": "7.2.mp0",
+          "instruction": "Find the product.",
+          "problems": [
+            {
+              "num": 1,
+              "text": "$2x \\cdot 4x$",
+              "answer": "$8x^2$"
+            },
+            {
+              "num": 2,
+              "text": "$(-3x^2)(2x)$",
+              "answer": "$-6x^3$"
+            },
+            {
+              "num": 3,
+              "text": "$3x(x + 2)$",
+              "answer": "$3x^2 + 6x$"
+            },
+            {
+              "num": 4,
+              "text": "$2x(x - 4)$",
+              "answer": "$2x^2 - 8x$"
+            }
+          ]
+        },
+        {
+          "id": "7.2.mp1",
+          "instruction": "Use the FOIL Method to find the product.",
+          "problems": [
+            {
+              "num": 5,
+              "text": "$(m - 3)(m - 7)$",
+              "answer": "$m^2 - 10m + 21$"
+            },
+            {
+              "num": 6,
+              "text": "$(x - 4)(x + 2)$",
+              "answer": "$x^2 - 2x - 8$"
+            },
+            {
+              "num": 7,
+              "text": "$(2a + \\frac{1}{2})(a - \\frac{3}{2})$",
+              "answer": "$2a^2 - \\frac{5}{2}a - \\frac{3}{4}$"
+            },
+            {
+              "num": 8,
+              "text": "$(n + 2)(n^2 + 3)$",
+              "answer": "$n^3 + 2n^2 + 3n + 6$"
+            }
+          ]
+        },
+        {
+          "id": "7.2.mp2",
+          "instruction": "Find the product.",
+          "problems": [
+            {
+              "num": 9,
+              "text": "$(x + 1)(x^2 + 2x + 1)$",
+              "answer": "$x^3 + 3x^2 + 3x + 1$"
+            },
+            {
+              "num": 10,
+              "text": "$(x - 3)(x^2 + 2x + 4)$",
+              "answer": "$x^3 - x^2 - 2x - 12$"
+            }
+          ]
+        },
+        {
+          "id": "7.2.mp3",
+          "instruction": "Solve the real-life problem.",
+          "problems": [
+            {
+              "num": 11,
+              "text": "In the example above, how does the area change if the length is three times the width? Express the area in terms of $w$.",
+              "answer": "$3w^2$"
+            }
+          ]
+        }
+      ],
+      "conceptSummary": null
+    },
+    {
+      "id": "7.3",
+      "title": "Special Products of Polynomials",
+      "coreConcepts": [
+        {
+          "id": "7.3.cc1",
+          "title": "Square of a Binomial Pattern",
+          "description": "",
+          "patterns": [
+            {
+              "algebra": "$(a + b)^2 = a^2 + 2ab + b^2$",
+              "example": "$(x + 5)^2 = x^2 + 10x + 25$"
+            },
+            {
+              "algebra": "$(a - b)^2 = a^2 - 2ab + b^2$",
+              "example": "$(2x - 3)^2 = 4x^2 - 12x + 9$"
+            }
+          ],
+          "extras": [
+            {
+              "type": "callout",
+              "label": "Visual: Square of $(a + b)$",
+              "content": "The diagram shows a square with side length $(a + b)$. The area is divided into four regions: $a^2$, $ab$, $ab$, and $b^2$. Total area = $a^2 + 2ab + b^2$."
+            }
+          ]
+        },
+        {
+          "id": "7.3.cc2",
+          "title": "Sum and Difference Pattern",
+          "description": "",
+          "patterns": [
+            {
+              "algebra": "$(a + b)(a - b) = a^2 - b^2$",
+              "example": "$(x + 3)(x - 3) = x^2 - 9$"
+            }
+          ]
+        },
+        {
+          "id": "7.3.ex1",
+          "type": "example",
+          "title": "Using Special Product Patterns",
+          "description": "Apply the square of a binomial and sum/difference patterns to find products efficiently.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: $(3t - 2)^2$",
+              "items": [
+                {"step": "Identify", "detail": "$a = 3t$, $b = 2$"},
+                {"step": "Apply", "detail": "$(a - b)^2 = a^2 - 2ab + b^2$"},
+                {"step": "Compute", "detail": "$(3t)^2 - 2(3t)(2) + 2^2 = 9t^2 - 12t + 4$"}
+              ],
+              "result": "$(3t - 2)^2 = 9t^2 - 12t + 4$"
+            },
+            {
+              "type": "steps",
+              "label": "Example: $(t + 5)(t - 5)$",
+              "items": [
+                {"step": "Identify", "detail": "$a = t$, $b = 5$"},
+                {"step": "Apply", "detail": "$(a + b)(a - b) = a^2 - b^2$"},
+                {"step": "Compute", "detail": "$t^2 - 25$"}
+              ],
+              "result": "$(t + 5)(t - 5) = t^2 - 25$"
+            }
+          ]
+        },
+        {
+          "id": "7.3.ex2",
+          "type": "example",
+          "title": "Using Special Products and Mental Math",
+          "description": "Use special product patterns to evaluate numerical expressions quickly.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: Find $26 \\cdot 34$",
+              "items": [
+                {"step": "Rewrite", "detail": "$26 = 30 - 4$ and $34 = 30 + 4$"},
+                {"step": "Apply", "detail": "$(30 - 4)(30 + 4) = 30^2 - 4^2$"},
+                {"step": "Compute", "detail": "$900 - 16 = 884$"}
+              ],
+              "result": "$26 \\cdot 34 = 884$"
+            }
+          ]
+        }
+      ],
+      "monitoringProgress": [
+        {
+          "id": "7.3.mp1",
+          "instruction": "Find the product.",
+          "problems": [
+            {
+              "num": 1,
+              "text": "$(x + 7)^2$",
+              "answer": "$x^2 + 14x + 49$"
+            },
+            {
+              "num": 2,
+              "text": "$(7x - 3)^2$",
+              "answer": "$49x^2 - 42x + 9$"
+            },
+            {
+              "num": 3,
+              "text": "$(4x - y)^2$",
+              "answer": "$16x^2 - 8xy + y^2$"
+            },
+            {
+              "num": 4,
+              "text": "$(3m + n)^2$",
+              "answer": "$9m^2 + 6mn + n^2$"
+            }
+          ]
+        },
+        {
+          "id": "7.3.mp2",
+          "instruction": "Find the product.",
+          "problems": [
+            {
+              "num": 5,
+              "text": "$(x + 10)(x - 10)$",
+              "answer": "$x^2 - 100$"
+            },
+            {
+              "num": 6,
+              "text": "$(2x + 1)(2x - 1)$",
+              "answer": "$4x^2 - 1$"
+            },
+            {
+              "num": 7,
+              "text": "$(x + 3y)(x - 3y)$",
+              "answer": "$x^2 - 9y^2$"
+            },
+            {
+              "num": 8,
+              "text": "Describe how to use special product patterns to find $21^2$.",
+              "answer": "$21^2 = (20 + 1)^2 = 400 + 40 + 1 = 441$"
+            }
+          ]
+        },
+        {
+          "id": "7.3.mp3",
+          "instruction": "Find the product using the square of a binomial pattern.",
+          "problems": [
+            {
+              "num": 9,
+              "text": "$(x + 7)^2$",
+              "answer": "$x^2 + 14x + 49$"
+            },
+            {
+              "num": 10,
+              "text": "$(x - 6)^2$",
+              "answer": "$x^2 - 12x + 36$"
+            },
+            {
+              "num": 11,
+              "text": "$(2x + 5)^2$",
+              "answer": "$4x^2 + 20x + 25$"
+            },
+            {
+              "num": 12,
+              "text": "$(4x - 3y)^2$",
+              "answer": "$16x^2 - 24xy + 9y^2$"
+            }
+          ]
+        },
+        {
+          "id": "7.3.mp4",
+          "instruction": "Solve the real-life problem.",
+          "problems": [
+            {
+              "num": 13,
+              "text": "A square tile has a side length of $x$ inches. A rectangular tile has a length of $(x + 2)$ inches and a width of $(x - 2)$ inches. What is the area of the rectangular tile?",
+              "answer": "$x^2 - 4$"
+            }
+          ]
+        }
+      ],
+      "conceptSummary": null
+    },
+    {
+      "id": "7.4",
+      "title": "Solving Polynomial Equations in Factored Form",
+      "coreConcepts": [
+        {
+          "id": "7.4.cc1",
+          "title": "Zero-Product Property",
+          "description": "If the product of two real numbers is 0, then at least one of the numbers is 0.",
+          "patterns": [
+            {
+              "algebra": "If $a$ and $b$ are real numbers and $ab = 0$",
+              "example": "then $a = 0$ or $b = 0$."
+            }
+          ],
+          "extras": [
+            {
+              "type": "table",
+              "label": "Standard Form vs Factored Form",
+              "headers": ["Standard Form", "Factored Form"],
+              "rows": [
+                ["$x^2 + 2x$", "$x(x + 2)$"],
+                ["$x^2 + 5x - 24$", "$(x - 3)(x + 8)$"]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.4.ex1",
+          "type": "example",
+          "title": "Solving Polynomial Equations",
+          "description": "Use the Zero-Product Property: set each factor equal to zero and solve.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: Solve $2x^2 + 8x = 0$",
+              "items": [
+                {"step": "Factor", "detail": "$2x(x + 4) = 0$"},
+                {"step": "Apply ZPP", "detail": "$2x = 0$ or $x + 4 = 0$"},
+                {"step": "Solve", "detail": "$x = 0$ or $x = -4$"}
+              ],
+              "result": "The solutions are $x = 0$ and $x = -4$."
+            }
+          ]
+        },
+        {
+          "id": "7.4.ex2",
+          "type": "example",
+          "title": "Finding the Greatest Common Monomial Factor",
+          "description": "Factor out the GCF before applying the Zero-Product Property.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: Factor $4x^2 + 20x$",
+              "items": [
+                {"step": "Find GCF", "detail": "GCF of $4x^2$ and $20x$ is $4x$"},
+                {"step": "Factor", "detail": "$4x^2 + 20x = 4x(x + 5)$"}
+              ]
+            },
+            {
+              "type": "steps",
+              "label": "Example: Factor $8x^3 - 20x^2 + 6x$",
+              "items": [
+                {"step": "Find GCF", "detail": "GCF of all terms is $2x$"},
+                {"step": "Factor", "detail": "$8x^3 - 20x^2 + 6x = 2x(4x^2 - 10x + 3)$"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.4.ex3",
+          "type": "example",
+          "title": "Solving a Real-Life Problem",
+          "description": "A rectangular sandbox has a length that is 4 ft longer than the width. The area is 60 square feet. Find the dimensions.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Solution",
+              "items": [
+                {"step": "Setup", "detail": "Width $= w$, Length $= w + 4$, Area $= w(w + 4) = 60$"},
+                {"step": "Expand", "detail": "$w^2 + 4w - 60 = 0$"},
+                {"step": "Factor", "detail": "$(w + 10)(w - 6) = 0$"},
+                {"step": "Solve", "detail": "$w = -10$ or $w = 6$. Since width is positive, $w = 6$."}
+              ],
+              "result": "The sandbox is $6$ ft by $10$ ft."
+            }
+          ]
+        }
+      ],
+      "monitoringProgress": [
+        {
+          "id": "7.4.mp1",
+          "instruction": "Solve the equation. Check your solutions.",
+          "problems": [
+            {
+              "num": 1,
+              "text": "$x(x - 1) = 0$",
+              "answer": [
+                {"label": "Solution 1", "value": "$x = 0$"},
+                {"label": "Solution 2", "value": "$x = 1$"}
+              ]
+            },
+            {
+              "num": 2,
+              "text": "$3t(t + 2) = 0$",
+              "answer": [
+                {"label": "Solution 1", "value": "$t = 0$"},
+                {"label": "Solution 2", "value": "$t = -2$"}
+              ]
+            },
+            {
+              "num": 3,
+              "text": "$(z - 4)(z - 6) = 0$",
+              "answer": [
+                {"label": "Solution 1", "value": "$z = 4$"},
+                {"label": "Solution 2", "value": "$z = 6$"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.4.mp2",
+          "instruction": "Solve the equation.",
+          "problems": [
+            {
+              "num": 4,
+              "text": "$(z - 7)(z + 9) = 0$",
+              "answer": [
+                {"label": "Solution 1", "value": "$z = 7$"},
+                {"label": "Solution 2", "value": "$z = -9$"}
+              ]
+            },
+            {
+              "num": 5,
+              "text": "$x^3 - 7x^2 + 12x = 0$",
+              "answer": [
+                {"label": "Solution 1", "value": "$x = 0$"},
+                {"label": "Solution 2", "value": "$x = 3$"},
+                {"label": "Solution 3", "value": "$x = 4$"}
+              ]
+            },
+            {
+              "num": 6,
+              "text": "$u^3 - 5u^2 - 24u = 0$",
+              "answer": [
+                {"label": "Solution 1", "value": "$u = 0$"},
+                {"label": "Solution 2", "value": "$u = 8$"},
+                {"label": "Solution 3", "value": "$u = -3$"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.4.mp3",
+          "instruction": "Factor out the greatest common monomial factor.",
+          "problems": [
+            {
+              "num": 7,
+              "text": "$9x^2 + 12x$",
+              "answer": "$3x(3x + 4)$"
+            },
+            {
+              "num": 8,
+              "text": "$15y^3 + 10y$",
+              "answer": "$5y(3y^2 + 2)$"
+            }
+          ]
+        },
+        {
+          "id": "7.4.mp4",
+          "instruction": "Solve the real-life problem.",
+          "problems": [
+            {
+              "num": 9,
+              "text": "The width of a rectangular entrance is $x$ feet and the length is $(x + 1)$ feet. The area is 20 square feet. Find the width.",
+              "answer": "$4$"
+            }
+          ]
+        }
+      ],
+      "conceptSummary": null
+    },
+    {
+      "id": "7.5",
+      "title": "Factoring x² + bx + c",
+      "coreConcepts": [
+        {
+          "id": "7.5.cc1",
+          "title": "Factoring $x^2 + bx + c$ When $c$ Is Positive",
+          "description": "$x^2 + bx + c = (x + p)(x + q)$ when $p + q = b$ and $pq = c$. When $c$ is positive, $p$ and $q$ have the same sign as $b$.",
+          "patterns": [
+            {
+              "algebra": "$x^2 + 6x + 5 = (x + 1)(x + 5)$",
+              "example": ""
+            },
+            {
+              "algebra": "$x^2 - 6x + 5 = (x - 1)(x - 5)$",
+              "example": ""
+            }
+          ],
+          "extras": [
+            {
+              "type": "table",
+              "label": "Finding factors: $x^2 + 10x + 16$",
+              "headers": ["Factors of 16", "Sum of factors"],
+              "rows": [
+                ["$1, 16$", "$17$"],
+                ["$2, 8$", "$10$ $\\checkmark$"],
+                ["$4, 4$", "$8$"]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.5.cc2",
+          "title": "Factoring $x^2 + bx + c$ When $c$ Is Negative",
+          "description": "$x^2 + bx + c = (x + p)(x + q)$ when $p + q = b$ and $pq = c$. When $c$ is negative, $p$ and $q$ have different signs.",
+          "patterns": [
+            {
+              "algebra": "$x^2 + 4x - 5 = (x + 5)(x - 1)$",
+              "example": ""
+            }
+          ],
+          "extras": [
+            {
+              "type": "table",
+              "label": "Finding factors: $x^2 + 4x - 21$",
+              "headers": ["Factors of $-21$", "Sum of factors"],
+              "rows": [
+                ["$-1, 21$", "$20$"],
+                ["$1, -21$", "$-20$"],
+                ["$-3, 7$", "$4$ $\\checkmark$"],
+                ["$3, -7$", "$-4$"]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.5.ex1",
+          "type": "example",
+          "title": "Factoring Trinomials — Worked Examples",
+          "description": "Practice identifying the correct factor pairs for $x^2 + bx + c$.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: Factor $x^2 + 10x + 16$",
+              "items": [
+                {"step": "Find", "detail": "Two numbers that multiply to $16$ and add to $10$"},
+                {"step": "Test", "detail": "$2 \\times 8 = 16$ and $2 + 8 = 10$ $\\checkmark$"},
+                {"step": "Factor", "detail": "$x^2 + 10x + 16 = (x + 2)(x + 8)$"}
+              ]
+            },
+            {
+              "type": "steps",
+              "label": "Example: Factor $x^2 - 3x - 10$",
+              "items": [
+                {"step": "Find", "detail": "Two numbers that multiply to $-10$ and add to $-3$"},
+                {"step": "Test", "detail": "$(-5) \\times 2 = -10$ and $-5 + 2 = -3$ $\\checkmark$"},
+                {"step": "Factor", "detail": "$x^2 - 3x - 10 = (x - 5)(x + 2)$"}
+              ]
+            },
+            {
+              "type": "steps",
+              "label": "Example: Factor $x^2 - 11x + 24$",
+              "items": [
+                {"step": "Find", "detail": "Two negative numbers that multiply to $24$ and add to $-11$"},
+                {"step": "Test", "detail": "$(-3) \\times (-8) = 24$ and $-3 + (-8) = -11$ $\\checkmark$"},
+                {"step": "Factor", "detail": "$x^2 - 11x + 24 = (x - 3)(x - 8)$"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.5.ex2",
+          "type": "example",
+          "title": "Solving a Real-Life Problem",
+          "description": "The length of a rectangular garden is 4 meters longer than the width. The area is 252 square meters. Find the dimensions.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Solution",
+              "items": [
+                {"step": "Setup", "detail": "Width $= x$, Length $= x + 4$, so $x(x + 4) = 252$"},
+                {"step": "Expand", "detail": "$x^2 + 4x - 252 = 0$"},
+                {"step": "Factor", "detail": "$(x - 14)(x + 18) = 0$"},
+                {"step": "Solve", "detail": "$x = 14$ (positive) or $x = -18$ (reject)"}
+              ],
+              "result": "Width $= 14$ m, Length $= 18$ m."
+            }
+          ]
+        }
+      ],
+      "monitoringProgress": [
+        {
+          "id": "7.5.mp1",
+          "instruction": "Factor the polynomial.",
+          "problems": [
+            {
+              "num": 1,
+              "text": "$x^2 + 10x + 16$",
+              "answer": "$(x + 2)(x + 8)$"
+            },
+            {
+              "num": 2,
+              "text": "$x^2 + 9x + 8$",
+              "answer": "$(x + 1)(x + 8)$"
+            }
+          ]
+        },
+        {
+          "id": "7.5.mp2",
+          "instruction": "Factor the polynomial.",
+          "problems": [
+            {
+              "num": 3,
+              "text": "$w^2 - 4w + 3$",
+              "answer": "$(w - 1)(w - 3)$"
+            },
+            {
+              "num": 4,
+              "text": "$n^2 - 12n + 35$",
+              "answer": "$(n - 5)(n - 7)$"
+            },
+            {
+              "num": 5,
+              "text": "$x^2 - 14x + 24$",
+              "answer": "$(x - 2)(x - 12)$"
+            },
+            {
+              "num": 6,
+              "text": "$x^2 + 2x - 15$",
+              "answer": "$(x + 5)(x - 3)$"
+            },
+            {
+              "num": 7,
+              "text": "$y^2 + 13y - 30$",
+              "answer": "$(y + 15)(y - 2)$"
+            },
+            {
+              "num": 8,
+              "text": "$v^2 - v - 42$",
+              "answer": "$(v - 7)(v + 6)$"
+            }
+          ]
+        },
+        {
+          "id": "7.5.mp3",
+          "instruction": "Factor the polynomial.",
+          "problems": [
+            {
+              "num": 9,
+              "text": "$x^2 + 7x + 6$",
+              "answer": "$(x + 1)(x + 6)$"
+            },
+            {
+              "num": 10,
+              "text": "$x^2 - 12x + 32$",
+              "answer": "$(x - 4)(x - 8)$"
+            },
+            {
+              "num": 11,
+              "text": "$x^2 + 5x - 14$",
+              "answer": "$(x + 7)(x - 2)$"
+            },
+            {
+              "num": 12,
+              "text": "$x^2 - 2x - 15$",
+              "answer": "$(x - 5)(x + 3)$"
+            }
+          ]
+        },
+        {
+          "id": "7.5.mp4",
+          "instruction": "Solve the real-life problem.",
+          "problems": [
+            {
+              "num": 13,
+              "text": "A rectangular patio has an area of 180 square feet. The length is 3 feet more than the width. What are the dimensions?",
+              "answer": [
+                {"label": "Width", "value": "$12$"},
+                {"label": "Length", "value": "$15$"}
+              ]
+            }
+          ]
+        }
+      ],
+      "conceptSummary": {
+        "title": "Factoring $x^2 + bx + c$ as $(x + p)(x + q)$",
+        "steps": [
+          {
+            "text": "$c$ is positive, $b$ is positive: $p$ and $q$ are positive.",
+            "example": "$x^2 + 6x + 5 = (x+1)(x+5)$"
+          },
+          {
+            "text": "$c$ is positive, $b$ is negative: $p$ and $q$ are negative.",
+            "example": "$x^2 - 6x + 5 = (x-1)(x-5)$"
+          },
+          {
+            "text": "$c$ is negative: $p$ and $q$ have different signs.",
+            "example": "$x^2 + 4x - 5 = (x+5)(x-1)$"
+          }
+        ]
+      }
+    },
+    {
+      "id": "7.6",
+      "title": "Factoring ax² + bx + c",
+      "coreConcepts": [
+        {
+          "id": "7.6.ex1",
+          "type": "example",
+          "title": "Factoring When $a \\neq 1$",
+          "description": "When factoring $ax^2 + bx + c$ where $a \\neq 1$, consider the factor pairs of both $a$ and $c$ to find the correct combination, or use the ac-method.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: Factor $2x^2 + 7x + 3$",
+              "items": [
+                {"step": "Multiply", "detail": "$a \\cdot c = 2 \\cdot 3 = 6$. Find factors of $6$ that add to $7$: $1$ and $6$."},
+                {"step": "Rewrite", "detail": "$2x^2 + x + 6x + 3$"},
+                {"step": "Group", "detail": "$(2x^2 + x) + (6x + 3) = x(2x + 1) + 3(2x + 1)$"},
+                {"step": "Factor", "detail": "$(2x + 1)(x + 3)$"}
+              ],
+              "result": "$2x^2 + 7x + 3 = (2x + 1)(x + 3)$"
+            },
+            {
+              "type": "steps",
+              "label": "Example: Factor $3x^2 - 8x + 4$",
+              "items": [
+                {"step": "Multiply", "detail": "$a \\cdot c = 3 \\cdot 4 = 12$. Find factors of $12$ that add to $-8$: $-2$ and $-6$."},
+                {"step": "Rewrite", "detail": "$3x^2 - 2x - 6x + 4$"},
+                {"step": "Group", "detail": "$x(3x - 2) - 2(3x - 2)$"},
+                {"step": "Factor", "detail": "$(3x - 2)(x - 2)$"}
+              ],
+              "result": "$3x^2 - 8x + 4 = (3x - 2)(x - 2)$"
+            }
+          ]
+        },
+        {
+          "id": "7.6.ex2",
+          "type": "example",
+          "title": "Factoring Out the GCF First",
+          "description": "Always check for a greatest common factor before attempting to factor a trinomial.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: Factor $6x^2 - 9x - 15$",
+              "items": [
+                {"step": "GCF", "detail": "Factor out $3$: $3(2x^2 - 3x - 5)$"},
+                {"step": "Factor", "detail": "$3(2x - 5)(x + 1)$"}
+              ],
+              "result": "$6x^2 - 9x - 15 = 3(2x - 5)(x + 1)$"
+            },
+            {
+              "type": "callout",
+              "label": "Study Tip",
+              "content": "When factoring $ax^2 + bx + c$, always check first whether the terms have a common factor. If they do, factor it out first."
+            }
+          ]
+        },
+        {
+          "id": "7.6.ex3",
+          "type": "example",
+          "title": "Solving a Real-Life Problem",
+          "description": "A rectangular flower garden has an area of 120 square feet. The width is 2 feet less than the length.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Solution",
+              "items": [
+                {"step": "Setup", "detail": "Length $= l$, Width $= l - 2$, Area $= l(l - 2) = 120$"},
+                {"step": "Expand", "detail": "$l^2 - 2l - 120 = 0$"},
+                {"step": "Factor", "detail": "$(l + 10)(l - 12) = 0$"},
+                {"step": "Solve", "detail": "$l = 12$ (positive) or $l = -10$ (reject)"}
+              ],
+              "result": "Length $= 12$ ft, Width $= 10$ ft."
+            }
+          ]
+        }
+      ],
+      "monitoringProgress": [
+        {
+          "id": "7.6.mp1",
+          "instruction": "Factor the polynomial.",
+          "problems": [
+            {
+              "num": 1,
+              "text": "$8x^2 - 56x + 48$",
+              "answer": "$8(x - 1)(x - 6)$"
+            },
+            {
+              "num": 2,
+              "text": "$14x^2 + 31x + 15$",
+              "answer": "$(2x + 5)(7x + 3)$"
+            },
+            {
+              "num": 3,
+              "text": "$2x^2 - 7x + 5$",
+              "answer": "$(2x - 5)(x - 1)$"
+            }
+          ]
+        },
+        {
+          "id": "7.6.mp2",
+          "instruction": "Factor the polynomial.",
+          "problems": [
+            {
+              "num": 4,
+              "text": "$3x^2 - 14x + 8$",
+              "answer": "$(3x - 2)(x - 4)$"
+            },
+            {
+              "num": 5,
+              "text": "$4x^2 - 19x - 5$",
+              "answer": "$(4x + 1)(x - 5)$"
+            },
+            {
+              "num": 6,
+              "text": "$6x^2 + x - 12$",
+              "answer": "$(2x + 3)(3x - 4)$"
+            },
+            {
+              "num": 7,
+              "text": "$-2y^2 - 5y - 3$",
+              "answer": "$-(2y + 3)(y + 1)$"
+            },
+            {
+              "num": 8,
+              "text": "$-5m^2 + 6m - 1$",
+              "answer": "$-(5m - 1)(m - 1)$"
+            },
+            {
+              "num": 9,
+              "text": "$-3x^2 - x + 2$",
+              "answer": "$-(3x - 2)(x + 1)$"
+            }
+          ]
+        },
+        {
+          "id": "7.6.mp3",
+          "instruction": "Solve the real-life problem.",
+          "problems": [
+            {
+              "num": 10,
+              "text": "A rectangular patio has an area of 70 square feet. The length is 1 foot more than twice the width. Find the dimensions.",
+              "answer": [
+                {"label": "Width", "value": "$5$"},
+                {"label": "Length", "value": "$14$"}
+              ]
+            }
+          ]
+        }
+      ],
+      "conceptSummary": null
+    },
+    {
+      "id": "7.7",
+      "title": "Factoring Special Products",
+      "coreConcepts": [
+        {
+          "id": "7.7.cc1",
+          "title": "Difference of Two Squares Pattern",
+          "description": "",
+          "patterns": [
+            {
+              "algebra": "$a^2 - b^2 = (a + b)(a - b)$",
+              "example": "$x^2 - 9 = (x + 3)(x - 3)$"
+            }
+          ],
+          "extras": [
+            {
+              "type": "callout",
+              "label": "Key Insight",
+              "content": "The sum of two squares $a^2 + b^2$ cannot be factored using real numbers."
+            }
+          ]
+        },
+        {
+          "id": "7.7.cc2",
+          "title": "Perfect Square Trinomial Pattern",
+          "description": "",
+          "patterns": [
+            {
+              "algebra": "$a^2 + 2ab + b^2 = (a + b)^2$",
+              "example": "$x^2 + 6x + 9 = (x + 3)^2$"
+            },
+            {
+              "algebra": "$a^2 - 2ab + b^2 = (a - b)^2$",
+              "example": "$x^2 - 6x + 9 = (x - 3)^2$"
+            }
+          ],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Recognizing Perfect Square Trinomials",
+              "items": [
+                {"step": "Check", "detail": "Is the first term a perfect square? $a^2$"},
+                {"step": "Check", "detail": "Is the last term a perfect square? $b^2$"},
+                {"step": "Check", "detail": "Is the middle term $2ab$ or $-2ab$?"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.7.ex1",
+          "type": "example",
+          "title": "Factoring the Difference of Two Squares",
+          "description": "Rewrite each term as a perfect square, then apply the pattern.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: Factor $4x^2 - 1$",
+              "items": [
+                {"step": "Rewrite", "detail": "$(2x)^2 - 1^2$"},
+                {"step": "Apply", "detail": "$(2x + 1)(2x - 1)$"}
+              ],
+              "result": "$4x^2 - 1 = (2x + 1)(2x - 1)$"
+            }
+          ]
+        },
+        {
+          "id": "7.7.ex2",
+          "type": "example",
+          "title": "Evaluating with Special Products",
+          "description": "Use the difference of two squares pattern to evaluate numerical expressions.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: Evaluate $54^2 - 48^2$",
+              "items": [
+                {"step": "Apply", "detail": "$(54 + 48)(54 - 48) = (102)(6)$"},
+                {"step": "Compute", "detail": "$= 612$"}
+              ],
+              "result": "$54^2 - 48^2 = 612$"
+            }
+          ]
+        },
+        {
+          "id": "7.7.ex3",
+          "type": "example",
+          "title": "Factoring Perfect Square Trinomials",
+          "description": "Identify $a$ and $b$, verify the middle term is $2ab$, then apply the pattern.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: Factor $4t^2 - 12t + 9$",
+              "items": [
+                {"step": "Identify", "detail": "$a = 2t$, $b = 3$"},
+                {"step": "Verify", "detail": "$2ab = 2(2t)(3) = 12t$ $\\checkmark$"},
+                {"step": "Factor", "detail": "$(2t - 3)^2$"}
+              ],
+              "result": "$4t^2 - 12t + 9 = (2t - 3)^2$"
+            }
+          ]
+        },
+        {
+          "id": "7.7.ex4",
+          "type": "example",
+          "title": "Solving a Real-Life Problem",
+          "description": "A ball is dropped from a height of 64 feet. The height after $t$ seconds is $h = 64 - 16t^2$. How long until it hits the ground?",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Solution",
+              "items": [
+                {"step": "Set $h = 0$", "detail": "$0 = 64 - 16t^2$"},
+                {"step": "Solve", "detail": "$16t^2 = 64$, so $t^2 = 4$"},
+                {"step": "Answer", "detail": "$t = 2$ seconds (reject $t = -2$)"}
+              ],
+              "result": "The ball hits the ground after $2$ seconds."
+            }
+          ]
+        }
+      ],
+      "monitoringProgress": [
+        {
+          "id": "7.7.mp1",
+          "instruction": "Factor the polynomial. Use a special product pattern to evaluate the expression.",
+          "problems": [
+            {
+              "num": 1,
+              "text": "$x^2 - 36$",
+              "answer": "$(x + 6)(x - 6)$"
+            },
+            {
+              "num": 2,
+              "text": "$100 - m^2$",
+              "answer": "$(10 + m)(10 - m)$"
+            },
+            {
+              "num": 3,
+              "text": "$9n^2 - 16$",
+              "answer": "$(3n + 4)(3n - 4)$"
+            },
+            {
+              "num": 4,
+              "text": "$16b^2 - 49$",
+              "answer": "$(4b + 7)(4b - 7)$"
+            },
+            {
+              "num": 5,
+              "text": "$36^2 - 34^2$",
+              "answer": "$140$"
+            },
+            {
+              "num": 6,
+              "text": "$47^2 - 44^2$",
+              "answer": "$273$"
+            },
+            {
+              "num": 7,
+              "text": "$55^2 - 50^2$",
+              "answer": "$525$"
+            },
+            {
+              "num": 8,
+              "text": "$28^2 - 24^2$",
+              "answer": "$208$"
+            }
+          ]
+        },
+        {
+          "id": "7.7.mp2",
+          "instruction": "Factor the polynomial. Solve the equation.",
+          "problems": [
+            {
+              "num": 9,
+              "text": "$m^2 - 2m + 1$",
+              "answer": "$(m - 1)^2$"
+            },
+            {
+              "num": 10,
+              "text": "$d^2 - 10d + 25$",
+              "answer": "$(d - 5)^2$"
+            },
+            {
+              "num": 11,
+              "text": "$9z^2 + 36z + 36$",
+              "answer": "$9(z + 2)^2$"
+            },
+            {
+              "num": 12,
+              "text": "$a^2 + 6a + 9 = 0$",
+              "answer": "$a = -3$"
+            },
+            {
+              "num": 13,
+              "text": "$w^2 - \\frac{7}{3}w + \\frac{49}{36} = 0$",
+              "answer": "$w = \\frac{7}{6}$"
+            },
+            {
+              "num": 14,
+              "text": "$n^2 - 81 = 0$",
+              "answer": [
+                {"label": "Solution 1", "value": "$n = 9$"},
+                {"label": "Solution 2", "value": "$n = -9$"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.7.mp3",
+          "instruction": "Factor the polynomial.",
+          "problems": [
+            {
+              "num": 15,
+              "text": "$n^2 + 8n + 16$",
+              "answer": "$(n + 4)^2$"
+            },
+            {
+              "num": 16,
+              "text": "$x^2 - 25$",
+              "answer": "$(x + 5)(x - 5)$"
+            }
+          ]
+        },
+        {
+          "id": "7.7.mp4",
+          "instruction": "Solve the real-life problem.",
+          "problems": [
+            {
+              "num": 17,
+              "text": "A squirrel jumps from a tree 32 feet above the ground. The height after $t$ seconds is $h = 32 - 16t^2$. How long until it reaches the ground?",
+              "answer": "$\\sqrt{2}$"
+            }
+          ]
+        }
+      ],
+      "conceptSummary": null
+    },
+    {
+      "id": "7.8",
+      "title": "Factoring Polynomials Completely",
+      "coreConcepts": [
+        {
+          "id": "7.8.cc1",
+          "title": "Factoring by Grouping",
+          "description": "To factor a polynomial with four terms, group the terms into pairs. Factor the GCF out of each pair of terms. Look for and factor out the common binomial factor. This process is called factoring by grouping.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: Factor $x^3 + 3x^2 + 2x + 6$",
+              "items": [
+                {"step": "Group", "detail": "$(x^3 + 3x^2) + (2x + 6)$"},
+                {"step": "Factor GCF", "detail": "$x^2(x + 3) + 2(x + 3)$"},
+                {"step": "Factor binomial", "detail": "$(x^2 + 2)(x + 3)$"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.8.ex1",
+          "type": "example",
+          "title": "Factoring by Grouping — More Examples",
+          "description": "Practice factoring four-term polynomials by grouping.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: Factor $x^3 + 4x^2 - 3x - 12$",
+              "items": [
+                {"step": "Group", "detail": "$(x^3 + 4x^2) + (-3x - 12)$"},
+                {"step": "Factor GCF", "detail": "$x^2(x + 4) - 3(x + 4)$"},
+                {"step": "Factor", "detail": "$(x + 4)(x^2 - 3)$"}
+              ],
+              "result": "$x^3 + 4x^2 - 3x - 12 = (x + 4)(x^2 - 3)$"
+            }
+          ]
+        },
+        {
+          "id": "7.8.ex2",
+          "type": "example",
+          "title": "Factoring Completely",
+          "description": "Use multiple factoring strategies together. Always start by factoring out the GCF.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: Factor $3x^3 + 6x^2 - 45x$ completely",
+              "items": [
+                {"step": "GCF", "detail": "$3x(x^2 + 2x - 15)$"},
+                {"step": "Factor trinomial", "detail": "$3x(x + 5)(x - 3)$"}
+              ],
+              "result": "$3x^3 + 6x^2 - 45x = 3x(x + 5)(x - 3)$"
+            }
+          ]
+        },
+        {
+          "id": "7.8.ex3",
+          "type": "example",
+          "title": "Solving an Equation by Factoring Completely",
+          "description": "Factor completely, then use the Zero-Product Property.",
+          "patterns": [],
+          "extras": [
+            {
+              "type": "steps",
+              "label": "Example: Solve $2x^3 + 8x^2 - 10x = 0$",
+              "items": [
+                {"step": "GCF", "detail": "$2x(x^2 + 4x - 5) = 0$"},
+                {"step": "Factor", "detail": "$2x(x + 5)(x - 1) = 0$"},
+                {"step": "ZPP", "detail": "$x = 0$, $x = -5$, or $x = 1$"}
+              ],
+              "result": "The solutions are $x = -5$, $x = 0$, and $x = 1$."
+            }
+          ]
+        }
+      ],
+      "monitoringProgress": [
+        {
+          "id": "7.8.mp1",
+          "instruction": "Factor the polynomial by grouping.",
+          "problems": [
+            {
+              "num": 1,
+              "text": "$a^3 + 3a^2 + a + 3$",
+              "answer": "$(a^2 + 1)(a + 3)$"
+            },
+            {
+              "num": 2,
+              "text": "$y^2 + 2x + yx + 2y$",
+              "answer": "$(y + 2)(x + y)$"
+            }
+          ]
+        },
+        {
+          "id": "7.8.mp2",
+          "instruction": "Factor the polynomial completely.",
+          "problems": [
+            {
+              "num": 3,
+              "text": "$3x^3 - 12x$",
+              "answer": "$3x(x + 2)(x - 2)$"
+            },
+            {
+              "num": 4,
+              "text": "$2y^3 - 12y^2 + 18y$",
+              "answer": "$2y(y - 3)^2$"
+            },
+            {
+              "num": 5,
+              "text": "$m^3 - 2m^2 - 8m$",
+              "answer": "$m(m - 4)(m + 2)$"
+            }
+          ]
+        },
+        {
+          "id": "7.8.mp3",
+          "instruction": "Solve the equation.",
+          "problems": [
+            {
+              "num": 6,
+              "text": "$w^3 - 8w^2 + 16w = 0$",
+              "answer": [
+                {"label": "Solution 1", "value": "$w = 0$"},
+                {"label": "Solution 2", "value": "$w = 4$"}
+              ]
+            },
+            {
+              "num": 7,
+              "text": "$x^3 - 25x = 0$",
+              "answer": [
+                {"label": "Solution 1", "value": "$x = 0$"},
+                {"label": "Solution 2", "value": "$x = 5$"},
+                {"label": "Solution 3", "value": "$x = -5$"}
+              ]
+            },
+            {
+              "num": 8,
+              "text": "$c^3 - 7c^2 + 12c = 0$",
+              "answer": [
+                {"label": "Solution 1", "value": "$c = 0$"},
+                {"label": "Solution 2", "value": "$c = 3$"},
+                {"label": "Solution 3", "value": "$c = 4$"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7.8.mp4",
+          "instruction": "Factor the polynomial completely. Solve the equation.",
+          "problems": [
+            {
+              "num": 9,
+              "text": "$x^3 + 5x^2 + x + 5$",
+              "answer": "$(x + 5)(x^2 + 1)$"
+            },
+            {
+              "num": 10,
+              "text": "$4x^3 - x = 0$",
+              "answer": [
+                {"label": "Solution 1", "value": "$x = 0$"},
+                {"label": "Solution 2", "value": "$x = \\frac{1}{2}$"},
+                {"label": "Solution 3", "value": "$x = -\\frac{1}{2}$"}
+              ]
+            }
+          ]
+        }
+      ],
+      "conceptSummary": {
+        "title": "Guidelines for Factoring Polynomials Completely",
+        "steps": [
+          {
+            "text": "Factor out the greatest common monomial factor.",
+            "example": "$3x^2 + 6x = 3x(x + 2)$"
+          },
+          {
+            "text": "Look for a difference of two squares or a perfect square trinomial.",
+            "example": "$x^2 + 4x + 4 = (x + 2)^2$"
+          },
+          {
+            "text": "Factor a trinomial of the form $ax^2 + bx + c$ into a product of binomial factors.",
+            "example": "$3x^2 - 5x - 2 = (3x + 1)(x - 2)$"
+          },
+          {
+            "text": "Factor a polynomial with four terms by grouping.",
+            "example": "$x^3 + x - 4x^2 - 4 = (x^2 + 1)(x - 4)$"
+          }
+        ]
+      }
+    }
+  ]
+}
