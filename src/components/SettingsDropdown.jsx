@@ -37,8 +37,17 @@ function ToggleSwitch({ label, color, checked, onChange }) {
   )
 }
 
+const LockIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+  </svg>
+)
+
 export default function SettingsDropdown({ settings, onUpdate }) {
   const [open, setOpen] = useState(false)
+  const [showPasswordPrompt, setShowPasswordPrompt] = useState(false)
+  const [passwordInput, setPasswordInput] = useState('')
+  const [passwordError, setPasswordError] = useState(false)
   const ref = useRef(null)
 
   useEffect(() => {
@@ -126,6 +135,82 @@ export default function SettingsDropdown({ settings, onUpdate }) {
               ))}
             </div>
             <p className="text-xs text-gray-400 dark:text-gray-600 mt-1">Score for corrected answers</p>
+          </div>
+
+          {/* Dispute mode */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="text-sm flex items-center gap-1.5">
+                <LockIcon />
+                Dispute Mode
+              </span>
+              <button
+                onClick={() => {
+                  if (settings.disputeMode) {
+                    // Turn off — no password needed
+                    onUpdate({ disputeMode: false })
+                  } else {
+                    // Turn on — prompt for password
+                    setShowPasswordPrompt(true)
+                    setPasswordInput('')
+                    setPasswordError(false)
+                  }
+                }}
+                className={`relative w-9 h-5 rounded-full transition-colors ${settings.disputeMode ? 'bg-red-500' : 'bg-gray-300 dark:bg-gray-600'}`}
+              >
+                <span className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${settings.disputeMode ? 'translate-x-4' : ''}`} />
+              </button>
+            </div>
+            {showPasswordPrompt && !settings.disputeMode && (
+              <div className="rounded-lg border border-red-200 dark:border-red-800 bg-red-50/80 dark:bg-red-950/30 p-2.5 space-y-2">
+                <p className="text-xs text-red-600 dark:text-red-400">Enter admin password to enable:</p>
+                <div className="flex gap-1.5">
+                  <input
+                    type="password"
+                    value={passwordInput}
+                    onChange={(e) => { setPasswordInput(e.target.value); setPasswordError(false) }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        if (passwordInput === (settings.disputePassword || 'admin123')) {
+                          onUpdate({ disputeMode: true })
+                          setShowPasswordPrompt(false)
+                          setPasswordInput('')
+                        } else {
+                          setPasswordError(true)
+                        }
+                      }
+                    }}
+                    placeholder="Password..."
+                    className={`flex-1 px-2 py-1 text-xs rounded border bg-white dark:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-red-500 ${passwordError ? 'border-red-400' : 'border-gray-300 dark:border-gray-600'}`}
+                    autoFocus
+                  />
+                  <button
+                    onClick={() => {
+                      if (passwordInput === (settings.disputePassword || 'admin123')) {
+                        onUpdate({ disputeMode: true })
+                        setShowPasswordPrompt(false)
+                        setPasswordInput('')
+                      } else {
+                        setPasswordError(true)
+                      }
+                    }}
+                    className="px-2.5 py-1 text-xs rounded bg-red-500 text-white hover:bg-red-600 transition-colors font-medium"
+                  >
+                    Unlock
+                  </button>
+                  <button
+                    onClick={() => { setShowPasswordPrompt(false); setPasswordInput('') }}
+                    className="px-1.5 py-1 text-xs text-gray-400 hover:text-gray-600"
+                  >
+                    ✕
+                  </button>
+                </div>
+                {passwordError && <p className="text-xs text-red-500">Incorrect password</p>}
+              </div>
+            )}
+            {settings.disputeMode && (
+              <p className="text-xs text-red-500 dark:text-red-400">Active — click answers in history to accept them</p>
+            )}
           </div>
 
           {/* Category toggles */}

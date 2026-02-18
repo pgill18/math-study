@@ -123,6 +123,7 @@ export default function SectionPage({ settings }) {
               progress={problems}
               onUpdateProgress={updateProblem}
               onResetAll={resetProblems}
+              disputeMode={settings.disputeMode}
             />
           )}
           {currentPage.cs && <ConceptSummary summary={currentPage.cs} />}

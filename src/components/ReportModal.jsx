@@ -59,8 +59,17 @@ export default function ReportModal({ sections, problems, correctionScore, onClo
         mp.problems.forEach(p => {
           const key = mp.id + '.' + p.num
           const state = problems[key]
-          const attempts = state ? state.attempts : 0
           const status = state ? state.status : 'unanswered'
+
+          // Find effective attempts: earliest correct entry in history, or fall back to state.attempts
+          let attempts = state ? state.attempts : 0
+          if (state && state.history && state.history.length > 0) {
+            const earliestCorrectIdx = state.history.findIndex(h => h.correct)
+            if (earliestCorrectIdx >= 0) {
+              attempts = earliestCorrectIdx + 1
+            }
+          }
+
           const score = status === 'correct' ? computeScore(attempts, correctionScore) :
                         status === 'revealed' ? 0 : null
 

@@ -13,13 +13,50 @@ function normalizeAnswer(str) {
     .replace(/\^3/g, '³')
 }
 
+// Strip variable name and equals sign: "x = 0" → "0", "t = -2" → "-2"
+function stripVariable(str) {
+  return str.replace(/^[a-z]\s*=\s*/i, '').trim()
+}
+
 function answersMatch(userAnswer, correctAnswer) {
   const normUser = normalizeAnswer(userAnswer)
   const normCorrect = normalizeAnswer(correctAnswer)
   if (normUser === normCorrect) return true
+  // Also match without variable prefix (e.g. "0" matches "x=0")
+  if (stripVariable(normUser) === stripVariable(normCorrect)) return true
+  if (normUser === stripVariable(normCorrect)) return true
+  if (stripVariable(normUser) === normCorrect) return true
   const stripped = correctAnswer.replace(/\$/g, '').replace(/\\/g, '').replace(/\s/g, '').toLowerCase()
   const strippedUser = userAnswer.replace(/\$/g, '').replace(/\\/g, '').replace(/\s/g, '').toLowerCase()
-  return stripped === strippedUser
+  if (stripped === strippedUser) return true
+  if (stripVariable(stripped) === stripVariable(strippedUser)) return true
+  if (strippedUser === stripVariable(stripped)) return true
+  return false
+}
+
+// For multi-solution problems, check if user answers match correct answers in any order
+function checkMultiSolutionAnswers(userInputs, parts) {
+  if (parts.length <= 1) {
+    return parts.map((part, i) => answersMatch(userInputs[i] || '', part.value))
+  }
+  // Try to find best assignment: each user input matched to a correct answer
+  const n = parts.length
+  const used = new Array(n).fill(false)
+  const results = new Array(n).fill(false)
+  const assignment = new Array(n).fill(-1)
+
+  // First pass: find exact matches
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      if (!used[j] && answersMatch(userInputs[i] || '', parts[j].value)) {
+        results[i] = true
+        used[j] = true
+        assignment[i] = j
+        break
+      }
+    }
+  }
+  return results
 }
 
 // Normalize answer prop into array of { label, value }
@@ -28,9 +65,21 @@ function toAnswerParts(answer) {
   return [{ label: '', value: answer }]
 }
 
-export default function ProblemItem({ num, text, answer, maxRetries, problemKey, progress, onUpdateProgress }) {
+export default function ProblemItem({ num, text, answer, maxRetries, problemKey, progress, onUpdateProgress, disputeMode }) {
   const parts = toAnswerParts(answer)
-  const saved = progress[problemKey] || { attempts: 0, status: 'unanswered', userAnswers: parts.map(() => ''), history: [] }
+  const rawSaved = progress[problemKey]
+  const saved = rawSaved
+    ? { history: [], ...rawSaved }
+    : { attempts: 0, status: 'unanswered', userAnswers: parts.map(() => ''), history: [] }
+  // Reconstruct history from existing state if it's missing (old progress data)
+  if (saved.history.length === 0 && saved.attempts > 0 && saved.userAnswers) {
+    const isCorrect = saved.status === 'correct'
+    saved.history = [{
+      answers: [...saved.userAnswers],
+      results: saved.results || saved.userAnswers.map(() => isCorrect),
+      correct: isCorrect,
+    }]
+  }
   const [inputs, setInputs] = useState(saved.userAnswers || parts.map(() => ''))
   const [localState, setLocalState] = useState(saved)
   const [showHistory, setShowHistory] = useState(false)
@@ -47,7 +96,7 @@ export default function ProblemItem({ num, text, answer, maxRetries, problemKey,
     e.preventDefault()
     if (inputs.every(v => !v.trim())) return
 
-    const results = parts.map((part, i) => answersMatch(inputs[i] || '', part.value))
+    const results = checkMultiSolutionAnswers(inputs, parts)
     const allCorrect = results.every(Boolean)
     const newAttempts = localState.attempts + 1
     const cycleStart = localState.cycleStart || 0
@@ -76,12 +125,43 @@ export default function ProblemItem({ num, text, answer, maxRetries, problemKey,
     onUpdateProgress(problemKey, newState)
   }
 
+  // Dispute: accept a specific answer in a history entry as correct
+  const handleDispute = (histIdx, ansIdx) => {
+    const history = [...(localState.history || [])]
+    const entry = { ...history[histIdx] }
+    const newResults = [...entry.results]
+    newResults[ansIdx] = true
+    entry.results = newResults
+    entry.correct = newResults.every(Boolean)
+    entry.disputed = entry.disputed ? [...entry.disputed] : new Array(entry.results.length).fill(false)
+    entry.disputed[ansIdx] = true
+    history[histIdx] = entry
+
+    let newState = { ...localState, history }
+
+    // Find the earliest correct entry in history (original or disputed)
+    const earliestCorrectIdx = history.findIndex(h => h.correct)
+    if (earliestCorrectIdx >= 0) {
+      const earliest = history[earliestCorrectIdx]
+      newState.status = 'correct'
+      newState.results = earliest.results
+      newState.userAnswers = earliest.answers
+      // Attempts = position of earliest correct entry for scoring
+      newState.attempts = earliestCorrectIdx + 1
+    }
+    setLocalState(newState)
+    onUpdateProgress(problemKey, newState)
+  }
+
   const showAnswer = localState.status === 'correct' || localState.status === 'revealed'
   const isCorrect = localState.status === 'correct'
   const cycleAttempts = localState.attempts - (localState.cycleStart || 0)
   const retriesLeft = maxRetries - cycleAttempts
   const partResults = localState.results || null
   const isMultiPart = parts.length > 1
+  // Actual number of attempts made — use whichever is larger (history may be incomplete for old data)
+  const histLen = localState.history ? localState.history.length : 0
+  const displayAttempts = Math.max(histLen, localState.attempts || 0)
 
   return (
     <div className="py-3">
@@ -133,6 +213,71 @@ export default function ProblemItem({ num, text, answer, maxRetries, problemKey,
                   : `Not quite. ${retriesLeft > 0 ? `${retriesLeft} ${retriesLeft === 1 ? 'retry' : 'retries'} left.` : ''}`
                 }
               </span>
+              {disputeMode && localState.history && localState.history.length > 0 && (
+                <div className="relative">
+                  <button
+                    onClick={() => setShowHistory(!showHistory)}
+                    className="text-xs text-red-400 hover:text-red-500 transition-colors underline decoration-dotted cursor-pointer"
+                  >
+                    ⚖ Dispute
+                  </button>
+                  {showHistory && (
+                    <div className="absolute bottom-full left-0 mb-2 w-80 max-h-56 overflow-y-auto rounded-lg border border-red-300 dark:border-red-700 bg-white dark:bg-gray-900 shadow-xl z-50 p-3">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Dispute Mode — Click to Accept</span>
+                        <button onClick={() => setShowHistory(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-sm leading-none">&times;</button>
+                      </div>
+                      <p className="text-xs text-red-500 dark:text-red-400 mb-2">Click any incorrect answer to accept it as correct.</p>
+                      <div className="space-y-1.5">
+                        {localState.history.map((entry, idx) => (
+                          <div
+                            key={idx}
+                            className={`px-2.5 py-1.5 rounded-md text-xs ${
+                              entry.correct
+                                ? 'bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800'
+                                : 'bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800'
+                            }`}
+                          >
+                            <div className="flex items-center justify-between mb-0.5">
+                              <span className={`font-medium ${entry.correct ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'}`}>
+                                #{idx + 1} {entry.correct ? '✓' : '✗'}
+                                {entry.disputed && entry.disputed.some(Boolean) && <span className="ml-1 text-amber-500">⚖</span>}
+                              </span>
+                            </div>
+                            <div className="text-gray-600 dark:text-gray-400">
+                              {entry.answers.map((a, ai) => {
+                                const isCorrectPart = entry.results[ai]
+                                const isDisputed = entry.disputed && entry.disputed[ai]
+                                const canDispute = !isCorrectPart
+                                return (
+                                  <span key={ai} className="inline-flex items-center">
+                                    {parts.length > 1 && parts[ai]?.label ? `${parts[ai].label}: ` : ''}
+                                    {canDispute ? (
+                                      <button
+                                        onClick={() => handleDispute(idx, ai)}
+                                        className="text-red-600 dark:text-red-400 hover:text-emerald-600 dark:hover:text-emerald-400 underline decoration-dotted cursor-pointer transition-colors"
+                                        title="Click to accept this answer"
+                                      >
+                                        {a || '(empty)'}
+                                      </button>
+                                    ) : (
+                                      <span className={`${isCorrectPart ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'} ${isDisputed ? 'underline decoration-amber-500' : ''}`}>
+                                        {a || '(empty)'}
+                                        {isDisputed && <span className="ml-0.5 text-amber-500 text-[10px]">⚖</span>}
+                                      </span>
+                                    )}
+                                    {ai < entry.answers.length - 1 ? <span className="mx-0.5"> · </span> : ''}
+                                  </span>
+                                )
+                              })}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           )}
 
@@ -172,14 +317,19 @@ export default function ProblemItem({ num, text, answer, maxRetries, problemKey,
                     onClick={() => setShowHistory(!showHistory)}
                     className="text-xs text-gray-400 dark:text-gray-600 hover:text-blue-500 dark:hover:text-blue-400 transition-colors underline decoration-dotted cursor-pointer"
                   >
-                    {localState.attempts === 1 ? '1 attempt used' : `${localState.attempts} attempts used`}
+                    {displayAttempts === 1 ? '1 attempt used' : `${displayAttempts} attempts used`}
                   </button>
                   {showHistory && localState.history && localState.history.length > 0 && (
-                    <div className="absolute bottom-full left-0 mb-2 w-72 max-h-48 overflow-y-auto rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-xl z-50 p-3">
+                    <div className={`absolute bottom-full left-0 mb-2 ${disputeMode ? 'w-80' : 'w-72'} max-h-56 overflow-y-auto rounded-lg border ${disputeMode ? 'border-red-300 dark:border-red-700' : 'border-gray-200 dark:border-gray-700'} bg-white dark:bg-gray-900 shadow-xl z-50 p-3`}>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Attempt History</span>
+                        <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                          {disputeMode ? 'Dispute Mode — Click to Accept' : 'Attempt History'}
+                        </span>
                         <button onClick={() => setShowHistory(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-sm leading-none">&times;</button>
                       </div>
+                      {disputeMode && (
+                        <p className="text-xs text-red-500 dark:text-red-400 mb-2">Click any incorrect answer to accept it as correct.</p>
+                      )}
                       <div className="space-y-1.5">
                         {localState.history.map((entry, idx) => (
                           <div
@@ -193,18 +343,37 @@ export default function ProblemItem({ num, text, answer, maxRetries, problemKey,
                             <div className="flex items-center justify-between mb-0.5">
                               <span className={`font-medium ${entry.correct ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'}`}>
                                 #{idx + 1} {entry.correct ? '✓' : '✗'}
+                                {entry.disputed && entry.disputed.some(Boolean) && (
+                                  <span className="ml-1 text-amber-500" title="Disputed">⚖</span>
+                                )}
                               </span>
                             </div>
                             <div className="text-gray-600 dark:text-gray-400">
-                              {entry.answers.map((a, ai) => (
-                                <span key={ai}>
-                                  {parts.length > 1 && parts[ai]?.label ? `${parts[ai].label}: ` : ''}
-                                  <span className={entry.results[ai] ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'}>
-                                    {a || '(empty)'}
+                              {entry.answers.map((a, ai) => {
+                                const isCorrectPart = entry.results[ai]
+                                const isDisputed = entry.disputed && entry.disputed[ai]
+                                const canDispute = disputeMode && !isCorrectPart
+                                return (
+                                  <span key={ai} className="inline-flex items-center">
+                                    {parts.length > 1 && parts[ai]?.label ? `${parts[ai].label}: ` : ''}
+                                    {canDispute ? (
+                                      <button
+                                        onClick={() => handleDispute(idx, ai)}
+                                        className="text-red-600 dark:text-red-400 hover:text-emerald-600 dark:hover:text-emerald-400 underline decoration-dotted cursor-pointer transition-colors"
+                                        title="Click to accept this answer"
+                                      >
+                                        {a || '(empty)'}
+                                      </button>
+                                    ) : (
+                                      <span className={`${isCorrectPart ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'} ${isDisputed ? 'underline decoration-amber-500' : ''}`}>
+                                        {a || '(empty)'}
+                                        {isDisputed && <span className="ml-0.5 text-amber-500 text-[10px]">⚖</span>}
+                                      </span>
+                                    )}
+                                    {ai < entry.answers.length - 1 ? <span className="mx-0.5"> · </span> : ''}
                                   </span>
-                                  {ai < entry.answers.length - 1 ? ' · ' : ''}
-                                </span>
-                              ))}
+                                )
+                              })}
                             </div>
                           </div>
                         ))}
