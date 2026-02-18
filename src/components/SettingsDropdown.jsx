@@ -102,6 +102,32 @@ export default function SettingsDropdown({ settings, onUpdate }) {
             onChange={(v) => onUpdate({ enableMarkReviewed: v })}
           />
 
+          {/* Correction score */}
+          <div>
+            <span className="text-sm block mb-2">Correction score</span>
+            <div className="grid grid-cols-4 gap-1">
+              {[
+                { value: '0', label: '0' },
+                { value: '1', label: '1' },
+                { value: '0.5', label: '½' },
+                { value: 'half_n', label: '(½)ⁿ' },
+              ].map(opt => (
+                <button
+                  key={opt.value}
+                  onClick={() => onUpdate({ correctionScore: opt.value })}
+                  className={`py-1.5 rounded-lg text-sm font-medium transition-colors border ${
+                    (settings.correctionScore || '0') === opt.value
+                      ? 'bg-orange-500 text-white border-orange-500'
+                      : 'border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+            <p className="text-xs text-gray-400 dark:text-gray-600 mt-1">Score for corrected answers</p>
+          </div>
+
           {/* Category toggles */}
           <div className="space-y-2.5">
             <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Show Categories</span>

@@ -12,7 +12,7 @@ export default function App() {
       <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
         <Layout settings={settings} onUpdateSettings={updateSettings}>
           <Routes>
-            <Route path="/" element={<ChapterPage />} />
+            <Route path="/" element={<ChapterPage settings={settings} />} />
             <Route path="/section/:sectionId" element={<SectionPage settings={settings} />} />
           </Routes>
         </Layout>

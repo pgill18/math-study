@@ -5,8 +5,8 @@ const STORAGE_KEY = 'mathStudySettings'
 function load() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
-    return raw ? JSON.parse(raw) : { maxRetries: 2, theme: 'dark', showCore: true, showExamples: true, showRealLife: true, enableMarkReviewed: false }
-  } catch { return { maxRetries: 2, theme: 'dark', showCore: true, showExamples: true, showRealLife: true, enableMarkReviewed: false } }
+    return raw ? JSON.parse(raw) : { maxRetries: 2, theme: 'dark', showCore: true, showExamples: true, showRealLife: true, enableMarkReviewed: false, correctionScore: '0' }
+  } catch { return { maxRetries: 2, theme: 'dark', showCore: true, showExamples: true, showRealLife: true, enableMarkReviewed: false, correctionScore: '0' } }
 }
 
 function save(data) {
