@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import MathText from './Math'
 
 function normalizeAnswer(str) {
@@ -65,7 +65,13 @@ function toAnswerParts(answer) {
   return [{ label: '', value: answer }]
 }
 
-export default function ProblemItem({ num, text, answer, maxRetries, problemKey, progress, onUpdateProgress, disputeMode }) {
+const HintInfoIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+  </svg>
+)
+
+export default function ProblemItem({ num, text, answer, info, hint, maxRetries, problemKey, progress, onUpdateProgress, disputeMode }) {
   const parts = toAnswerParts(answer)
   const rawSaved = progress[problemKey]
   const saved = rawSaved
@@ -83,6 +89,28 @@ export default function ProblemItem({ num, text, answer, maxRetries, problemKey,
   const [inputs, setInputs] = useState(saved.userAnswers || parts.map(() => ''))
   const [localState, setLocalState] = useState(saved)
   const [showHistory, setShowHistory] = useState(false)
+  const [showHintPopup, setShowHintPopup] = useState(false)
+  const hintRef = useRef(null)
+  const historyRef1 = useRef(null)
+  const historyRef2 = useRef(null)
+
+  useEffect(() => {
+    if (!showHintPopup && !showHistory) return
+    const handler = (e) => {
+      if (showHintPopup && hintRef.current && !hintRef.current.contains(e.target)) {
+        setShowHintPopup(false)
+      }
+      if (showHistory) {
+        const r1 = historyRef1.current
+        const r2 = historyRef2.current
+        if ((!r1 || !r1.contains(e.target)) && (!r2 || !r2.contains(e.target))) {
+          setShowHistory(false)
+        }
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [showHintPopup, showHistory])
 
   const updateInput = (idx, val) => {
     setInputs(prev => {
@@ -168,7 +196,39 @@ export default function ProblemItem({ num, text, answer, maxRetries, problemKey,
       <div className="flex items-start gap-3">
         <span className="font-mono text-sm text-gray-400 dark:text-gray-600 w-7 shrink-0 pt-0.5 text-right">{num}.</span>
         <div className="flex-1 min-w-0">
-          <MathText className="leading-relaxed mb-2 block">{text}</MathText>
+          <div className="flex items-start gap-1.5 mb-2">
+            <MathText className="leading-relaxed">{text}</MathText>
+            {info && (
+              <div ref={hintRef} className="relative shrink-0 mt-0.5 group">
+                <button
+                  onClick={() => setShowHintPopup(!showHintPopup)}
+                  className="text-gray-300 dark:text-gray-600 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors"
+                  title={info}
+                >
+                  <HintInfoIcon />
+                </button>
+                {/* Hover tooltip */}
+                <div className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 rounded-lg bg-gray-800 dark:bg-gray-700 text-white text-xs px-3 py-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-50">
+                  <div className="font-medium mb-0.5 text-cyan-300">Why this is special</div>
+                  {info}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800 dark:border-t-gray-700" />
+                </div>
+                {/* Click popup with detailed hint */}
+                {showHintPopup && hint && (
+                  <div className="absolute top-full right-0 mt-2 w-72 rounded-lg border border-cyan-200 dark:border-cyan-800 bg-white dark:bg-gray-900 shadow-xl z-50 p-3">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-wide">Hint</span>
+                      <button onClick={() => setShowHintPopup(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-sm leading-none">&times;</button>
+                    </div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400 mb-2 italic">{info}</div>
+                    <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                      <MathText>{hint}</MathText>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
 
           {!showAnswer && (
             <form onSubmit={handleSubmit} className="mt-2 space-y-2">
@@ -214,7 +274,7 @@ export default function ProblemItem({ num, text, answer, maxRetries, problemKey,
                 }
               </span>
               {disputeMode && localState.history && localState.history.length > 0 && (
-                <div className="relative">
+                <div ref={historyRef1} className="relative">
                   <button
                     onClick={() => setShowHistory(!showHistory)}
                     className="text-xs text-red-400 hover:text-red-500 transition-colors underline decoration-dotted cursor-pointer"
@@ -312,7 +372,7 @@ export default function ProblemItem({ num, text, answer, maxRetries, problemKey,
                 >
                   Try again
                 </button>
-                <div className="relative">
+                <div ref={historyRef2} className="relative">
                   <button
                     onClick={() => setShowHistory(!showHistory)}
                     className="text-xs text-gray-400 dark:text-gray-600 hover:text-blue-500 dark:hover:text-blue-400 transition-colors underline decoration-dotted cursor-pointer"

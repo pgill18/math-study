@@ -43,6 +43,8 @@ export default function SectionPage({ settings }) {
   const showCore = settings.showCore !== false
   const showExamples = settings.showExamples !== false
   const showRealLife = settings.showRealLife !== false
+  const showEdgeCases = settings.showEdgeCases === true
+  const showCornerCases = settings.showCornerCases === true
 
   // Build pages: each page = one CC + its paired MP
   // Filter by category settings
@@ -74,8 +76,22 @@ export default function SectionPage({ settings }) {
       result.push({ cc: null, mp: null, cs: section.conceptSummary, cat: 'summary' })
     }
 
+    // Add edge cases pages
+    if (showEdgeCases && section.edgeCases && section.edgeCases.length > 0) {
+      section.edgeCases.forEach(ec => {
+        result.push({ cc: null, mp: ec, cat: 'edgecase' })
+      })
+    }
+
+    // Add corner cases pages
+    if (showCornerCases && section.cornerCases && section.cornerCases.length > 0) {
+      section.cornerCases.forEach(cn => {
+        result.push({ cc: null, mp: cn, cat: 'cornercase' })
+      })
+    }
+
     return result
-  }, [section, showCore, showExamples, showRealLife])
+  }, [section, showCore, showExamples, showRealLife, showEdgeCases, showCornerCases])
 
   // Reset page index when section changes
   useEffect(() => { setPageIndex(0) }, [sectionId])
@@ -94,6 +110,8 @@ export default function SectionPage({ settings }) {
     if (cat === 'example') return <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 font-medium">Example</span>
     if (cat === 'reallife') return <span className="text-xs px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 font-medium">Real-Life Problem</span>
     if (cat === 'summary') return <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 font-medium">Concept Summary</span>
+    if (cat === 'edgecase') return <span className="text-xs px-2 py-0.5 rounded-full bg-cyan-100 dark:bg-cyan-900/40 text-cyan-600 dark:text-cyan-400 font-medium">Edge Case</span>
+    if (cat === 'cornercase') return <span className="text-xs px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 font-medium">Corner Case</span>
     return null
   }
 
@@ -169,7 +187,7 @@ export default function SectionPage({ settings }) {
       {pages.length > 1 && (
         <div className="flex justify-center gap-1.5 mb-6 flex-wrap">
           {pages.map((p, i) => {
-            const dotColor = p.cat === 'core' ? 'bg-orange-500' : p.cat === 'example' ? 'bg-emerald-500' : p.cat === 'reallife' ? 'bg-purple-500' : 'bg-gray-400'
+            const dotColor = p.cat === 'core' ? 'bg-orange-500' : p.cat === 'example' ? 'bg-emerald-500' : p.cat === 'reallife' ? 'bg-purple-500' : p.cat === 'edgecase' ? 'bg-cyan-500' : p.cat === 'cornercase' ? 'bg-indigo-500' : 'bg-gray-400'
             return (
               <button
                 key={i}

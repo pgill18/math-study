@@ -23,7 +23,7 @@ const MoonIcon = () => (
 )
 
 function ToggleSwitch({ label, color, checked, onChange }) {
-  const bgOn = color === 'orange' ? 'bg-orange-500' : color === 'emerald' ? 'bg-emerald-500' : color === 'purple' ? 'bg-purple-500' : 'bg-blue-500'
+  const bgOn = color === 'orange' ? 'bg-orange-500' : color === 'emerald' ? 'bg-emerald-500' : color === 'purple' ? 'bg-purple-500' : color === 'cyan' ? 'bg-cyan-500' : color === 'indigo' ? 'bg-indigo-500' : 'bg-blue-500'
   return (
     <div className="flex items-center justify-between">
       <span className="text-sm">{label}</span>
@@ -233,6 +233,18 @@ export default function SettingsDropdown({ settings, onUpdate }) {
               color="purple"
               checked={settings.showRealLife !== false}
               onChange={(v) => onUpdate({ showRealLife: v })}
+            />
+            <ToggleSwitch
+              label="Edge Cases"
+              color="cyan"
+              checked={settings.showEdgeCases === true}
+              onChange={(v) => onUpdate({ showEdgeCases: v })}
+            />
+            <ToggleSwitch
+              label="Corner Cases"
+              color="indigo"
+              checked={settings.showCornerCases === true}
+              onChange={(v) => onUpdate({ showCornerCases: v })}
             />
           </div>
         </div>

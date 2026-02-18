@@ -48,23 +48,52 @@ function shortProblem(text) {
   return truncated + '...'
 }
 
-export default function ReportModal({ sections, problems, correctionScore, onClose }) {
-  const report = useMemo(() => {
-    const sectionReports = sections.map(section => {
-      // Build groups: each MP becomes a group with instruction header + problem rows
-      const groups = []
-      let sectionTotal = 0
-      let sectionEarned = 0
-      let sectionAnswered = 0
+function ProblemRow({ row }) {
+  return (
+    <tr className={`border-t border-gray-100 dark:border-gray-800 ${row.attempts > 1 ? attemptsColor(row.attempts) : ''}`}>
+      <td className="py-1.5 px-2 font-mono text-xs text-gray-500">{row.num}</td>
+      <td className="py-1.5 px-2 text-xs text-gray-600 dark:text-gray-400">
+        <MathText>{shortProblem(row.text)}</MathText>
+      </td>
+      <td className="py-1.5 px-2">
+        {row.status === 'correct' && <span className="text-emerald-600 dark:text-emerald-400 text-xs font-medium">Correct</span>}
+        {row.status === 'revealed' && <span className="text-red-500 text-xs font-medium">Revealed</span>}
+        {row.status === 'incorrect' && <span className="text-orange-500 text-xs font-medium">In progress</span>}
+        {row.status === 'unanswered' && <span className="text-gray-400 dark:text-gray-600 text-xs">Unanswered</span>}
+      </td>
+      <td className={`py-1.5 px-2 text-center text-xs font-mono ${row.attempts > 1 ? attemptsTextColor(row.attempts) + ' font-bold' : 'text-gray-500'}`}>
+        {row.attempts > 0 ? row.attempts : '—'}
+      </td>
+      <td className="py-1.5 px-2 text-right text-xs font-mono font-medium">
+        {row.score !== null ? (
+          <span className={row.score === 1 ? 'text-emerald-600 dark:text-emerald-400' : row.score === 0 ? 'text-red-500' : 'text-orange-500'}>
+            {formatScore(row.score)}
+          </span>
+        ) : (
+          <span className="text-gray-400 dark:text-gray-600">—</span>
+        )}
+      </td>
+    </tr>
+  )
+}
 
-      section.monitoringProgress.forEach(mp => {
+export default function ReportModal({ sections, problems, settings, onClose }) {
+  const correctionScore = settings?.correctionScore || '0'
+  const showEdgeCases = settings?.showEdgeCases === true
+  const showCornerCases = settings?.showCornerCases === true
+
+  const report = useMemo(() => {
+    // Helper to process an array of MP-like entries into groups
+    function processProblems(mpList, corrScore) {
+      let total = 0, earned = 0, answered = 0
+      const groups = []
+      mpList.forEach(mp => {
         const rows = []
         mp.problems.forEach(p => {
           const key = mp.id + '.' + p.num
           const state = problems[key]
           const status = state ? state.status : 'unanswered'
 
-          // Find effective attempts: earliest correct entry in history, or fall back to state.attempts
           let attempts = state ? state.attempts : 0
           if (state && state.history && state.history.length > 0) {
             const earliestCorrectIdx = state.history.findIndex(h => h.correct)
@@ -73,32 +102,37 @@ export default function ReportModal({ sections, problems, correctionScore, onClo
             }
           }
 
-          const score = status === 'correct' ? computeScore(attempts, correctionScore) :
+          const score = status === 'correct' ? computeScore(attempts, corrScore) :
                         status === 'revealed' ? 0 : null
 
-          sectionTotal++
-          if (status !== 'unanswered') sectionAnswered++
-          if (score !== null) sectionEarned += score
+          total++
+          if (status !== 'unanswered') answered++
+          if (score !== null) earned += score
 
-          rows.push({
-            num: p.num,
-            text: p.text,
-            attempts,
-            status,
-            score,
-          })
+          rows.push({ num: p.num, text: p.text, attempts, status, score })
         })
-
-        groups.push({
-          instruction: mp.instruction || '',
-          rows,
-        })
+        groups.push({ instruction: mp.instruction || '', rows })
       })
+      return { groups, total, earned, answered }
+    }
+
+    const sectionReports = sections.map(section => {
+      const mp = processProblems(section.monitoringProgress, correctionScore)
+      const ec = showEdgeCases && section.edgeCases?.length > 0
+        ? processProblems(section.edgeCases, correctionScore) : null
+      const cn = showCornerCases && section.cornerCases?.length > 0
+        ? processProblems(section.cornerCases, correctionScore) : null
+
+      const sectionTotal = mp.total + (ec?.total || 0) + (cn?.total || 0)
+      const sectionEarned = mp.earned + (ec?.earned || 0) + (cn?.earned || 0)
+      const sectionAnswered = mp.answered + (ec?.answered || 0) + (cn?.answered || 0)
 
       return {
         id: section.id,
         title: section.title,
-        groups,
+        groups: mp.groups,
+        edgeCaseGroups: ec?.groups || [],
+        cornerCaseGroups: cn?.groups || [],
         total: sectionTotal,
         answered: sectionAnswered,
         earned: sectionEarned,
@@ -112,7 +146,7 @@ export default function ReportModal({ sections, problems, correctionScore, onClo
     const grandPercent = grandTotal > 0 ? Math.round((grandEarned / grandTotal) * 100) : 0
 
     return { sectionReports, grandTotal, grandEarned, grandAnswered, grandPercent }
-  }, [sections, problems, correctionScore])
+  }, [sections, problems, correctionScore, showEdgeCases, showCornerCases])
 
   const corrLabel = correctionScore === '0' ? '0' : correctionScore === '1' ? '1' : correctionScore === '0.5' ? '½' : '(½)ⁿ'
 
@@ -199,7 +233,6 @@ export default function ReportModal({ sections, problems, correctionScore, onClo
                   <tbody>
                     {sr.groups.map((group, gi) => (
                       <Fragment key={`grp-${gi}`}>
-                        {/* Category instruction header */}
                         {group.instruction && (
                           <tr key={`hdr-${gi}`} className="bg-blue-50/60 dark:bg-blue-950/20">
                             <td colSpan={5} className="py-1.5 px-2 text-xs font-semibold text-blue-700 dark:text-blue-400 italic">
@@ -207,38 +240,53 @@ export default function ReportModal({ sections, problems, correctionScore, onClo
                             </td>
                           </tr>
                         )}
-                        {/* Problem rows */}
                         {group.rows.map((row, ri) => (
-                          <tr
-                            key={`row-${gi}-${ri}`}
-                            className={`border-t border-gray-100 dark:border-gray-800 ${row.attempts > 1 ? attemptsColor(row.attempts) : ''}`}
-                          >
-                            <td className="py-1.5 px-2 font-mono text-xs text-gray-500">{row.num}</td>
-                            <td className="py-1.5 px-2 text-xs text-gray-600 dark:text-gray-400">
-                              <MathText>{shortProblem(row.text)}</MathText>
-                            </td>
-                            <td className="py-1.5 px-2">
-                              {row.status === 'correct' && <span className="text-emerald-600 dark:text-emerald-400 text-xs font-medium">Correct</span>}
-                              {row.status === 'revealed' && <span className="text-red-500 text-xs font-medium">Revealed</span>}
-                              {row.status === 'incorrect' && <span className="text-orange-500 text-xs font-medium">In progress</span>}
-                              {row.status === 'unanswered' && <span className="text-gray-400 dark:text-gray-600 text-xs">Unanswered</span>}
-                            </td>
-                            <td className={`py-1.5 px-2 text-center text-xs font-mono ${row.attempts > 1 ? attemptsTextColor(row.attempts) + ' font-bold' : 'text-gray-500'}`}>
-                              {row.attempts > 0 ? row.attempts : '—'}
-                            </td>
-                            <td className="py-1.5 px-2 text-right text-xs font-mono font-medium">
-                              {row.score !== null ? (
-                                <span className={row.score === 1 ? 'text-emerald-600 dark:text-emerald-400' : row.score === 0 ? 'text-red-500' : 'text-orange-500'}>
-                                  {formatScore(row.score)}
-                                </span>
-                              ) : (
-                                <span className="text-gray-400 dark:text-gray-600">—</span>
-                              )}
-                            </td>
-                          </tr>
+                          <ProblemRow key={`row-${gi}-${ri}`} row={row} />
                         ))}
                       </Fragment>
                     ))}
+                    {sr.edgeCaseGroups.length > 0 && (
+                      <>
+                        <tr className="bg-cyan-50/60 dark:bg-cyan-950/20">
+                          <td colSpan={5} className="py-1.5 px-2 text-xs font-bold text-cyan-700 dark:text-cyan-400 uppercase tracking-wide">Edge Cases</td>
+                        </tr>
+                        {sr.edgeCaseGroups.map((group, gi) => (
+                          <Fragment key={`ec-grp-${gi}`}>
+                            {group.instruction && (
+                              <tr className="bg-cyan-50/30 dark:bg-cyan-950/10">
+                                <td colSpan={5} className="py-1.5 px-2 text-xs font-semibold text-cyan-600 dark:text-cyan-400 italic">
+                                  {group.instruction}
+                                </td>
+                              </tr>
+                            )}
+                            {group.rows.map((row, ri) => (
+                              <ProblemRow key={`ec-row-${gi}-${ri}`} row={row} />
+                            ))}
+                          </Fragment>
+                        ))}
+                      </>
+                    )}
+                    {sr.cornerCaseGroups.length > 0 && (
+                      <>
+                        <tr className="bg-indigo-50/60 dark:bg-indigo-950/20">
+                          <td colSpan={5} className="py-1.5 px-2 text-xs font-bold text-indigo-700 dark:text-indigo-400 uppercase tracking-wide">Corner Cases</td>
+                        </tr>
+                        {sr.cornerCaseGroups.map((group, gi) => (
+                          <Fragment key={`cn-grp-${gi}`}>
+                            {group.instruction && (
+                              <tr className="bg-indigo-50/30 dark:bg-indigo-950/10">
+                                <td colSpan={5} className="py-1.5 px-2 text-xs font-semibold text-indigo-600 dark:text-indigo-400 italic">
+                                  {group.instruction}
+                                </td>
+                              </tr>
+                            )}
+                            {group.rows.map((row, ri) => (
+                              <ProblemRow key={`cn-row-${gi}-${ri}`} row={row} />
+                            ))}
+                          </Fragment>
+                        ))}
+                      </>
+                    )}
                   </tbody>
                 </table>
               </div>

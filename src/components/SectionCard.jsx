@@ -32,31 +32,41 @@ function formatScore(score) {
   return score.toFixed(3).replace(/\.?0+$/, '')
 }
 
-export default function SectionCard({ section, isReviewed, problems, onReport, correctionScore }) {
+export default function SectionCard({ section, isReviewed, problems, onReport, settings }) {
+  const correctionScore = settings?.correctionScore || '0'
+  const showEdgeCases = settings?.showEdgeCases === true
+  const showCornerCases = settings?.showCornerCases === true
+
   const { totalProblems, correctCount, percent, earned, scorePercent } = useMemo(() => {
     let total = 0
     let correct = 0
     let pts = 0
-    section.monitoringProgress.forEach(mp => {
-      mp.problems.forEach(p => {
-        total++
-        const key = mp.id + '.' + p.num
-        const state = problems[key]
-        if (state && state.status === 'correct') {
-          correct++
-          // Find effective attempts from history
-          let attempts = state.attempts || 1
-          if (state.history && state.history.length > 0) {
-            const idx = state.history.findIndex(h => h.correct)
-            if (idx >= 0) attempts = idx + 1
+
+    function processMpList(mpList) {
+      if (!mpList) return
+      mpList.forEach(mp => {
+        mp.problems.forEach(p => {
+          total++
+          const key = mp.id + '.' + p.num
+          const state = problems[key]
+          if (state && state.status === 'correct') {
+            correct++
+            let attempts = state.attempts || 1
+            if (state.history && state.history.length > 0) {
+              const idx = state.history.findIndex(h => h.correct)
+              if (idx >= 0) attempts = idx + 1
+            }
+            const s = computeScore(attempts, correctionScore)
+            if (s !== null) pts += s
           }
-          const s = computeScore(attempts, correctionScore || '0')
-          if (s !== null) pts += s
-        } else if (state && state.status === 'revealed') {
-          // revealed = 0 points but counts as attempted
-        }
+        })
       })
-    })
+    }
+
+    processMpList(section.monitoringProgress)
+    if (showEdgeCases) processMpList(section.edgeCases)
+    if (showCornerCases) processMpList(section.cornerCases)
+
     return {
       totalProblems: total,
       correctCount: correct,
@@ -64,7 +74,7 @@ export default function SectionCard({ section, isReviewed, problems, onReport, c
       earned: pts,
       scorePercent: total > 0 ? Math.round((pts / total) * 100) : 0,
     }
-  }, [section, problems, correctionScore])
+  }, [section, problems, correctionScore, showEdgeCases, showCornerCases])
 
   const isComplete = percent === 100
   const borderClass = isComplete

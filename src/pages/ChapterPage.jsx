@@ -36,7 +36,7 @@ export default function ChapterPage({ settings }) {
             isReviewed={!!reviewed[section.id]}
             problems={problems}
             onReport={(s) => setReportSections([s])}
-            correctionScore={settings?.correctionScore || '0'}
+            settings={settings}
           />
         ))}
       </div>
@@ -45,7 +45,7 @@ export default function ChapterPage({ settings }) {
         <ReportModal
           sections={reportSections}
           problems={problems}
-          correctionScore={settings?.correctionScore || '0'}
+          settings={settings}
           onClose={() => setReportSections(null)}
         />
       )}

@@ -77,10 +77,12 @@ export default function MonitoringProgress({ mp, maxRetries, progress = {}, onUp
       <div className="divide-y divide-gray-200 dark:divide-gray-800">
         {mp.problems.map(p => (
           <ProblemItem
-            key={p.num}
+            key={mp.id + '.' + p.num}
             num={p.num}
             text={p.text}
             answer={p.answer}
+            info={p.info}
+            hint={p.hint}
             maxRetries={maxRetries}
             problemKey={mp.id + '.' + p.num}
             progress={safeProgress}
