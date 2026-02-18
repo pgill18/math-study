@@ -36,13 +36,16 @@ function formatScore(score) {
   return score.toFixed(3).replace(/\.?0+$/, '')
 }
 
-// Shorten math problem text for display - strip $ delimiters, truncate if long
+// Shorten problem text for display while preserving mixed text/math format
 function shortProblem(text) {
   if (!text) return ''
-  // Keep it as-is for MathText rendering, but truncate very long ones
-  const clean = text.replace(/^\$+|\$+$/g, '').trim()
-  if (clean.length > 50) return '$' + clean.slice(0, 47) + '...$'
-  return text
+  if (text.length <= 60) return text
+  // Truncate but keep $...$ boundaries intact — cut at a safe point
+  let truncated = text.slice(0, 57)
+  // If we're inside an unclosed $, close it
+  const dollarCount = (truncated.match(/\$/g) || []).length
+  if (dollarCount % 2 !== 0) truncated += '$'
+  return truncated + '...'
 }
 
 export default function ReportModal({ sections, problems, correctionScore, onClose }) {

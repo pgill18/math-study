@@ -13,20 +13,58 @@ const ReportIcon = () => (
   </svg>
 )
 
-export default function SectionCard({ section, isReviewed, problems, onReport }) {
-  const { totalProblems, correctCount, percent } = useMemo(() => {
+function computeScore(attempts, correctionScore) {
+  if (attempts <= 0) return null
+  if (attempts === 1) return 1
+  switch (correctionScore) {
+    case '0': return 0
+    case '1': return 1
+    case '0.5': return 0.5
+    case 'half_n': return Math.pow(0.5, attempts - 1)
+    default: return 0
+  }
+}
+
+function formatScore(score) {
+  if (score === null) return '—'
+  if (score === 1) return '1'
+  if (score === 0) return '0'
+  return score.toFixed(3).replace(/\.?0+$/, '')
+}
+
+export default function SectionCard({ section, isReviewed, problems, onReport, correctionScore }) {
+  const { totalProblems, correctCount, percent, earned, scorePercent } = useMemo(() => {
     let total = 0
     let correct = 0
+    let pts = 0
     section.monitoringProgress.forEach(mp => {
       mp.problems.forEach(p => {
         total++
         const key = mp.id + '.' + p.num
         const state = problems[key]
-        if (state && state.status === 'correct') correct++
+        if (state && state.status === 'correct') {
+          correct++
+          // Find effective attempts from history
+          let attempts = state.attempts || 1
+          if (state.history && state.history.length > 0) {
+            const idx = state.history.findIndex(h => h.correct)
+            if (idx >= 0) attempts = idx + 1
+          }
+          const s = computeScore(attempts, correctionScore || '0')
+          if (s !== null) pts += s
+        } else if (state && state.status === 'revealed') {
+          // revealed = 0 points but counts as attempted
+        }
       })
     })
-    return { totalProblems: total, correctCount: correct, percent: total > 0 ? Math.round((correct / total) * 100) : 0 }
-  }, [section, problems])
+    return {
+      totalProblems: total,
+      correctCount: correct,
+      percent: total > 0 ? Math.round((correct / total) * 100) : 0,
+      earned: pts,
+      scorePercent: total > 0 ? Math.round((pts / total) * 100) : 0,
+    }
+  }, [section, problems, correctionScore])
 
   const isComplete = percent === 100
   const borderClass = isComplete
@@ -74,6 +112,16 @@ export default function SectionCard({ section, isReviewed, problems, onReport })
               style={{ width: `${percent}%` }}
             />
           </div>
+          {correctCount > 0 && (
+            <div className="flex items-center justify-between text-xs mt-1.5">
+              <span className="text-gray-400 dark:text-gray-600">
+                Score: <span className={`font-medium ${scorePercent === 100 ? 'text-emerald-600 dark:text-emerald-400' : 'text-orange-500'}`}>{formatScore(earned)}/{totalProblems}</span>
+              </span>
+              <span className={`font-bold ${scorePercent === 100 ? 'text-emerald-600 dark:text-emerald-400' : 'text-orange-500'}`}>
+                {scorePercent}%
+              </span>
+            </div>
+          )}
         </div>
       )}
       {totalProblems > 0 && (
