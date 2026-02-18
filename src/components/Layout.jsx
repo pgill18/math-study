@@ -13,8 +13,8 @@ export default function Layout({ children, settings, onUpdateSettings }) {
         </div>
       </header>
       <main className="max-w-4xl mx-auto px-4 py-8">{children}</main>
-      <footer className="border-t border-gray-200 dark:border-gray-800 py-6 text-center text-sm text-gray-500 dark:text-gray-500">
-        Big Ideas Math Algebra 1 — Chapter 7 Study Tool
+      <footer className="border-t border-gray-200 dark:border-gray-800 py-2 text-center text-xs text-gray-400 dark:text-gray-600">
+        Chapter 7 study in progress
       </footer>
     </>
   )

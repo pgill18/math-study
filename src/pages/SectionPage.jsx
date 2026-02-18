@@ -110,61 +110,7 @@ export default function SectionPage({ settings }) {
       <div className="mb-8">
         <p className="text-sm font-mono text-orange-500 dark:text-orange-400 mb-1">Section {section.id}</p>
         <h1 className="text-2xl font-bold mb-3"><MathText>{section.title}</MathText></h1>
-        <label className="flex items-center gap-2 text-sm cursor-pointer select-none">
-          <input
-            type="checkbox"
-            checked={!!reviewed[sectionId]}
-            onChange={() => toggleReviewed(sectionId)}
-            className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-emerald-500 focus:ring-emerald-500"
-          />
-          <span className="text-gray-600 dark:text-gray-400">Mark as reviewed</span>
-        </label>
       </div>
-
-      {/* Page navigation bar */}
-      {pages.length > 0 && (
-        <div className="flex items-center justify-between mb-6 py-3 px-4 rounded-lg bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800">
-          <button
-            onClick={() => setPageIndex(Math.max(0, safePageIndex - 1))}
-            disabled={safePageIndex === 0}
-            className="flex items-center gap-1 text-sm text-gray-500 hover:text-orange-500 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-          >
-            <ChevronLeft /> Prev
-          </button>
-
-          <div className="flex items-center gap-3">
-            {categoryBadge(currentPage?.cat)}
-            <span className="text-xs text-gray-400 dark:text-gray-500 font-mono">
-              {safePageIndex + 1} / {pages.length}
-            </span>
-          </div>
-
-          <button
-            onClick={() => setPageIndex(Math.min(pages.length - 1, safePageIndex + 1))}
-            disabled={safePageIndex >= pages.length - 1}
-            className="flex items-center gap-1 text-sm text-gray-500 hover:text-orange-500 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-          >
-            Next <ChevronRight />
-          </button>
-        </div>
-      )}
-
-      {/* Dot navigation */}
-      {pages.length > 1 && (
-        <div className="flex justify-center gap-1.5 mb-6 flex-wrap">
-          {pages.map((p, i) => {
-            const dotColor = p.cat === 'core' ? 'bg-orange-500' : p.cat === 'example' ? 'bg-emerald-500' : p.cat === 'reallife' ? 'bg-purple-500' : 'bg-gray-400'
-            return (
-              <button
-                key={i}
-                onClick={() => setPageIndex(i)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${i === safePageIndex ? `${dotColor} scale-125` : 'bg-gray-300 dark:bg-gray-700 hover:bg-gray-400'}`}
-                title={p.cc ? p.cc.title : p.cs ? 'Concept Summary' : `Problems`}
-              />
-            )
-          })}
-        </div>
-      )}
 
       {/* Current page content */}
       {currentPage && (
@@ -190,7 +136,67 @@ export default function SectionPage({ settings }) {
         </div>
       )}
 
-      <div className="flex justify-between mt-12 pt-6 border-t border-gray-200 dark:border-gray-800">
+      {/* Page navigation bar — bottom */}
+      {pages.length > 0 && (
+        <div className="flex items-center justify-between mt-8 mb-4 py-3 px-4 rounded-lg bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800">
+          <button
+            onClick={() => setPageIndex(Math.max(0, safePageIndex - 1))}
+            disabled={safePageIndex === 0}
+            className="flex items-center gap-1 text-sm text-gray-500 hover:text-orange-500 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+          >
+            <ChevronLeft /> Prev
+          </button>
+
+          <div className="flex items-center gap-3">
+            {categoryBadge(currentPage?.cat)}
+            <span className="text-xs text-gray-400 dark:text-gray-500 font-mono">
+              {safePageIndex + 1} / {pages.length}
+            </span>
+          </div>
+
+          <button
+            onClick={() => setPageIndex(Math.min(pages.length - 1, safePageIndex + 1))}
+            disabled={safePageIndex >= pages.length - 1}
+            className="flex items-center gap-1 text-sm text-gray-500 hover:text-orange-500 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+          >
+            Next <ChevronRight />
+          </button>
+        </div>
+      )}
+
+      {/* Dot navigation — bottom */}
+      {pages.length > 1 && (
+        <div className="flex justify-center gap-1.5 mb-6 flex-wrap">
+          {pages.map((p, i) => {
+            const dotColor = p.cat === 'core' ? 'bg-orange-500' : p.cat === 'example' ? 'bg-emerald-500' : p.cat === 'reallife' ? 'bg-purple-500' : 'bg-gray-400'
+            return (
+              <button
+                key={i}
+                onClick={() => setPageIndex(i)}
+                className={`w-2.5 h-2.5 rounded-full transition-all ${i === safePageIndex ? `${dotColor} scale-125` : 'bg-gray-300 dark:bg-gray-700 hover:bg-gray-400'}`}
+                title={p.cc ? p.cc.title : p.cs ? 'Concept Summary' : `Problems`}
+              />
+            )
+          })}
+        </div>
+      )}
+
+      {/* Mark as reviewed — bottom (only if enabled in settings) */}
+      {settings.enableMarkReviewed && (
+        <div className="flex justify-center mb-6">
+          <label className="flex items-center gap-2 text-sm cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={!!reviewed[sectionId]}
+              onChange={() => toggleReviewed(sectionId)}
+              className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-emerald-500 focus:ring-emerald-500"
+            />
+            <span className="text-gray-600 dark:text-gray-400">Mark as reviewed</span>
+          </label>
+        </div>
+      )}
+
+      <div className="flex justify-between mt-6 pt-6 border-t border-gray-200 dark:border-gray-800">
         {prevSection ? (
           <Link to={'/section/' + prevSection.id} onClick={() => setPageIndex(0)} className="flex items-center gap-2 text-sm text-gray-500 hover:text-orange-500 transition-colors">
             <ChevronLeft /> {prevSection.id} {prevSection.title}

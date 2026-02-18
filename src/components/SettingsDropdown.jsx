@@ -23,7 +23,7 @@ const MoonIcon = () => (
 )
 
 function ToggleSwitch({ label, color, checked, onChange }) {
-  const bgOn = color === 'orange' ? 'bg-orange-500' : color === 'emerald' ? 'bg-emerald-500' : 'bg-purple-500'
+  const bgOn = color === 'orange' ? 'bg-orange-500' : color === 'emerald' ? 'bg-emerald-500' : color === 'purple' ? 'bg-purple-500' : 'bg-blue-500'
   return (
     <div className="flex items-center justify-between">
       <span className="text-sm">{label}</span>
@@ -93,6 +93,14 @@ export default function SettingsDropdown({ settings, onUpdate }) {
               <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
             </div>
           </div>
+
+          {/* Mark as reviewed toggle */}
+          <ToggleSwitch
+            label="Enable Mark as Reviewed"
+            color="blue"
+            checked={settings.enableMarkReviewed === true}
+            onChange={(v) => onUpdate({ enableMarkReviewed: v })}
+          />
 
           {/* Category toggles */}
           <div className="space-y-2.5">
