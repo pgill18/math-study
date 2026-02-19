@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import MathText from './Math'
+import AutomationModal from './AutomationModal'
 
 function normalizeAnswer(str) {
   return str
@@ -177,7 +178,14 @@ const LightbulbIcon = () => (
   </svg>
 )
 
-export default function ProblemItem({ num, text, answer, info, hint, maxRetries, problemKey, progress, onUpdateProgress, disputeMode, enableHints }) {
+const AutomationIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+    <circle cx="12" cy="12" r="3"/>
+  </svg>
+)
+
+export default function ProblemItem({ num, text, answer, info, hint, steps, maxRetries, problemKey, progress, onUpdateProgress, disputeMode, enableHints, enableAutomation }) {
   const parts = toAnswerParts(answer)
   const rawSaved = progress[problemKey]
   const saved = rawSaved
@@ -197,6 +205,7 @@ export default function ProblemItem({ num, text, answer, info, hint, maxRetries,
   const [showHistory, setShowHistory] = useState(false)
   const [showHintPopup, setShowHintPopup] = useState(false)
   const [showHintBtn, setShowHintBtn] = useState(false)
+  const [showAutomationModal, setShowAutomationModal] = useState(false)
   const hintRef = useRef(null)
   const hintBtnRef = useRef(null)
   const historyRef1 = useRef(null)
@@ -211,6 +220,7 @@ export default function ProblemItem({ num, text, answer, info, hint, maxRetries,
       setShowHistory(false)
       setShowHintPopup(false)
       setShowHintBtn(false)
+      setShowAutomationModal(false)
     }
   }, [rawSaved])
 
@@ -313,6 +323,25 @@ export default function ProblemItem({ num, text, answer, info, hint, maxRetries,
     }
   }
 
+  const handleOpenAutomation = () => {
+    if (!localState.automationUsed) {
+      const newState = { ...localState, automationUsed: true, automationDeduction: 0.5, automationStepStates: null }
+      setLocalState(newState)
+      onUpdateProgress(problemKey, newState)
+    }
+    setShowAutomationModal(true)
+  }
+
+  const handleAutomationUpdateState = (autoState) => {
+    const newState = { ...localState, ...autoState }
+    setLocalState(newState)
+    onUpdateProgress(problemKey, newState)
+  }
+
+  const handlePostAnswer = (answerValues) => {
+    setInputs(answerValues)
+  }
+
   const showAnswer = localState.status === 'correct' || localState.status === 'revealed'
   const isCorrect = localState.status === 'correct'
   const cycleAttempts = localState.attempts - (localState.cycleStart || 0)
@@ -407,7 +436,39 @@ export default function ProblemItem({ num, text, answer, info, hint, maxRetries,
                 )}
               </div>
             )}
+            {/* Automation button — right edge */}
+            {enableAutomation && !showAnswer && (
+              <div className="relative shrink-0 mt-0.5 group">
+                <button
+                  onClick={handleOpenAutomation}
+                  className={`p-1 rounded transition-colors ${localState.automationUsed ? 'text-indigo-500 dark:text-indigo-400' : 'text-gray-300 dark:text-gray-600 hover:text-indigo-500 dark:hover:text-indigo-400'}`}
+                  title="Automation (step-by-step solution)"
+                >
+                  <AutomationIcon />
+                </button>
+                {/* Hover tooltip */}
+                <div className="pointer-events-none absolute bottom-full right-0 mb-2 w-56 rounded-lg bg-gray-800 dark:bg-gray-700 text-white text-xs px-3 py-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-50">
+                  <div className="font-medium text-indigo-300">Automation</div>
+                  <div className="text-gray-300">Step-by-step solution. Deducts 1/2 pt base + 1/10 pt per revealed step.</div>
+                  <div className="absolute top-full right-4 border-4 border-transparent border-t-gray-800 dark:border-t-gray-700" />
+                </div>
+              </div>
+            )}
           </div>
+
+          {/* Automation Modal */}
+          <AutomationModal
+            isOpen={showAutomationModal}
+            onClose={() => setShowAutomationModal(false)}
+            steps={steps}
+            hint={hint}
+            answer={answer}
+            text={text}
+            parts={parts}
+            onPostAnswer={handlePostAnswer}
+            localState={localState}
+            onUpdateState={handleAutomationUpdateState}
+          />
 
           {!showAnswer && (
             <form onSubmit={handleSubmit} className="mt-2 space-y-2">

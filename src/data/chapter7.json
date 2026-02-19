@@ -252,6 +252,12 @@
                 }
               ]
             }
+          ],
+          "steps": [
+            "Write each polynomial in standard form with decreasing exponents",
+            "For $4 - 9z$: Rearrange to $-9z + 4$",
+            "Identify the leading coefficient (coefficient of highest degree term): $-9$",
+            "Count terms to classify: two terms means binomial"
           ]
         },
         {
@@ -278,6 +284,12 @@
               "text": "$(4x^2 + x - 5) - (-x^2 + 3x + 2)$",
               "answer": "$5x^2 - 2x - 7$"
             }
+          ],
+          "steps": [
+            "Rearrange terms in decreasing order of exponent",
+            "For $t^2 - t^3 - 10t$: $-t^3 + t^2 - 10t$",
+            "Find degree: highest exponent is 3",
+            "Identify leading coefficient and term count"
           ]
         },
         {
@@ -289,6 +301,11 @@
               "text": "A person throws a ball straight up. The height $h$ (in feet) after $t$ seconds is $h = -16t^2 + 40t + 5$. What is the height after $2$ seconds?",
               "answer": "$21$"
             }
+          ],
+          "steps": [
+            "Combine like terms: group terms with same variable and exponent",
+            "Combine $x$ terms: $6x + (-4x) = 2x$",
+            "Write with constant: $2x - 1 + 4 = 2x + 3$"
           ]
         }
       ],
@@ -366,6 +383,12 @@
               "info": "Multi-variable polynomial (two variables)",
               "hint": "For polynomials with multiple variables, add the exponents of all variables in each term to find each term's degree."
             }
+          ],
+          "steps": [
+            "Distribute the negative sign across the second polynomial",
+            "Combine like $x^2$ terms: $3x^2 - (-2x^2) = 5x^2$",
+            "Combine like $x$ terms: $-4x - 5x = -9x$",
+            "Combine constants: $7 - (-1) = 8$"
           ]
         },
         {
@@ -393,6 +416,11 @@
               "info": "Subtraction with degree 4 and missing terms",
               "hint": "Some degrees may cancel or be missing. After distributing the negative, line up terms by degree to avoid errors."
             }
+          ],
+          "steps": [
+            "When subtracting, distribute negative through second polynomial",
+            "Combine all like terms carefully",
+            "Result should be in standard form with decreasing exponents"
           ]
         }
       ],
@@ -422,6 +450,12 @@
               "info": "Perimeter as polynomial expression",
               "hint": "A square has 4 equal sides. Perimeter = $4 \\times$ side length. Distribute the 4."
             }
+          ],
+          "steps": [
+            "Distribute negative sign: $-(4x^2 - 3x + 1) = -4x^2 + 3x - 1$",
+            "Combine $x^2$ terms: $2x^2 + (-4x^2) = -2x^2$",
+            "Combine $x$ terms: $x + 3x = 4x$",
+            "Combine constants: $-5 + 1 = -4$"
           ]
         }
       ]
@@ -598,6 +632,12 @@
               "text": "$(n + 2)(n^2 + 3)$",
               "answer": "$n^3 + 2n^2 + 3n + 6$"
             }
+          ],
+          "steps": [
+            "Distribute $2x$ to each term in binomial: $2x(3x) + 2x(-5) = 6x^2 - 10x$",
+            "Distribute $4$ to each term: $4(3x) + 4(-5) = 12x - 20$",
+            "Combine like terms: $-10x + 12x = 2x$",
+            "Result: $6x^2 + 2x - 20$"
           ]
         },
         {
@@ -614,6 +654,12 @@
               "text": "$(x - 3)(x^2 + 2x + 4)$",
               "answer": "$x^3 - x^2 - 2x - 12$"
             }
+          ],
+          "steps": [
+            "Distribute $x$ to each term in trinomial: $x(x^2) + x(2x) + x(-3)$",
+            "Distribute $-2$ to each term: $-2(x^2) - 2(2x) - 2(-3)$",
+            "Simplify and combine like terms with same degree",
+            "Write in standard form with decreasing exponents"
           ]
         },
         {
@@ -625,6 +671,12 @@
               "text": "In the example above, how does the area change if the length is three times the width? Express the area in terms of $w$.",
               "answer": "$3w^2$"
             }
+          ],
+          "steps": [
+            "Use FOIL: First $x \\cdot x = x^2$",
+            "Outer $x \\cdot 3 = 3x$, Inner $2 \\cdot x = 2x$",
+            "Last $2 \\cdot 3 = 6$",
+            "Combine like $x$ terms: $3x + 2x = 5x$"
           ]
         }
       ],
@@ -676,6 +728,11 @@
               "info": "Binomials with squared variable terms",
               "hint": "The variable is $m^2$ instead of $m$. Apply FOIL treating $m^2$ as your variable."
             }
+          ],
+          "steps": [
+            "Distribute $3x$ to each term: $3x(2x) + 3x(-5) = 6x^2 - 15x$",
+            "Distribute $1$ to each term: $1(2x) + 1(-5) = 2x - 5$",
+            "Combine like $x$ terms: $-15x + 2x = -13x$"
           ]
         }
       ],
@@ -705,6 +762,11 @@
               "info": "Cubing a binomial (not a standard pattern)",
               "hint": "Write $(x+4)^3 = (x+4)(x+4)(x+4)$. Multiply the first two, then multiply that result by $(x+4)$."
             }
+          ],
+          "steps": [
+            "Distribute $x^2$ and $2x$ to $(x^2 - 3)$",
+            "Combine all like terms by degree",
+            "Write result in standard form"
           ]
         }
       ]
@@ -847,6 +909,11 @@
               "text": "$(3m + n)^2$",
               "answer": "$9m^2 + 6mn + n^2$"
             }
+          ],
+          "steps": [
+            "Apply perfect square trinomial pattern: $(a+b)^2 = a^2 + 2ab + b^2$",
+            "Here $a = x$ and $b = 2$",
+            "Result: $x^2 + 2(x)(2) + 2^2 = x^2 + 4x + 4$"
           ]
         },
         {
@@ -874,6 +941,11 @@
               "answer": "$441$",
               "hint": "Use $(20 + 1)^2 = 400 + 40 + 1 = 441$"
             }
+          ],
+          "steps": [
+            "Apply difference of squares pattern: $(a+b)(a-b) = a^2 - b^2$",
+            "Here $a = 2x$ and $b = 3$",
+            "Result: $(2x)^2 - 3^2 = 4x^2 - 9$"
           ]
         },
         {
@@ -900,6 +972,11 @@
               "text": "$(4x - 3y)^2$",
               "answer": "$16x^2 - 24xy + 9y^2$"
             }
+          ],
+          "steps": [
+            "Apply perfect square trinomial pattern: $(a-b)^2 = a^2 - 2ab + b^2$",
+            "Here $a = 3x$ and $b = 1$",
+            "Result: $(3x)^2 - 2(3x)(1) + 1^2 = 9x^2 - 6x + 1$"
           ]
         },
         {
@@ -911,6 +988,11 @@
               "text": "A square tile has a side length of $x$ inches. A rectangular tile has a length of $(x + 2)$ inches and a width of $(x - 2)$ inches. What is the area of the rectangular tile?",
               "answer": "$x^2 - 4$"
             }
+          ],
+          "steps": [
+            "Recognize sum of squares: $(a+b)(a+b) = (a+b)^2$",
+            "Apply pattern $(a+b)^2 = a^2 + 2ab + b^2$",
+            "Result: $x^2 + 2xy + y^2$"
           ]
         }
       ],
@@ -962,6 +1044,11 @@
               "info": "Sum and difference with $n^2$ terms",
               "hint": "Recognize this as $(a - b)(a + b) = a^2 - b^2$ where $a = n^2$ and $b = 4$, giving $n^4 - 16$."
             }
+          ],
+          "steps": [
+            "Apply difference of squares twice if applicable",
+            "First apply pattern: $(a+b)(a-b) = a^2 - b^2$",
+            "Check if resulting factors can be factored further"
           ]
         }
       ],
@@ -991,6 +1078,11 @@
               "info": "Mental math using sum-and-difference",
               "hint": "Rewrite as $(50-2)(50+2) = 50^2 - 2^2 = 2500 - 4$."
             }
+          ],
+          "steps": [
+            "Apply perfect square trinomial pattern",
+            "Factor or expand according to problem instructions",
+            "Verify result by multiplying back"
           ]
         }
       ]
@@ -1175,6 +1267,12 @@
                 }
               ]
             }
+          ],
+          "steps": [
+            "Factor the trinomial $x^2 + 5x + 6$",
+            "Find two numbers that multiply to 6 and add to 5: 2 and 3",
+            "Factored form: $(x+2)(x+3) = 0$",
+            "Solutions: $x = -2$ or $x = -3$"
           ]
         },
         {
@@ -1231,6 +1329,12 @@
                 }
               ]
             }
+          ],
+          "steps": [
+            "Set equation equal to zero if needed",
+            "Factor the trinomial completely",
+            "Apply zero product property: if $AB = 0$, then $A = 0$ or $B = 0$",
+            "Solve each equation to find all solutions"
           ]
         },
         {
@@ -1247,6 +1351,12 @@
               "text": "$15y^3 + 10y$",
               "answer": "$5y(3y^2 + 2)$"
             }
+          ],
+          "steps": [
+            "Move all terms to one side to get standard form equal to zero",
+            "Factor out any common factors",
+            "Apply zero product property to each factor",
+            "Solve to find all solutions"
           ]
         },
         {
@@ -1258,6 +1368,12 @@
               "text": "The width of a rectangular entrance is $x$ feet and the length is $(x + 1)$ feet. The area is 20 square feet. Find the width.",
               "answer": "$4$"
             }
+          ],
+          "steps": [
+            "Factor by grouping or find common factors",
+            "Apply zero product property to each factor",
+            "Solve each linear equation",
+            "List all distinct solutions"
           ]
         }
       ],
@@ -1309,6 +1425,12 @@
               "info": "Equation with a factor requiring division",
               "hint": "Set each factor to zero. For $3x - 6 = 0$, solve for $x$ by adding 6 and dividing by 3."
             }
+          ],
+          "steps": [
+            "Rearrange equation to standard form $ax^2 + bx + c = 0$",
+            "Factor the trinomial",
+            "Apply zero product property",
+            "Verify solutions by substituting back into original equation"
           ]
         }
       ],
@@ -1338,6 +1460,11 @@
               "info": "Real-life projectile problem requiring factoring",
               "hint": "Set $h = 0$ (ground level). Factor out $-2$, then factor the quadratic. Only positive time values make sense."
             }
+          ],
+          "steps": [
+            "Use factoring by grouping if trinomial doesn't factor nicely",
+            "Remember zero product property applies only when expression equals zero",
+            "Check that all solutions satisfy the original equation"
           ]
         }
       ]
@@ -1535,6 +1662,12 @@
               "text": "$x^2 + 9x + 8$",
               "answer": "$(x + 1)(x + 8)$"
             }
+          ],
+          "steps": [
+            "Find two numbers that multiply to $c$ and add to $b$",
+            "For trinomial $x^2 + bx + c$, these numbers are your factors",
+            "Write as $(x + m)(x + n)$ where $m$ and $n$ are your numbers",
+            "Verify by expanding using FOIL"
           ]
         },
         {
@@ -1571,6 +1704,12 @@
               "text": "$v^2 - v - 42$",
               "answer": "$(v - 7)(v + 6)$"
             }
+          ],
+          "steps": [
+            "Identify $b$ (coefficient of $x$) and $c$ (constant term)",
+            "Find factor pair of $c$ that sums to $b$",
+            "Use these numbers in binomial factors",
+            "Factor is $(x + m)(x + n)$"
           ]
         },
         {
@@ -1597,6 +1736,12 @@
               "text": "$x^2 - 2x - 15$",
               "answer": "$(x - 5)(x + 3)$"
             }
+          ],
+          "steps": [
+            "Look for two numbers whose product is $c$ and sum is $b$",
+            "If $c$ is negative, one number is positive and one is negative",
+            "The positive number has greater absolute value when $b$ is positive",
+            "Write factored form using these numbers"
           ]
         },
         {
@@ -1617,6 +1762,11 @@
                 }
               ]
             }
+          ],
+          "steps": [
+            "Factor out any common factor first (GCF)",
+            "Then factor the remaining trinomial by finding factor pairs",
+            "The complete factorization includes the GCF and the binomial factors"
           ]
         }
       ],
@@ -1684,6 +1834,11 @@
               "info": "Large mixed-sign constant ($-72$)",
               "hint": "Find two numbers that multiply to $-72$ and add to $1$. Since the product is negative, one number is positive and one negative."
             }
+          ],
+          "steps": [
+            "First check if there's a common factor to pull out",
+            "Then use trinomial factoring on what remains",
+            "Verify complete factorization by multiplying back"
           ]
         }
       ],
@@ -1713,6 +1868,11 @@
               "info": "Equation with variable on both sides",
               "hint": "Rearrange to $m^2 - 7m + 10 = 0$ first, then factor. Find two numbers multiplying to 10 and adding to $-7$."
             }
+          ],
+          "steps": [
+            "Use trial and error or systematic search for factor pairs",
+            "Remember to check negative factors if constant term is negative",
+            "Verify by expanding the factored form"
           ]
         }
       ]
@@ -1858,6 +2018,12 @@
               "text": "$2x^2 - 7x + 5$",
               "answer": "$(2x - 5)(x - 1)$"
             }
+          ],
+          "steps": [
+            "For trinomial $ax^2 + bx + c$ where $a \\neq 1$",
+            "Find factor pairs of $a \\cdot c$ that sum to $b$",
+            "Use these to rewrite the middle term",
+            "Factor by grouping the pairs"
           ]
         },
         {
@@ -1894,6 +2060,12 @@
               "text": "$-3x^2 - x + 2$",
               "answer": "$-(3x - 2)(x + 1)$"
             }
+          ],
+          "steps": [
+            "Identify $a$ (leading coefficient), $b$ (middle), and $c$ (constant)",
+            "Find pairs of factors of $a \\cdot c$ that sum to $b$",
+            "Rewrite middle term as sum of two terms using these factors",
+            "Factor by grouping into two pairs"
           ]
         },
         {
@@ -1914,6 +2086,12 @@
                 }
               ]
             }
+          ],
+          "steps": [
+            "Check for common factors across all terms (GCF)",
+            "If leading coefficient is not 1, use factoring method for $ax^2 + bx + c$",
+            "Factor by grouping after rewriting middle term",
+            "Include any GCF in final answer"
           ]
         }
       ],
@@ -1965,6 +2143,11 @@
               "info": "Large $ac$ product ($60$) with positive terms",
               "hint": "Find two numbers multiplying to $60$ that add to $19$. Factor pairs of 60: 1×60, 2×30, 3×20, 4×15..."
             }
+          ],
+          "steps": [
+            "Negative leading coefficient: factor out $-1$ first",
+            "Then apply trinomial factoring to remaining expression",
+            "Verify by multiplying back"
           ]
         }
       ],
@@ -1994,6 +2177,11 @@
               "info": "Small coefficients producing fractional roots",
               "hint": "Factor $6x^2 + x - 1$ (try $(2x + ?)(3x + ?)$ or $(6x + ?)(x + ?)$). Solve each factor for $x$."
             }
+          ],
+          "steps": [
+            "For complex coefficients, use systematic approach",
+            "Find all factor pairs of $ac$ methodically",
+            "Check each pair to see if it sums to $b$"
           ]
         }
       ]
@@ -2205,6 +2393,12 @@
               "text": "$28^2 - 24^2$",
               "answer": "$208$"
             }
+          ],
+          "steps": [
+            "Recognize difference of squares pattern: $a^2 - b^2 = (a+b)(a-b)$",
+            "Identify $a$ and $b$ in the expression",
+            "Factor using the pattern",
+            "Verify by multiplying"
           ]
         },
         {
@@ -2250,6 +2444,12 @@
                 }
               ]
             }
+          ],
+          "steps": [
+            "Recognize perfect square trinomial: $a^2 + 2ab + b^2 = (a+b)^2$",
+            "Check that first and last terms are perfect squares",
+            "Check that middle term is $2ab$",
+            "Factor as perfect square"
           ]
         },
         {
@@ -2266,6 +2466,12 @@
               "text": "$x^2 - 25$",
               "answer": "$(x + 5)(x - 5)$"
             }
+          ],
+          "steps": [
+            "Check if expression matches difference of cubes: $a^3 - b^3$",
+            "Or perfect square trinomial pattern",
+            "Apply appropriate factoring pattern",
+            "Simplify and verify"
           ]
         },
         {
@@ -2277,6 +2483,12 @@
               "text": "A squirrel jumps from a tree 32 feet above the ground. The height after $t$ seconds is $h = 32 - 16t^2$. How long until it reaches the ground?",
               "answer": "$\\sqrt{2}$"
             }
+          ],
+          "steps": [
+            "Look for combination of patterns",
+            "Factor out any common factors first",
+            "Then apply special product patterns",
+            "Complete factorization should have no further factors"
           ]
         }
       ],
@@ -2328,6 +2540,11 @@
               "info": "Perfect square trinomial with large coefficients",
               "hint": "Check: $\\sqrt{16m^2} = 4m$, $\\sqrt{49} = 7$, and $2(4m)(7) = 56m$. Matches the middle term!"
             }
+          ],
+          "steps": [
+            "Recognize when not to use difference of squares",
+            "Sum of squares does not factor over reals",
+            "Check each pattern carefully before applying"
           ]
         }
       ],
@@ -2357,6 +2574,11 @@
               "info": "Solving a perfect square trinomial equation",
               "hint": "Factor as $(x + 6)^2 = 0$. A perfect square gives only ONE solution (a double root)."
             }
+          ],
+          "steps": [
+            "Combine multiple factoring patterns in one problem",
+            "Apply patterns in logical order: GCF first, then special patterns",
+            "Verify complete factorization"
           ]
         }
       ]
@@ -2487,6 +2709,12 @@
               "text": "$y^2 + 2x + yx + 2y$",
               "answer": "$(y + 2)(x + y)$"
             }
+          ],
+          "steps": [
+            "First: factor out the greatest common factor (GCF)",
+            "Second: examine remaining polynomial for patterns",
+            "Use appropriate pattern: difference of squares, trinomial, etc.",
+            "Verify that no further factorization is possible"
           ]
         },
         {
@@ -2508,6 +2736,12 @@
               "text": "$m^3 - 2m^2 - 8m$",
               "answer": "$m(m - 4)(m + 2)$"
             }
+          ],
+          "steps": [
+            "Start by looking for a common factor in all terms",
+            "After factoring out GCF, check if remaining expression is trinomial",
+            "Apply trinomial factoring if appropriate",
+            "Complete factorization when all factors are prime"
           ]
         },
         {
@@ -2564,6 +2798,12 @@
                 }
               ]
             }
+          ],
+          "steps": [
+            "Factor by grouping in pairs if expression has 4+ terms",
+            "Look for common binomial factors after grouping",
+            "Then factor remaining expressions",
+            "Write complete factorization"
           ]
         },
         {
@@ -2593,6 +2833,12 @@
                 }
               ]
             }
+          ],
+          "steps": [
+            "Check for GCF across all terms",
+            "Apply appropriate method based on number of terms",
+            "Continue factoring until all factors are irreducible",
+            "Final answer should not contain any factorable polynomials"
           ]
         }
       ],
@@ -2664,6 +2910,11 @@
               "info": "Fourth-degree trinomial (quadratic in disguise)",
               "hint": "Treat $x^4$ as $(x^2)^2$. This is a quadratic in $x^2$: find two numbers multiplying to 4 and adding to $-5$."
             }
+          ],
+          "steps": [
+            "Negative factors: pull out negative from GCF if needed",
+            "Apply remaining factoring patterns to what's left",
+            "Verify complete factorization by multiplying back"
           ]
         }
       ],
@@ -2693,6 +2944,11 @@
               "info": "Verifying complete factoring with monomial GCF",
               "hint": "$5x^2(x-7)$ — check each factor: $5$ is prime, $x^2$ can't factor further, $(x-7)$ is linear. It's complete."
             }
+          ],
+          "steps": [
+            "Multiple stages of factoring may be needed",
+            "Apply each appropriate technique in sequence",
+            "Ensure final result cannot be factored further"
           ]
         }
       ]

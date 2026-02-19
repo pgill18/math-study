@@ -30,7 +30,7 @@ function NotationGuide({ open, onClose }) {
   )
 }
 
-export default function MonitoringProgress({ mp, maxRetries, progress = {}, onUpdateProgress, onResetAll, disputeMode, enableHints }) {
+export default function MonitoringProgress({ mp, maxRetries, progress = {}, onUpdateProgress, onResetAll, disputeMode, enableHints, enableAutomation }) {
   const [showGuide, setShowGuide] = useState(false)
   const safeProgress = progress || {}
   const allKeys = mp.problems.map(p => mp.id + '.' + p.num)
@@ -90,6 +90,8 @@ export default function MonitoringProgress({ mp, maxRetries, progress = {}, onUp
             onUpdateProgress={onUpdateProgress}
             disputeMode={disputeMode}
             enableHints={enableHints}
+            enableAutomation={enableAutomation}
+            steps={p.steps}
           />
         ))}
       </div>

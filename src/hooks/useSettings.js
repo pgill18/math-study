@@ -5,8 +5,8 @@ const STORAGE_KEY = 'mathStudySettings'
 function load() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
-    return raw ? JSON.parse(raw) : { maxRetries: 2, theme: 'dark', showCore: true, showExamples: true, showRealLife: true, showEdgeCases: false, showCornerCases: false, enableMarkReviewed: false, correctionScore: '0', disputeMode: false, disputePassword: 'admin123', enableHints: false }
-  } catch { return { maxRetries: 2, theme: 'dark', showCore: true, showExamples: true, showRealLife: true, showEdgeCases: false, showCornerCases: false, enableMarkReviewed: false, correctionScore: '0', disputeMode: false, disputePassword: 'admin123', enableHints: false } }
+    return raw ? JSON.parse(raw) : { maxRetries: 2, theme: 'dark', showCore: true, showExamples: true, showRealLife: true, showEdgeCases: false, showCornerCases: false, enableMarkReviewed: false, correctionScore: '0', disputeMode: false, disputePassword: 'admin123', enableHints: false, enableAutomation: false }
+  } catch { return { maxRetries: 2, theme: 'dark', showCore: true, showExamples: true, showRealLife: true, showEdgeCases: false, showCornerCases: false, enableMarkReviewed: false, correctionScore: '0', disputeMode: false, disputePassword: 'admin123', enableHints: false, enableAutomation: false } }
 }
 
 function save(data) {

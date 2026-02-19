@@ -49,6 +49,7 @@ export default function SettingsDropdown({ settings, onUpdate }) {
   const [passwordInput, setPasswordInput] = useState('')
   const [passwordError, setPasswordError] = useState(false)
   const [showHintConfirm, setShowHintConfirm] = useState(false)
+  const [showAutoConfirm, setShowAutoConfirm] = useState(false)
   const ref = useRef(null)
 
   useEffect(() => {
@@ -153,6 +154,50 @@ export default function SettingsDropdown({ settings, onUpdate }) {
             )}
             {settings.enableHints && (
               <p className="text-xs text-amber-600 dark:text-amber-400">Active — viewing hints deducts 1/4 point</p>
+            )}
+          </div>
+
+          {/* Enable Automation toggle */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="text-sm">Enable Automation</span>
+              <button
+                onClick={() => {
+                  if (settings.enableAutomation) {
+                    onUpdate({ enableAutomation: false })
+                  } else {
+                    setShowAutoConfirm(true)
+                  }
+                }}
+                className={`relative w-9 h-5 rounded-full transition-colors ${settings.enableAutomation ? 'bg-indigo-500' : 'bg-gray-300 dark:bg-gray-600'}`}
+              >
+                <span className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${settings.enableAutomation ? 'translate-x-4' : ''}`} />
+              </button>
+            </div>
+            {showAutoConfirm && !settings.enableAutomation && (
+              <div className="rounded-lg border border-indigo-200 dark:border-indigo-800 bg-indigo-50/80 dark:bg-indigo-950/30 p-2.5 space-y-2">
+                <p className="text-xs text-indigo-700 dark:text-indigo-400">Using automation deducts <strong>1/2 point</strong> base + <strong>1/10 point</strong> per revealed step. Do you want to enable automation?</p>
+                <div className="flex gap-1.5">
+                  <button
+                    onClick={() => {
+                      onUpdate({ enableAutomation: true })
+                      setShowAutoConfirm(false)
+                    }}
+                    className="px-2.5 py-1 text-xs rounded bg-indigo-500 text-white hover:bg-indigo-600 transition-colors font-medium"
+                  >
+                    Yes, enable
+                  </button>
+                  <button
+                    onClick={() => setShowAutoConfirm(false)}
+                    className="px-2.5 py-1 text-xs rounded border border-gray-300 dark:border-gray-600 text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            )}
+            {settings.enableAutomation && (
+              <p className="text-xs text-indigo-600 dark:text-indigo-400">Active — automation deducts 1/2 point + per step</p>
             )}
           </div>
 

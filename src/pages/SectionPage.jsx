@@ -143,6 +143,7 @@ export default function SectionPage({ settings }) {
               onResetAll={resetProblems}
               disputeMode={settings.disputeMode}
               enableHints={settings.enableHints === true}
+              enableAutomation={settings.enableAutomation === true}
             />
           )}
           {currentPage.cs && <ConceptSummary summary={currentPage.cs} />}
