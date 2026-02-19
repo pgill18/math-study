@@ -22,6 +22,7 @@ function NotationGuide({ open, onClose }) {
         <div className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Negative</span><code className="text-xs bg-white dark:bg-gray-800 px-1.5 py-0.5 rounded">-5x</code></div>
         <div className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Parentheses</span><code className="text-xs bg-white dark:bg-gray-800 px-1.5 py-0.5 rounded">(x+3)(x-2)</code></div>
         <div className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Multiplication</span><code className="text-xs bg-white dark:bg-gray-800 px-1.5 py-0.5 rounded">3x or 3*x</code></div>
+        <div className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Square root</span><code className="text-xs bg-white dark:bg-gray-800 px-1.5 py-0.5 rounded">sqrt(x)</code></div>
         <div className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Equals</span><code className="text-xs bg-white dark:bg-gray-800 px-1.5 py-0.5 rounded">x = 5</code></div>
       </div>
       <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Tip: Answers are case-insensitive and ignore extra spaces. You don't need dollar signs or backslashes.</p>

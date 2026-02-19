@@ -5,6 +5,7 @@ function normalizeAnswer(str) {
   return str
     .replace(/\$([^$]+)\$/g, '$1')
     .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '$1/$2')
+    .replace(/\\sqrt\{([^}]+)\}/g, 'sqrt($1)')
     .replace(/\\cdot/g, '*')
     .replace(/\\text\{[^}]*\}/g, '')
     .replace(/[\\{}\s]/g, '')

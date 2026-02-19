@@ -301,21 +301,68 @@
             {
               "num": 1,
               "text": "$7y - 3y^3 + 2y^2 - y^4$",
-              "answer": "$-y^4 - 3y^3 + 2y^2 + 7y$; degree 4; leading coefficient $-1$; polynomial with 4 terms",
+              "answer": [
+                {
+                  "label": "Standard Form",
+                  "value": "$-y^4 - 3y^3 + 2y^2 + 7y$"
+                },
+                {
+                  "label": "Degree",
+                  "value": "4"
+                },
+                {
+                  "label": "Leading Coefficient",
+                  "value": "$-1$"
+                },
+                {
+                  "label": "Classification",
+                  "value": "polynomial with 4 terms"
+                }
+              ],
               "info": "Degree 4 polynomial with negative leading coefficient",
               "hint": "Rearrange terms by decreasing exponent. The leading term is the one with the highest power — watch the negative sign."
             },
             {
               "num": 2,
               "text": "$\\frac{1}{2}x^2 + 3x - \\frac{3}{4}$",
-              "answer": "$\\frac{1}{2}x^2 + 3x - \\frac{3}{4}$; degree 2; leading coefficient $\\frac{1}{2}$; trinomial",
+              "answer": [
+                {
+                  "label": "Standard Form",
+                  "value": "$\\frac{1}{2}x^2 + 3x - \\frac{3}{4}$"
+                },
+                {
+                  "label": "Degree",
+                  "value": "2"
+                },
+                {
+                  "label": "Leading Coefficient",
+                  "value": "$\\frac{1}{2}$"
+                },
+                {
+                  "label": "Classification",
+                  "value": "trinomial"
+                }
+              ],
               "info": "Fractional coefficients in a trinomial",
               "hint": "Fractions don't change how you identify degree or classify. Count the terms and find the highest exponent as usual."
             },
             {
               "num": 3,
               "text": "$5ab^2 - 2a^2b + a^3$",
-              "answer": "$a^3 - 2a^2b + 5ab^2$; degree 3; trinomial",
+              "answer": [
+                {
+                  "label": "Standard Form",
+                  "value": "$a^3 - 2a^2b + 5ab^2$"
+                },
+                {
+                  "label": "Degree",
+                  "value": "3"
+                },
+                {
+                  "label": "Classification",
+                  "value": "trinomial"
+                }
+              ],
               "info": "Multi-variable polynomial (two variables)",
               "hint": "For polynomials with multiple variables, add the exponents of all variables in each term to find each term's degree."
             }
