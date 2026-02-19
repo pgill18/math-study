@@ -19,6 +19,47 @@ function stripVariable(str) {
   return str.replace(/^[a-z]\s*=\s*/i, '').trim()
 }
 
+// Extract factors from expressions like "2(x+4)(x+3)" → ["2", "(x+4)", "(x+3)"]
+function extractFactors(str) {
+  const s = str.replace(/\s/g, '')
+  const factors = []
+  let i = 0
+  while (i < s.length) {
+    if (s[i] === '(') {
+      let depth = 0, start = i
+      while (i < s.length) {
+        if (s[i] === '(') depth++
+        else if (s[i] === ')') depth--
+        i++
+        if (depth === 0) break
+      }
+      factors.push(s.slice(start, i))
+    } else {
+      let start = i
+      while (i < s.length && s[i] !== '(') i++
+      const coeff = s.slice(start, i)
+      if (coeff) factors.push(coeff)
+    }
+  }
+  return factors
+}
+
+// Check if two expressions match with factors in any order
+// e.g. "2(x+4)(x+3)" matches "2(x+3)(x+4)"
+function factorsMatch(a, b) {
+  const fa = extractFactors(a)
+  const fb = extractFactors(b)
+  if (fa.length !== fb.length || fa.length < 2) return false
+  // Separate coefficients (non-parenthesized) from parenthesized factors
+  const coeffA = fa.filter(f => !f.startsWith('(')).join('*')
+  const coeffB = fb.filter(f => !f.startsWith('(')).join('*')
+  if (coeffA !== coeffB) return false
+  const parensA = fa.filter(f => f.startsWith('(')).sort()
+  const parensB = fb.filter(f => f.startsWith('(')).sort()
+  if (parensA.length !== parensB.length) return false
+  return parensA.every((f, i) => f === parensB[i])
+}
+
 function answersMatch(userAnswer, correctAnswer) {
   const normUser = normalizeAnswer(userAnswer)
   const normCorrect = normalizeAnswer(correctAnswer)
@@ -27,11 +68,14 @@ function answersMatch(userAnswer, correctAnswer) {
   if (stripVariable(normUser) === stripVariable(normCorrect)) return true
   if (normUser === stripVariable(normCorrect)) return true
   if (stripVariable(normUser) === normCorrect) return true
+  // Check if factors match in any order (e.g. 2(x+4)(x+3) = 2(x+3)(x+4))
+  if (factorsMatch(normUser, normCorrect)) return true
   const stripped = correctAnswer.replace(/\$/g, '').replace(/\\/g, '').replace(/\s/g, '').toLowerCase()
   const strippedUser = userAnswer.replace(/\$/g, '').replace(/\\/g, '').replace(/\s/g, '').toLowerCase()
   if (stripped === strippedUser) return true
   if (stripVariable(stripped) === stripVariable(strippedUser)) return true
   if (strippedUser === stripVariable(stripped)) return true
+  if (factorsMatch(strippedUser, stripped)) return true
   return false
 }
 
