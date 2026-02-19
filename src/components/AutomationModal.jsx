@@ -1,13 +1,17 @@
 import { useState, useEffect, useRef } from 'react'
 import MathText from './Math'
 
-export default function AutomationModal({ isOpen, onClose, steps, hint, answer, text, parts, onPostAnswer, localState, onUpdateState }) {
+export default function AutomationModal({ isOpen, onClose, steps, stepLabels, hint, answer, text, parts, onPostAnswer, localState, onUpdateState }) {
   const modalRef = useRef(null)
   const stepsToUse = steps && steps.length > 0
     ? steps
     : hint
       ? [hint]
       : ['Refer to the answer.']
+
+  const labelsToUse = stepLabels && stepLabels.length > 0
+    ? stepLabels
+    : stepsToUse.map((_, i) => `Step ${i + 1}`)
 
   const totalSteps = stepsToUse.length
 
@@ -199,13 +203,13 @@ export default function AutomationModal({ isOpen, onClose, steps, hint, answer, 
                         i + 1
                       )}
                     </div>
-                    <span className={`text-[9px] mt-1 font-medium whitespace-nowrap ${
+                    <span className={`text-[9px] mt-1 font-medium text-center leading-tight max-w-[72px] ${
                       status === 'revealed' ? 'text-indigo-500 dark:text-indigo-400'
                         : status === 'typed' ? 'text-emerald-500 dark:text-emerald-400'
                         : status === 'current' ? 'text-indigo-600 dark:text-indigo-400'
                         : 'text-gray-400 dark:text-gray-600'
                     }`}>
-                      {totalSteps <= 4 ? (status === 'revealed' ? 'Revealed' : status === 'typed' ? 'Typed' : `Step ${i + 1}`) : ''}
+                      {labelsToUse[i] || `Step ${i + 1}`}
                     </span>
                   </div>
                   {/* Connecting line (not after last step) */}
@@ -286,6 +290,7 @@ export default function AutomationModal({ isOpen, onClose, steps, hint, answer, 
               <div className="flex items-center gap-2">
                 <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400">Step {currentStep + 1}</span>
                 <span className="text-[10px] text-gray-400 dark:text-gray-500">of {totalSteps}</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-500 dark:text-indigo-400 font-medium">{labelsToUse[currentStep]}</span>
               </div>
 
               {/* Type input */}
@@ -295,7 +300,7 @@ export default function AutomationModal({ isOpen, onClose, steps, hint, answer, 
                   value={userStepInput}
                   onChange={(e) => setUserStepInput(e.target.value)}
                   onKeyDown={(e) => { if (e.key === 'Enter') handleTypeStep() }}
-                  placeholder="Type this step yourself (free)..."
+                  placeholder={`${labelsToUse[currentStep]}... (free)`}
                   className="flex-1 px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent"
                 />
                 <button

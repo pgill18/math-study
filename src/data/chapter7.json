@@ -167,6 +167,10 @@
               "steps": [
                 "The variable $x$ has exponent $4$",
                 "The degree is $4$"
+              ],
+              "stepLabels": [
+                "Find exponent",
+                "State degree"
               ]
             },
             {
@@ -177,6 +181,11 @@
                 "Variable exponents: $b$ has exponent $3$, $c$ has exponent $2$",
                 "Sum the exponents: $3 + 2 = 5$",
                 "The degree is $5$"
+              ],
+              "stepLabels": [
+                "Find exponents",
+                "Sum exponents",
+                "State degree"
               ]
             },
             {
@@ -186,6 +195,10 @@
               "steps": [
                 "This is a constant with no variables",
                 "The degree of a constant is $0$"
+              ],
+              "stepLabels": [
+                "Identify constant",
+                "State degree"
               ]
             },
             {
@@ -196,6 +209,11 @@
                 "Variable exponents: $a$ has exponent $2$, $b$ has exponent $4$",
                 "Sum the exponents: $2 + 4 = 6$",
                 "The degree is $6$"
+              ],
+              "stepLabels": [
+                "Find exponents",
+                "Sum exponents",
+                "State degree"
               ]
             }
           ]
@@ -230,6 +248,12 @@
                 "Highest exponent is $1$, so degree $= 1$",
                 "Leading coefficient is $-9$",
                 "Two terms: classified as a binomial"
+              ],
+              "stepLabels": [
+                "Reorder terms",
+                "Find degree",
+                "Leading coeff.",
+                "Classify"
               ]
             },
             {
@@ -258,6 +282,12 @@
                 "Highest exponent is $3$, so degree $= 3$",
                 "Leading coefficient is $-1$",
                 "Three terms: classified as a trinomial"
+              ],
+              "stepLabels": [
+                "Reorder terms",
+                "Find degree",
+                "Leading coeff.",
+                "Classify"
               ]
             },
             {
@@ -286,6 +316,12 @@
                 "Highest exponent is $3$, so degree $= 3$",
                 "Leading coefficient is $1$",
                 "Two terms: classified as a binomial"
+              ],
+              "stepLabels": [
+                "Reorder terms",
+                "Find degree",
+                "Leading coeff.",
+                "Classify"
               ]
             }
           ],
@@ -307,6 +343,10 @@
               "steps": [
                 "Group like terms: $(2x^2 + 3x^2) + (5 + (-4))$",
                 "Combine: $5x^2 + 1$"
+              ],
+              "stepLabels": [
+                "Group like terms",
+                "Combine"
               ]
             },
             {
@@ -316,6 +356,10 @@
               "steps": [
                 "Group like terms: $(-3x + (-5x)) + (8 + (-1))$",
                 "Combine: $-8x + 7$"
+              ],
+              "stepLabels": [
+                "Group like terms",
+                "Combine"
               ]
             },
             {
@@ -326,6 +370,11 @@
                 "Distribute the negative: $x^2 - 3x + 4 - x^2 - 7x - 2$",
                 "Group like terms: $(x^2 - x^2) + (-3x - 7x) + (4 - 2)$",
                 "Combine: $-10x + 2$"
+              ],
+              "stepLabels": [
+                "Distribute neg.",
+                "Group terms",
+                "Combine"
               ]
             },
             {
@@ -336,6 +385,11 @@
                 "Distribute the negative: $4x^2 + x - 5 + x^2 - 3x - 2$",
                 "Group like terms: $(4x^2 + x^2) + (x - 3x) + (-5 - 2)$",
                 "Combine: $5x^2 - 2x - 7$"
+              ],
+              "stepLabels": [
+                "Distribute neg.",
+                "Group terms",
+                "Combine"
               ]
             }
           ],
@@ -358,6 +412,11 @@
                 "Substitute $t = 1$: $-16(1)^2 + 48(1) + 4$",
                 "Evaluate: $-16 + 48 + 4$",
                 "Simplify: $36$"
+              ],
+              "stepLabels": [
+                "Substitute",
+                "Evaluate",
+                "Simplify"
               ]
             }
           ],
@@ -526,6 +585,11 @@
                 "Substitute $x = -2$: $3(-2)^2 - 2(-2) + 5$",
                 "Evaluate each term: $3(4) + 4 + 5 = 12 + 4 + 5$",
                 "Result: $21$"
+              ],
+              "stepLabels": [
+                "Substitute",
+                "Evaluate terms",
+                "Simplify"
               ]
             },
             {
@@ -538,6 +602,11 @@
                 "Substitute $t = 3$: $-(3)^3 + 4(3) - 7$",
                 "Evaluate each term: $-27 + 12 - 7$",
                 "Result: $-22$"
+              ],
+              "stepLabels": [
+                "Substitute",
+                "Evaluate terms",
+                "Simplify"
               ]
             },
             {
@@ -549,6 +618,10 @@
               "steps": [
                 "Perimeter of a square $= 4 \\times$ side length",
                 "Perimeter $= 4(2x + 3) = 8x + 12$"
+              ],
+              "stepLabels": [
+                "Set up formula",
+                "Multiply"
               ]
             }
           ],
@@ -695,6 +768,11 @@
                 "Multiply coefficients: $2 \\times 4 = 8$",
                 "Add exponents: $x^1 \\cdot x^1 = x^2$",
                 "Result: $8x^2$"
+              ],
+              "stepLabels": [
+                "Multiply coeffs",
+                "Add exponents",
+                "Result"
               ]
             },
             {
@@ -705,6 +783,11 @@
                 "Multiply coefficients: $(-3)(2) = -6$",
                 "Add exponents: $x^2 \\cdot x^1 = x^3$",
                 "Result: $-6x^3$"
+              ],
+              "stepLabels": [
+                "Multiply coeffs",
+                "Add exponents",
+                "Result"
               ]
             },
             {
@@ -714,6 +797,10 @@
               "steps": [
                 "Distribute $3x$: $3x \\cdot x + 3x \\cdot 2$",
                 "Simplify: $3x^2 + 6x$"
+              ],
+              "stepLabels": [
+                "Distribute",
+                "Simplify"
               ]
             },
             {
@@ -723,6 +810,10 @@
               "steps": [
                 "Distribute $2x$: $2x \\cdot x + 2x \\cdot (-4)$",
                 "Simplify: $2x^2 - 8x$"
+              ],
+              "stepLabels": [
+                "Distribute",
+                "Simplify"
               ]
             }
           ]
@@ -740,6 +831,12 @@
                 "Outer + Inner: $m(-7) + (-3)(m) = -7m - 3m = -10m$",
                 "Last: $(-3)(-7) = 21$",
                 "Combine: $m^2 - 10m + 21$"
+              ],
+              "stepLabels": [
+                "First terms",
+                "Outer + Inner",
+                "Last terms",
+                "Combine"
               ]
             },
             {
@@ -751,6 +848,12 @@
                 "Outer + Inner: $x(2) + (-4)(x) = 2x - 4x = -2x$",
                 "Last: $(-4)(2) = -8$",
                 "Combine: $x^2 - 2x - 8$"
+              ],
+              "stepLabels": [
+                "First terms",
+                "Outer + Inner",
+                "Last terms",
+                "Combine"
               ]
             },
             {
@@ -762,6 +865,12 @@
                 "Outer + Inner: $2a(-\\frac{3}{2}) + \\frac{1}{2}(a) = -3a + \\frac{1}{2}a = -\\frac{5}{2}a$",
                 "Last: $\\frac{1}{2} \\cdot (-\\frac{3}{2}) = -\\frac{3}{4}$",
                 "Combine: $2a^2 - \\frac{5}{2}a - \\frac{3}{4}$"
+              ],
+              "stepLabels": [
+                "First terms",
+                "Outer + Inner",
+                "Last terms",
+                "Combine"
               ]
             },
             {
@@ -772,6 +881,11 @@
                 "Distribute $n$: $n(n^2) + n(3) = n^3 + 3n$",
                 "Distribute $2$: $2(n^2) + 2(3) = 2n^2 + 6$",
                 "Combine: $n^3 + 2n^2 + 3n + 6$"
+              ],
+              "stepLabels": [
+                "Distribute 1st",
+                "Distribute 2nd",
+                "Combine"
               ]
             }
           ],
@@ -794,6 +908,11 @@
                 "Distribute $x$: $x(x^2) + x(2x) + x(1) = x^3 + 2x^2 + x$",
                 "Distribute $1$: $1(x^2) + 1(2x) + 1(1) = x^2 + 2x + 1$",
                 "Combine like terms: $x^3 + 3x^2 + 3x + 1$"
+              ],
+              "stepLabels": [
+                "Distribute x",
+                "Distribute 1",
+                "Combine"
               ]
             },
             {
@@ -804,6 +923,11 @@
                 "Distribute $x$: $x(x^2) + x(2x) + x(4) = x^3 + 2x^2 + 4x$",
                 "Distribute $-3$: $-3(x^2) + (-3)(2x) + (-3)(4) = -3x^2 - 6x - 12$",
                 "Combine like terms: $x^3 - x^2 - 2x - 12$"
+              ],
+              "stepLabels": [
+                "Distribute x",
+                "Distribute −3",
+                "Combine"
               ]
             }
           ],
@@ -826,6 +950,11 @@
                 "Original area: $w \\cdot w = w^2$",
                 "New length is $3w$, width stays $w$: area $= 3w \\cdot w = 3w^2$",
                 "The area changes to $3w^2$"
+              ],
+              "stepLabels": [
+                "Original area",
+                "New area",
+                "Result"
               ]
             }
           ],
@@ -942,6 +1071,11 @@
                 "Area = length $\\times$ width $= (x + 7)(x - 3)$",
                 "FOIL: $x^2 - 3x + 7x - 21$",
                 "Combine: $x^2 + 4x - 21$"
+              ],
+              "stepLabels": [
+                "Set up",
+                "FOIL",
+                "Combine"
               ]
             },
             {
@@ -954,6 +1088,11 @@
                 "First multiply $x(x + 2) = x^2 + 2x$",
                 "Then multiply by $(x - 1)$: $(x^2 + 2x)(x - 1)$",
                 "Distribute: $x^3 - x^2 + 2x^2 - 2x = x^3 + x^2 - 2x$"
+              ],
+              "stepLabels": [
+                "Multiply first two",
+                "Multiply by third",
+                "Combine"
               ]
             },
             {
@@ -967,6 +1106,12 @@
                 "First: $(x + 4)^2 = x^2 + 8x + 16$",
                 "Then: $(x^2 + 8x + 16)(x + 4)$",
                 "Distribute and combine: $x^3 + 12x^2 + 48x + 64$"
+              ],
+              "stepLabels": [
+                "Expand to factors",
+                "Square first two",
+                "Set up product",
+                "Distribute & combine"
               ]
             }
           ],
@@ -1104,6 +1249,11 @@
                 "Apply $(a+b)^2 = a^2 + 2ab + b^2$ with $a = x$, $b = 7$",
                 "$a^2 = x^2$, $2ab = 2(x)(7) = 14x$, $b^2 = 49$",
                 "Result: $x^2 + 14x + 49$"
+              ],
+              "stepLabels": [
+                "Identify pattern",
+                "Compute parts",
+                "Combine"
               ]
             },
             {
@@ -1114,6 +1264,11 @@
                 "Apply $(a-b)^2 = a^2 - 2ab + b^2$ with $a = 7x$, $b = 3$",
                 "$a^2 = 49x^2$, $2ab = 2(7x)(3) = 42x$, $b^2 = 9$",
                 "Result: $49x^2 - 42x + 9$"
+              ],
+              "stepLabels": [
+                "Identify pattern",
+                "Compute parts",
+                "Combine"
               ]
             },
             {
@@ -1124,6 +1279,11 @@
                 "Apply $(a-b)^2 = a^2 - 2ab + b^2$ with $a = 4x$, $b = y$",
                 "$a^2 = 16x^2$, $2ab = 2(4x)(y) = 8xy$, $b^2 = y^2$",
                 "Result: $16x^2 - 8xy + y^2$"
+              ],
+              "stepLabels": [
+                "Identify pattern",
+                "Compute parts",
+                "Combine"
               ]
             },
             {
@@ -1134,6 +1294,11 @@
                 "Apply $(a+b)^2 = a^2 + 2ab + b^2$ with $a = 3m$, $b = n$",
                 "$a^2 = 9m^2$, $2ab = 2(3m)(n) = 6mn$, $b^2 = n^2$",
                 "Result: $9m^2 + 6mn + n^2$"
+              ],
+              "stepLabels": [
+                "Identify pattern",
+                "Compute parts",
+                "Combine"
               ]
             }
           ],
@@ -1154,6 +1319,10 @@
               "steps": [
                 "Apply $(a+b)(a-b) = a^2 - b^2$ with $a = x$, $b = 10$",
                 "$a^2 - b^2 = x^2 - 100$"
+              ],
+              "stepLabels": [
+                "Identify pattern",
+                "Apply formula"
               ]
             },
             {
@@ -1163,6 +1332,10 @@
               "steps": [
                 "Apply $(a+b)(a-b) = a^2 - b^2$ with $a = 2x$, $b = 1$",
                 "$a^2 - b^2 = 4x^2 - 1$"
+              ],
+              "stepLabels": [
+                "Identify pattern",
+                "Apply formula"
               ]
             },
             {
@@ -1172,6 +1345,10 @@
               "steps": [
                 "Apply $(a+b)(a-b) = a^2 - b^2$ with $a = x$, $b = 3y$",
                 "$a^2 - b^2 = x^2 - 9y^2$"
+              ],
+              "stepLabels": [
+                "Identify pattern",
+                "Apply formula"
               ]
             },
             {
@@ -1183,6 +1360,11 @@
                 "Rewrite $21^2$ as $(20 + 1)^2$",
                 "Apply $(a+b)^2 = a^2 + 2ab + b^2$: $400 + 40 + 1$",
                 "Result: $441$"
+              ],
+              "stepLabels": [
+                "Rewrite as sum",
+                "Apply pattern",
+                "Calculate"
               ]
             }
           ],
@@ -1203,6 +1385,10 @@
               "steps": [
                 "Apply $(a+b)^2 = a^2 + 2ab + b^2$ with $a = x$, $b = 7$",
                 "$x^2 + 14x + 49$"
+              ],
+              "stepLabels": [
+                "Identify pattern",
+                "Apply formula"
               ]
             },
             {
@@ -1213,6 +1399,11 @@
                 "Apply $(a-b)^2 = a^2 - 2ab + b^2$ with $a = x$, $b = 6$",
                 "$a^2 = x^2$, $2ab = 12x$, $b^2 = 36$",
                 "Result: $x^2 - 12x + 36$"
+              ],
+              "stepLabels": [
+                "Identify pattern",
+                "Compute parts",
+                "Combine"
               ]
             },
             {
@@ -1223,6 +1414,11 @@
                 "Apply $(a+b)^2 = a^2 + 2ab + b^2$ with $a = 2x$, $b = 5$",
                 "$a^2 = 4x^2$, $2ab = 2(2x)(5) = 20x$, $b^2 = 25$",
                 "Result: $4x^2 + 20x + 25$"
+              ],
+              "stepLabels": [
+                "Identify pattern",
+                "Compute parts",
+                "Combine"
               ]
             },
             {
@@ -1233,6 +1429,11 @@
                 "Apply $(a-b)^2 = a^2 - 2ab + b^2$ with $a = 4x$, $b = 3y$",
                 "$a^2 = 16x^2$, $2ab = 2(4x)(3y) = 24xy$, $b^2 = 9y^2$",
                 "Result: $16x^2 - 24xy + 9y^2$"
+              ],
+              "stepLabels": [
+                "Identify pattern",
+                "Compute parts",
+                "Combine"
               ]
             }
           ],
@@ -1254,6 +1455,11 @@
                 "Square tile area: $x \\cdot x = x^2$",
                 "Rectangular tile: $(x + 2)(x - 2)$, a sum-and-difference pattern",
                 "Apply $(a+b)(a-b) = a^2 - b^2$: $x^2 - 4$"
+              ],
+              "stepLabels": [
+                "Square tile area",
+                "Rect. tile pattern",
+                "Apply formula"
               ]
             }
           ],
@@ -1362,6 +1568,11 @@
                 "Rewrite $29 \\times 31$ as $(30 - 1)(30 + 1)$",
                 "Apply $(a-b)(a+b) = a^2 - b^2$: $900 - 1$",
                 "Result: $899$"
+              ],
+              "stepLabels": [
+                "Rewrite",
+                "Apply pattern",
+                "Calculate"
               ]
             },
             {
@@ -1374,6 +1585,11 @@
                 "Rewrite $52^2$ as $(50 + 2)^2$",
                 "Apply $(a+b)^2 = a^2 + 2ab + b^2$: $2500 + 200 + 4$",
                 "Result: $2704$"
+              ],
+              "stepLabels": [
+                "Rewrite",
+                "Apply pattern",
+                "Calculate"
               ]
             },
             {
@@ -1386,6 +1602,11 @@
                 "Rewrite $48 \\times 52$ as $(50 - 2)(50 + 2)$",
                 "Apply $(a-b)(a+b) = a^2 - b^2$: $2500 - 4$",
                 "Result: $2496$"
+              ],
+              "stepLabels": [
+                "Rewrite",
+                "Apply pattern",
+                "Calculate"
               ]
             }
           ],
@@ -1552,6 +1773,11 @@
                 "Already factored: $x(x - 1) = 0$",
                 "Set each factor to zero: $x = 0$ or $x - 1 = 0$",
                 "Solutions: $x = 0$ and $x = 1$"
+              ],
+              "stepLabels": [
+                "Check form",
+                "Set = 0",
+                "Solve"
               ]
             },
             {
@@ -1571,6 +1797,11 @@
                 "Already factored: $3t(t + 2) = 0$",
                 "Set each factor to zero: $3t = 0$ or $t + 2 = 0$",
                 "Solutions: $t = 0$ and $t = -2$"
+              ],
+              "stepLabels": [
+                "Check form",
+                "Set = 0",
+                "Solve"
               ]
             },
             {
@@ -1590,6 +1821,11 @@
                 "Already factored: $(z - 4)(z - 6) = 0$",
                 "Set each factor to zero: $z - 4 = 0$ or $z - 6 = 0$",
                 "Solutions: $z = 4$ and $z = 6$"
+              ],
+              "stepLabels": [
+                "Check form",
+                "Set = 0",
+                "Solve"
               ]
             }
           ],
@@ -1621,6 +1857,11 @@
                 "Already factored: $(z - 7)(z + 9) = 0$",
                 "Set each factor to zero: $z - 7 = 0$ or $z + 9 = 0$",
                 "Solutions: $z = 7$ and $z = -9$"
+              ],
+              "stepLabels": [
+                "Check form",
+                "Set = 0",
+                "Solve"
               ]
             },
             {
@@ -1645,6 +1886,12 @@
                 "Factor the trinomial: find two numbers that multiply to $12$ and add to $-7$: $-3$ and $-4$",
                 "Factored form: $x(x - 3)(x - 4) = 0$",
                 "Solutions: $x = 0$, $x = 3$, $x = 4$"
+              ],
+              "stepLabels": [
+                "Factor GCF",
+                "Factor trinomial",
+                "Full factored",
+                "Solve"
               ]
             },
             {
@@ -1669,6 +1916,12 @@
                 "Factor the trinomial: find two numbers that multiply to $-24$ and add to $-5$: $-8$ and $3$",
                 "Factored form: $u(u - 8)(u + 3) = 0$",
                 "Solutions: $u = 0$, $u = 8$, $u = -3$"
+              ],
+              "stepLabels": [
+                "Factor GCF",
+                "Factor trinomial",
+                "Full factored",
+                "Solve"
               ]
             }
           ],
@@ -1690,6 +1943,10 @@
               "steps": [
                 "Find GCF of $9x^2$ and $12x$: GCF is $3x$",
                 "Factor: $3x(3x + 4)$"
+              ],
+              "stepLabels": [
+                "Find GCF",
+                "Factor out"
               ]
             },
             {
@@ -1699,6 +1956,10 @@
               "steps": [
                 "Find GCF of $15y^3$ and $10y$: GCF is $5y$",
                 "Factor: $5y(3y^2 + 2)$"
+              ],
+              "stepLabels": [
+                "Find GCF",
+                "Factor out"
               ]
             }
           ],
@@ -1722,6 +1983,12 @@
                 "Expand: $x^2 + x - 20 = 0$",
                 "Factor: $(x + 5)(x - 4) = 0$",
                 "Since width must be positive: $x = 4$"
+              ],
+              "stepLabels": [
+                "Set up equation",
+                "Expand",
+                "Factor",
+                "Solve"
               ]
             }
           ],
@@ -1831,6 +2098,11 @@
                 "X-intercepts occur where $y = 0$: $(x + 1)(x - 6) = 0$",
                 "Set each factor to zero: $x + 1 = 0$ or $x - 6 = 0$",
                 "X-intercepts: $(-1, 0)$ and $(6, 0)$"
+              ],
+              "stepLabels": [
+                "Set y = 0",
+                "Set factors = 0",
+                "X-intercepts"
               ]
             },
             {
@@ -1843,6 +2115,11 @@
                 "Set $y = 0$: $x(x - 3)(x + 4) = 0$",
                 "Set each factor to zero: $x = 0$, $x - 3 = 0$, $x + 4 = 0$",
                 "X-intercepts: $(0, 0)$, $(3, 0)$, $(-4, 0)$"
+              ],
+              "stepLabels": [
+                "Set y = 0",
+                "Set factors = 0",
+                "X-intercepts"
               ]
             },
             {
@@ -1856,6 +2133,12 @@
                 "Factor out $-2$: $-2(8t^2 - 10t - 3) = 0$",
                 "Factor: $-2(4t + 1)(2t - 3) = 0$",
                 "Since $t > 0$: $t = \\frac{3}{2} = 1.5$"
+              ],
+              "stepLabels": [
+                "Set h = 0",
+                "Factor out",
+                "Factor quadratic",
+                "Solve"
               ]
             }
           ],
@@ -2058,6 +2341,11 @@
                 "Find two numbers that multiply to $16$ and add to $10$",
                 "The numbers are $2$ and $8$ (since $2 \\times 8 = 16$ and $2 + 8 = 10$)",
                 "Factor: $(x + 2)(x + 8)$"
+              ],
+              "stepLabels": [
+                "Find factors of c",
+                "Identify pair",
+                "Write factored"
               ]
             },
             {
@@ -2068,6 +2356,11 @@
                 "Find two numbers that multiply to $8$ and add to $9$",
                 "The numbers are $1$ and $8$ (since $1 \\times 8 = 8$ and $1 + 8 = 9$)",
                 "Factor: $(x + 1)(x + 8)$"
+              ],
+              "stepLabels": [
+                "Find factors of c",
+                "Identify pair",
+                "Write factored"
               ]
             }
           ],
@@ -2090,6 +2383,11 @@
                 "Find two numbers that multiply to $3$ and add to $-4$",
                 "The numbers are $-1$ and $-3$ (since $(-1)(-3) = 3$ and $-1 + (-3) = -4$)",
                 "Factor: $(w - 1)(w - 3)$"
+              ],
+              "stepLabels": [
+                "Find factors of c",
+                "Identify pair",
+                "Write factored"
               ]
             },
             {
@@ -2100,6 +2398,11 @@
                 "Find two numbers that multiply to $35$ and add to $-12$",
                 "The numbers are $-5$ and $-7$ (since $(-5)(-7) = 35$ and $-5 + (-7) = -12$)",
                 "Factor: $(n - 5)(n - 7)$"
+              ],
+              "stepLabels": [
+                "Find factors of c",
+                "Identify pair",
+                "Write factored"
               ]
             },
             {
@@ -2110,6 +2413,11 @@
                 "Find two numbers that multiply to $24$ and add to $-14$",
                 "The numbers are $-2$ and $-12$ (since $(-2)(-12) = 24$ and $-2 + (-12) = -14$)",
                 "Factor: $(x - 2)(x - 12)$"
+              ],
+              "stepLabels": [
+                "Find factors of c",
+                "Identify pair",
+                "Write factored"
               ]
             },
             {
@@ -2120,6 +2428,11 @@
                 "Find two numbers that multiply to $-15$ and add to $2$",
                 "The numbers are $5$ and $-3$ (since $5 \\times (-3) = -15$ and $5 + (-3) = 2$)",
                 "Factor: $(x + 5)(x - 3)$"
+              ],
+              "stepLabels": [
+                "Find factors of c",
+                "Identify pair",
+                "Write factored"
               ]
             },
             {
@@ -2130,6 +2443,11 @@
                 "Find two numbers that multiply to $-30$ and add to $13$",
                 "The numbers are $15$ and $-2$ (since $15 \\times (-2) = -30$ and $15 + (-2) = 13$)",
                 "Factor: $(y + 15)(y - 2)$"
+              ],
+              "stepLabels": [
+                "Find factors of c",
+                "Identify pair",
+                "Write factored"
               ]
             },
             {
@@ -2140,6 +2458,11 @@
                 "Find two numbers that multiply to $-42$ and add to $-1$",
                 "The numbers are $-7$ and $6$ (since $(-7)(6) = -42$ and $-7 + 6 = -1$)",
                 "Factor: $(v - 7)(v + 6)$"
+              ],
+              "stepLabels": [
+                "Find factors of c",
+                "Identify pair",
+                "Write factored"
               ]
             }
           ],
@@ -2162,6 +2485,11 @@
                 "Find two numbers that multiply to $6$ and add to $7$",
                 "The numbers are $1$ and $6$",
                 "Factor: $(x + 1)(x + 6)$"
+              ],
+              "stepLabels": [
+                "Find factors of c",
+                "Identify pair",
+                "Write factored"
               ]
             },
             {
@@ -2172,6 +2500,11 @@
                 "Find two numbers that multiply to $32$ and add to $-12$",
                 "The numbers are $-4$ and $-8$",
                 "Factor: $(x - 4)(x - 8)$"
+              ],
+              "stepLabels": [
+                "Find factors of c",
+                "Identify pair",
+                "Write factored"
               ]
             },
             {
@@ -2182,6 +2515,11 @@
                 "Find two numbers that multiply to $-14$ and add to $5$",
                 "The numbers are $7$ and $-2$",
                 "Factor: $(x + 7)(x - 2)$"
+              ],
+              "stepLabels": [
+                "Find factors of c",
+                "Identify pair",
+                "Write factored"
               ]
             },
             {
@@ -2192,6 +2530,11 @@
                 "Find two numbers that multiply to $-15$ and add to $-2$",
                 "The numbers are $-5$ and $3$",
                 "Factor: $(x - 5)(x + 3)$"
+              ],
+              "stepLabels": [
+                "Find factors of c",
+                "Identify pair",
+                "Write factored"
               ]
             }
           ],
@@ -2224,6 +2567,12 @@
                 "Expand: $w^2 + 3w - 180 = 0$",
                 "Factor: $(w - 12)(w + 15) = 0$",
                 "Width must be positive: $w = 12$, length $= 15$"
+              ],
+              "stepLabels": [
+                "Set up equation",
+                "Expand",
+                "Factor",
+                "Solve"
               ]
             }
           ],
@@ -2345,6 +2694,11 @@
                 "Factor $x^2 + 5x - 14$: find two numbers that multiply to $-14$ and add to $5$",
                 "The numbers are $7$ and $-2$: $(x + 7)(x - 2) = 0$",
                 "Solutions: $x = -7$ and $x = 2$"
+              ],
+              "stepLabels": [
+                "Factor left side",
+                "Set factors = 0",
+                "Solve"
               ]
             },
             {
@@ -2357,6 +2711,11 @@
                 "Move all terms to one side: $x^2 - x - 56 = 0$",
                 "Factor: find two numbers that multiply to $-56$ and add to $-1$: $7$ and $-8$",
                 "$(x + 7)(x - 8) = 0$, so $x = -7$ and $x = 8$"
+              ],
+              "stepLabels": [
+                "Move to one side",
+                "Factor",
+                "Solve"
               ]
             },
             {
@@ -2369,6 +2728,11 @@
                 "Rearrange: $m^2 - 7m + 10 = 0$",
                 "Factor: find two numbers that multiply to $10$ and add to $-7$: $-2$ and $-5$",
                 "$(m - 2)(m - 5) = 0$, so $m = 2$ and $m = 5$"
+              ],
+              "stepLabels": [
+                "Rearrange",
+                "Factor",
+                "Solve"
               ]
             }
           ],
@@ -2514,6 +2878,11 @@
                 "Factor out GCF of $8$: $8(x^2 - 7x + 6)$",
                 "Factor the trinomial: two numbers that multiply to $6$ and add to $-7$ are $-1$ and $-6$",
                 "Result: $8(x - 1)(x - 6)$"
+              ],
+              "stepLabels": [
+                "Factor GCF",
+                "Find pair",
+                "Write factored"
               ]
             },
             {
@@ -2525,6 +2894,12 @@
                 "The numbers are $10$ and $21$. Rewrite: $14x^2 + 10x + 21x + 15$",
                 "Group: $(14x^2 + 10x) + (21x + 15) = 2x(7x + 5) + 3(7x + 5)$",
                 "Factor: $(7x + 5)(2x + 3)$"
+              ],
+              "stepLabels": [
+                "Find ac product",
+                "Rewrite middle",
+                "Group & factor",
+                "Result"
               ]
             },
             {
@@ -2536,6 +2911,12 @@
                 "The numbers are $-2$ and $-5$. Rewrite: $2x^2 - 2x - 5x + 5$",
                 "Group: $2x(x - 1) - 5(x - 1)$",
                 "Factor: $(2x - 5)(x - 1)$"
+              ],
+              "stepLabels": [
+                "Find ac product",
+                "Rewrite middle",
+                "Group & factor",
+                "Result"
               ]
             }
           ],
@@ -2559,6 +2940,12 @@
                 "The numbers are $-2$ and $-12$. Rewrite: $3x^2 - 2x - 12x + 8$",
                 "Group: $x(3x - 2) - 4(3x - 2)$",
                 "Factor: $(3x - 2)(x - 4)$"
+              ],
+              "stepLabels": [
+                "Find ac product",
+                "Rewrite middle",
+                "Group & factor",
+                "Result"
               ]
             },
             {
@@ -2570,6 +2957,12 @@
                 "The numbers are $1$ and $-20$. Rewrite: $4x^2 + x - 20x - 5$",
                 "Group: $x(4x + 1) - 5(4x + 1)$",
                 "Factor: $(4x + 1)(x - 5)$"
+              ],
+              "stepLabels": [
+                "Find ac product",
+                "Rewrite middle",
+                "Group & factor",
+                "Result"
               ]
             },
             {
@@ -2581,6 +2974,12 @@
                 "The numbers are $9$ and $-8$. Rewrite: $6x^2 + 9x - 8x - 12$",
                 "Group: $3x(2x + 3) - 4(2x + 3)$",
                 "Factor: $(2x + 3)(3x - 4)$"
+              ],
+              "stepLabels": [
+                "Find ac product",
+                "Rewrite middle",
+                "Group & factor",
+                "Result"
               ]
             },
             {
@@ -2592,6 +2991,12 @@
                 "Find $ac = 2 \\times 3 = 6$. Numbers that multiply to $6$ and add to $5$: $2$ and $3$",
                 "Rewrite: $-(2y^2 + 2y + 3y + 3) = -(2y(y + 1) + 3(y + 1))$",
                 "Factor: $-(2y + 3)(y + 1)$"
+              ],
+              "stepLabels": [
+                "Factor out −1",
+                "Find ac product",
+                "Rewrite & group",
+                "Result"
               ]
             },
             {
@@ -2603,6 +3008,12 @@
                 "Find $ac = 5 \\times 1 = 5$. Numbers that multiply to $5$ and add to $-6$: $-1$ and $-5$",
                 "Rewrite: $-(5m^2 - m - 5m + 1) = -(m(5m - 1) - 1(5m - 1))$",
                 "Factor: $-(5m - 1)(m - 1)$"
+              ],
+              "stepLabels": [
+                "Factor out −1",
+                "Find ac product",
+                "Rewrite & group",
+                "Result"
               ]
             },
             {
@@ -2614,6 +3025,12 @@
                 "Find $ac = 3 \\times (-2) = -6$. Numbers that multiply to $-6$ and add to $1$: $3$ and $-2$",
                 "Rewrite: $-(3x^2 + 3x - 2x - 2) = -(3x(x + 1) - 2(x + 1))$",
                 "Factor: $-(3x - 2)(x + 1)$"
+              ],
+              "stepLabels": [
+                "Factor out −1",
+                "Find ac product",
+                "Rewrite & group",
+                "Result"
               ]
             }
           ],
@@ -2646,6 +3063,12 @@
                 "Expand: $2w^2 + 4w - 70 = 0$, divide by $2$: $w^2 + 2w - 35 = 0$",
                 "Factor: $(w + 7)(w - 5) = 0$",
                 "Width must be positive: $w = 5$, length $= 2(5) + 4 = 14$"
+              ],
+              "stepLabels": [
+                "Set up equation",
+                "Simplify",
+                "Factor",
+                "Solve"
               ]
             }
           ],
@@ -2759,6 +3182,12 @@
                 "Find numbers that multiply to $-6$ and add to $5$: $6$ and $-1$",
                 "Rewrite: $2x^2 + 6x - x - 3 = 2x(x + 3) - 1(x + 3) = (2x - 1)(x + 3) = 0$",
                 "Solutions: $x = \\frac{1}{2}$ and $x = -3$"
+              ],
+              "stepLabels": [
+                "Factor left side",
+                "Find pair",
+                "Group & factor",
+                "Solve"
               ]
             },
             {
@@ -2772,6 +3201,12 @@
                 "$ac = 3 \\times (-2) = -6$. Numbers that multiply to $-6$ and add to $-5$: $1$ and $-6$",
                 "Rewrite: $3x^2 + x - 6x - 2 = x(3x + 1) - 2(3x + 1) = (x - 2)(3x + 1) = 0$",
                 "Solutions: $x = 2$ and $x = -\\frac{1}{3}$"
+              ],
+              "stepLabels": [
+                "Move to one side",
+                "Find pair",
+                "Group & factor",
+                "Solve"
               ]
             },
             {
@@ -2785,6 +3220,12 @@
                 "Rewrite: $6x^2 + 3x - 2x - 1 = 3x(2x + 1) - 1(2x + 1)$",
                 "Factor: $(3x - 1)(2x + 1) = 0$",
                 "Solutions: $x = \\frac{1}{3}$ and $x = -\\frac{1}{2}$"
+              ],
+              "stepLabels": [
+                "Find ac product",
+                "Rewrite & group",
+                "Factor",
+                "Solve"
               ]
             }
           ],
@@ -2971,6 +3412,11 @@
                 "Recognize $x^2 - 36 = x^2 - 6^2$ (difference of squares)",
                 "Apply $a^2 - b^2 = (a+b)(a-b)$",
                 "Factor: $(x + 6)(x - 6)$"
+              ],
+              "stepLabels": [
+                "Recognize a² − b²",
+                "Identify a, b",
+                "Factor"
               ]
             },
             {
@@ -2980,6 +3426,10 @@
               "steps": [
                 "Rewrite as $10^2 - m^2$ (difference of squares)",
                 "Factor: $(10 + m)(10 - m)$"
+              ],
+              "stepLabels": [
+                "Recognize a² − b²",
+                "Factor"
               ]
             },
             {
@@ -2989,6 +3439,10 @@
               "steps": [
                 "Recognize $9n^2 - 16 = (3n)^2 - 4^2$ (difference of squares)",
                 "Factor: $(3n + 4)(3n - 4)$"
+              ],
+              "stepLabels": [
+                "Recognize a² − b²",
+                "Factor"
               ]
             },
             {
@@ -2998,6 +3452,10 @@
               "steps": [
                 "Recognize $16b^2 - 49 = (4b)^2 - 7^2$ (difference of squares)",
                 "Factor: $(4b + 7)(4b - 7)$"
+              ],
+              "stepLabels": [
+                "Recognize a² − b²",
+                "Factor"
               ]
             },
             {
@@ -3007,6 +3465,10 @@
               "steps": [
                 "Rewrite as $(36 + 34)(36 - 34)$ using $a^2 - b^2 = (a+b)(a-b)$",
                 "Calculate: $(70)(2) = 140$"
+              ],
+              "stepLabels": [
+                "Rewrite as (a+b)(a−b)",
+                "Calculate"
               ]
             },
             {
@@ -3016,6 +3478,10 @@
               "steps": [
                 "Rewrite as $(47 + 44)(47 - 44)$ using $a^2 - b^2 = (a+b)(a-b)$",
                 "Calculate: $(91)(3) = 273$"
+              ],
+              "stepLabels": [
+                "Rewrite as (a+b)(a−b)",
+                "Calculate"
               ]
             },
             {
@@ -3025,6 +3491,10 @@
               "steps": [
                 "Rewrite as $(55 + 50)(55 - 50)$ using $a^2 - b^2 = (a+b)(a-b)$",
                 "Calculate: $(105)(5) = 525$"
+              ],
+              "stepLabels": [
+                "Rewrite as (a+b)(a−b)",
+                "Calculate"
               ]
             },
             {
@@ -3034,6 +3504,10 @@
               "steps": [
                 "Rewrite as $(28 + 24)(28 - 24)$ using $a^2 - b^2 = (a+b)(a-b)$",
                 "Calculate: $(52)(4) = 208$"
+              ],
+              "stepLabels": [
+                "Rewrite as (a+b)(a−b)",
+                "Calculate"
               ]
             }
           ],
@@ -3056,6 +3530,11 @@
                 "Check: $m^2 - 2m + 1 = m^2 - 2(m)(1) + 1^2$",
                 "This matches $a^2 - 2ab + b^2 = (a - b)^2$",
                 "Factor: $(m - 1)^2$"
+              ],
+              "stepLabels": [
+                "Check pattern",
+                "Match (a−b)²",
+                "Factor"
               ]
             },
             {
@@ -3066,6 +3545,11 @@
                 "Check: $d^2 - 10d + 25 = d^2 - 2(d)(5) + 5^2$",
                 "This matches $a^2 - 2ab + b^2 = (a - b)^2$",
                 "Factor: $(d - 5)^2$"
+              ],
+              "stepLabels": [
+                "Check pattern",
+                "Match (a−b)²",
+                "Factor"
               ]
             },
             {
@@ -3076,6 +3560,11 @@
                 "Factor out GCF of $9$: $9(z^2 + 4z + 4)$",
                 "Check: $z^2 + 4z + 4 = z^2 + 2(z)(2) + 2^2 = (z + 2)^2$",
                 "Factor: $9(z + 2)^2$"
+              ],
+              "stepLabels": [
+                "Factor GCF",
+                "Check pattern",
+                "Factor"
               ]
             },
             {
@@ -3085,6 +3574,10 @@
               "steps": [
                 "Factor: $a^2 + 6a + 9 = (a + 3)^2 = 0$",
                 "Solve: $a + 3 = 0$, so $a = -3$"
+              ],
+              "stepLabels": [
+                "Factor",
+                "Solve"
               ]
             },
             {
@@ -3094,6 +3587,10 @@
               "steps": [
                 "Recognize perfect square: $(w - \\frac{7}{6})^2 = 0$",
                 "Solve: $w = \\frac{7}{6}$"
+              ],
+              "stepLabels": [
+                "Recognize pattern",
+                "Solve"
               ]
             },
             {
@@ -3113,6 +3610,11 @@
                 "Factor: $n^2 - 81 = (n + 9)(n - 9) = 0$",
                 "Set each factor to zero: $n + 9 = 0$ or $n - 9 = 0$",
                 "Solutions: $n = -9$ and $n = 9$"
+              ],
+              "stepLabels": [
+                "Factor",
+                "Set = 0",
+                "Solve"
               ]
             }
           ],
@@ -3135,6 +3637,11 @@
                 "Check: $n^2 + 8n + 16 = n^2 + 2(n)(4) + 4^2$",
                 "This matches $(a + b)^2$ pattern",
                 "Factor: $(n + 4)^2$"
+              ],
+              "stepLabels": [
+                "Check pattern",
+                "Match (a+b)²",
+                "Factor"
               ]
             },
             {
@@ -3144,6 +3651,10 @@
               "steps": [
                 "Recognize $x^2 - 25 = x^2 - 5^2$ (difference of squares)",
                 "Factor: $(x + 5)(x - 5)$"
+              ],
+              "stepLabels": [
+                "Recognize a² − b²",
+                "Factor"
               ]
             }
           ],
@@ -3166,6 +3677,11 @@
                 "Set height to $0$: $-16t^2 + 32 = 0$",
                 "Solve: $16t^2 = 32$, so $t^2 = 2$",
                 "Take positive root: $t = \\sqrt{2}$"
+              ],
+              "stepLabels": [
+                "Set h = 0",
+                "Isolate t²",
+                "Solve"
               ]
             }
           ],
@@ -3272,6 +3788,11 @@
                 "Factor: $x^2 - 100 = (x + 10)(x - 10) = 0$",
                 "Set each factor to zero: $x + 10 = 0$ or $x - 10 = 0$",
                 "Solutions: $x = -10$ and $x = 10$"
+              ],
+              "stepLabels": [
+                "Factor",
+                "Set = 0",
+                "Solve"
               ]
             },
             {
@@ -3284,6 +3805,11 @@
                 "Factor: $4x^2 - 49 = (2x + 7)(2x - 7) = 0$",
                 "Set each factor to zero: $2x + 7 = 0$ or $2x - 7 = 0$",
                 "Solutions: $x = -\\frac{7}{2}$ and $x = \\frac{7}{2}$"
+              ],
+              "stepLabels": [
+                "Factor",
+                "Set = 0",
+                "Solve"
               ]
             },
             {
@@ -3295,6 +3821,10 @@
               "steps": [
                 "Recognize perfect square: $x^2 + 12x + 36 = (x + 6)^2 = 0$",
                 "Solve: $x + 6 = 0$, so $x = -6$"
+              ],
+              "stepLabels": [
+                "Factor",
+                "Solve"
               ]
             }
           ],
@@ -3430,6 +3960,11 @@
                 "Group in pairs: $(a^3 + 3a^2) + (a + 3)$",
                 "Factor each group: $a^2(a + 3) + 1(a + 3)$",
                 "Factor out common binomial: $(a^2 + 1)(a + 3)$"
+              ],
+              "stepLabels": [
+                "Group pairs",
+                "Factor each",
+                "Common binomial"
               ]
             },
             {
@@ -3440,6 +3975,11 @@
                 "Rearrange to group: $(y^2 + yx) + (2y + 2x)$",
                 "Factor each group: $y(y + x) + 2(y + x)$",
                 "Factor out common binomial: $(y + 2)(y + x)$"
+              ],
+              "stepLabels": [
+                "Rearrange & group",
+                "Factor each",
+                "Common binomial"
               ]
             }
           ],
@@ -3462,6 +4002,11 @@
                 "Factor out GCF of $3x$: $3x(x^2 - 4)$",
                 "Recognize $x^2 - 4 = (x+2)(x-2)$ (difference of squares)",
                 "Result: $3x(x + 2)(x - 2)$"
+              ],
+              "stepLabels": [
+                "Factor GCF",
+                "Recognize pattern",
+                "Factor completely"
               ]
             },
             {
@@ -3472,6 +4017,11 @@
                 "Factor out GCF of $2y$: $2y(y^2 - 6y + 9)$",
                 "Recognize $y^2 - 6y + 9 = (y - 3)^2$ (perfect square)",
                 "Result: $2y(y - 3)^2$"
+              ],
+              "stepLabels": [
+                "Factor GCF",
+                "Recognize pattern",
+                "Factor completely"
               ]
             },
             {
@@ -3482,6 +4032,11 @@
                 "Factor out GCF of $m$: $m(m^2 - 2m - 8)$",
                 "Factor the trinomial: two numbers that multiply to $-8$ and add to $-2$ are $-4$ and $2$",
                 "Result: $m(m - 4)(m + 2)$"
+              ],
+              "stepLabels": [
+                "Factor GCF",
+                "Find pair",
+                "Factor completely"
               ]
             }
           ],
@@ -3514,6 +4069,12 @@
                 "Recognize $w^2 - 8w + 16 = (w - 4)^2$ (perfect square)",
                 "Set factors to zero: $w = 0$ or $(w - 4)^2 = 0$",
                 "Solutions: $w = 0$ and $w = 4$"
+              ],
+              "stepLabels": [
+                "Factor GCF",
+                "Recognize pattern",
+                "Set = 0",
+                "Solve"
               ]
             },
             {
@@ -3538,6 +4099,12 @@
                 "Recognize $x^2 - 25 = (x+5)(x-5)$ (difference of squares)",
                 "Set factors to zero: $x = 0$, $x + 5 = 0$, $x - 5 = 0$",
                 "Solutions: $x = 0$, $x = -5$, $x = 5$"
+              ],
+              "stepLabels": [
+                "Factor GCF",
+                "Recognize pattern",
+                "Set = 0",
+                "Solve"
               ]
             },
             {
@@ -3562,6 +4129,12 @@
                 "Factor the trinomial: two numbers that multiply to $12$ and add to $-7$ are $-3$ and $-4$",
                 "Factored: $c(c - 3)(c - 4) = 0$",
                 "Solutions: $c = 0$, $c = 3$, $c = 4$"
+              ],
+              "stepLabels": [
+                "Factor GCF",
+                "Find pair",
+                "Full factored",
+                "Solve"
               ]
             }
           ],
@@ -3584,6 +4157,11 @@
                 "Group in pairs: $(x^3 + 5x^2) + (x + 5)$",
                 "Factor each group: $x^2(x + 5) + 1(x + 5)$",
                 "Factor out common binomial: $(x + 5)(x^2 + 1)$"
+              ],
+              "stepLabels": [
+                "Group pairs",
+                "Factor each",
+                "Common binomial"
               ]
             },
             {
@@ -3608,6 +4186,12 @@
                 "Recognize $4x^2 - 1 = (2x+1)(2x-1)$ (difference of squares)",
                 "Set factors to zero: $x = 0$, $2x + 1 = 0$, $2x - 1 = 0$",
                 "Solutions: $x = 0$, $x = -\\frac{1}{2}$, $x = \\frac{1}{2}$"
+              ],
+              "stepLabels": [
+                "Factor GCF",
+                "Recognize pattern",
+                "Set = 0",
+                "Solve"
               ]
             }
           ],
@@ -3742,6 +4326,11 @@
                 "Current form: $3(x^2 - 4)$. Can $x^2 - 4$ be factored further?",
                 "Yes! $x^2 - 4 = (x + 2)(x - 2)$ (difference of squares)",
                 "Completely factored: $3(x + 2)(x - 2)$"
+              ],
+              "stepLabels": [
+                "Check factors",
+                "Factor further",
+                "Result"
               ]
             },
             {
@@ -3754,6 +4343,11 @@
                 "Current form: $2x(x^2 + 1)$. Can $x^2 + 1$ be factored further?",
                 "$x^2 + 1$ is a sum of squares — it does not factor over the reals",
                 "Already complete: $2x(x^2 + 1)$"
+              ],
+              "stepLabels": [
+                "Check factors",
+                "Sum of squares?",
+                "Already complete"
               ]
             },
             {
@@ -3766,6 +4360,11 @@
                 "Current form: $5x^2(x - 7)$. Can any factor be factored further?",
                 "$5$ is prime, $x^2$ has no further factors, and $(x - 7)$ is linear",
                 "Already complete: $5x^2(x - 7)$"
+              ],
+              "stepLabels": [
+                "Check factors",
+                "Any factorable?",
+                "Already complete"
               ]
             }
           ],

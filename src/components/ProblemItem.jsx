@@ -185,7 +185,7 @@ const AutomationIcon = () => (
   </svg>
 )
 
-export default function ProblemItem({ num, text, answer, info, hint, steps, maxRetries, problemKey, progress, onUpdateProgress, disputeMode, enableHints, enableAutomation }) {
+export default function ProblemItem({ num, text, answer, info, hint, steps, stepLabels, maxRetries, problemKey, progress, onUpdateProgress, disputeMode, enableHints, enableAutomation }) {
   const parts = toAnswerParts(answer)
   const rawSaved = progress[problemKey]
   const saved = rawSaved
@@ -325,7 +325,7 @@ export default function ProblemItem({ num, text, answer, info, hint, steps, maxR
 
   const handleOpenAutomation = () => {
     if (!localState.automationUsed) {
-      const newState = { ...localState, automationUsed: true, automationDeduction: 0.5, automationStepStates: null }
+      const newState = { ...localState, automationUsed: true, automationDeduction: 0, automationStepStates: null }
       setLocalState(newState)
       onUpdateProgress(problemKey, newState)
     }
@@ -461,6 +461,7 @@ export default function ProblemItem({ num, text, answer, info, hint, steps, maxR
             isOpen={showAutomationModal}
             onClose={() => setShowAutomationModal(false)}
             steps={steps}
+            stepLabels={stepLabels}
             hint={hint}
             answer={answer}
             text={text}

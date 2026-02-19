@@ -92,6 +92,7 @@ export default function MonitoringProgress({ mp, maxRetries, progress = {}, onUp
             enableHints={enableHints}
             enableAutomation={enableAutomation}
             steps={p.steps}
+            stepLabels={p.stepLabels}
           />
         ))}
       </div>
