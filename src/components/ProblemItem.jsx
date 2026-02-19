@@ -103,12 +103,17 @@ function numericallyEquivalent(exprA, exprB) {
   return validCount >= 5 && matchCount === validCount
 }
 
-function answersMatch(userAnswer, correctAnswer) {
+function answersMatch(userAnswer, correctAnswer, problemText) {
   // Strip prefixes like "Not complete: " from answer strings
   const cleanCorrect = correctAnswer.replace(/^(Not complete|Incomplete|Complete):\s*/i, '')
   const normUser = normalizeAnswer(userAnswer)
   const normCorrect = normalizeAnswer(cleanCorrect)
   if (normUser === normCorrect) return true
+  // If answer is "Complete", also accept the original problem expression re-typed
+  if (/^complete$/i.test(cleanCorrect.trim()) && problemText) {
+    const normProblem = normalizeAnswer(problemText)
+    if (normUser === normProblem || factorsMatch(normUser, normProblem) || numericallyEquivalent(normUser, normProblem)) return true
+  }
   // Also match without variable prefix (e.g. "0" matches "x=0")
   if (stripVariable(normUser) === stripVariable(normCorrect)) return true
   if (normUser === stripVariable(normCorrect)) return true
@@ -129,9 +134,9 @@ function answersMatch(userAnswer, correctAnswer) {
 }
 
 // For multi-solution problems, check if user answers match correct answers in any order
-function checkMultiSolutionAnswers(userInputs, parts) {
+function checkMultiSolutionAnswers(userInputs, parts, problemText) {
   if (parts.length <= 1) {
-    return parts.map((part, i) => answersMatch(userInputs[i] || '', part.value))
+    return parts.map((part, i) => answersMatch(userInputs[i] || '', part.value, problemText))
   }
   // Try to find best assignment: each user input matched to a correct answer
   const n = parts.length
@@ -142,7 +147,7 @@ function checkMultiSolutionAnswers(userInputs, parts) {
   // First pass: find exact matches
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < n; j++) {
-      if (!used[j] && answersMatch(userInputs[i] || '', parts[j].value)) {
+      if (!used[j] && answersMatch(userInputs[i] || '', parts[j].value, problemText)) {
         results[i] = true
         used[j] = true
         assignment[i] = j
@@ -242,7 +247,7 @@ export default function ProblemItem({ num, text, answer, info, hint, maxRetries,
     e.preventDefault()
     if (inputs.every(v => !v.trim())) return
 
-    const results = checkMultiSolutionAnswers(inputs, parts)
+    const results = checkMultiSolutionAnswers(inputs, parts, text)
     const allCorrect = results.every(Boolean)
     const newAttempts = localState.attempts + 1
     const cycleStart = localState.cycleStart || 0
