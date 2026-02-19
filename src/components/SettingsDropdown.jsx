@@ -48,6 +48,7 @@ export default function SettingsDropdown({ settings, onUpdate }) {
   const [showPasswordPrompt, setShowPasswordPrompt] = useState(false)
   const [passwordInput, setPasswordInput] = useState('')
   const [passwordError, setPasswordError] = useState(false)
+  const [showHintConfirm, setShowHintConfirm] = useState(false)
   const ref = useRef(null)
 
   useEffect(() => {
@@ -110,6 +111,50 @@ export default function SettingsDropdown({ settings, onUpdate }) {
             checked={settings.enableMarkReviewed === true}
             onChange={(v) => onUpdate({ enableMarkReviewed: v })}
           />
+
+          {/* Enable Hints toggle */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="text-sm">Enable Hints</span>
+              <button
+                onClick={() => {
+                  if (settings.enableHints) {
+                    onUpdate({ enableHints: false })
+                  } else {
+                    setShowHintConfirm(true)
+                  }
+                }}
+                className={`relative w-9 h-5 rounded-full transition-colors ${settings.enableHints ? 'bg-amber-500' : 'bg-gray-300 dark:bg-gray-600'}`}
+              >
+                <span className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${settings.enableHints ? 'translate-x-4' : ''}`} />
+              </button>
+            </div>
+            {showHintConfirm && !settings.enableHints && (
+              <div className="rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50/80 dark:bg-amber-950/30 p-2.5 space-y-2">
+                <p className="text-xs text-amber-700 dark:text-amber-400">Viewing a hint will deduct <strong>1/4 point</strong> from your score for that problem. Do you want to enable hints?</p>
+                <div className="flex gap-1.5">
+                  <button
+                    onClick={() => {
+                      onUpdate({ enableHints: true })
+                      setShowHintConfirm(false)
+                    }}
+                    className="px-2.5 py-1 text-xs rounded bg-amber-500 text-white hover:bg-amber-600 transition-colors font-medium"
+                  >
+                    Yes, enable
+                  </button>
+                  <button
+                    onClick={() => setShowHintConfirm(false)}
+                    className="px-2.5 py-1 text-xs rounded border border-gray-300 dark:border-gray-600 text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            )}
+            {settings.enableHints && (
+              <p className="text-xs text-amber-600 dark:text-amber-400">Active — viewing hints deducts 1/4 point</p>
+            )}
+          </div>
 
           {/* Correction score */}
           <div>

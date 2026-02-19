@@ -56,8 +56,11 @@ export default function SectionCard({ section, isReviewed, problems, onReport, s
               const idx = state.history.findIndex(h => h.correct)
               if (idx >= 0) attempts = idx + 1
             }
-            const s = computeScore(attempts, correctionScore)
-            if (s !== null) pts += s
+            let s = computeScore(attempts, correctionScore)
+            if (s !== null) {
+              if (state.hintUsed) s = Math.max(0, s - 0.25)
+              pts += s
+            }
           }
         })
       })

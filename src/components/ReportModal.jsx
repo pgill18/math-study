@@ -56,10 +56,13 @@ function ProblemRow({ row }) {
         <MathText>{shortProblem(row.text)}</MathText>
       </td>
       <td className="py-1.5 px-2">
-        {row.status === 'correct' && <span className="text-emerald-600 dark:text-emerald-400 text-xs font-medium">Correct</span>}
-        {row.status === 'revealed' && <span className="text-red-500 text-xs font-medium">Revealed</span>}
-        {row.status === 'incorrect' && <span className="text-orange-500 text-xs font-medium">In progress</span>}
-        {row.status === 'unanswered' && <span className="text-gray-400 dark:text-gray-600 text-xs">Unanswered</span>}
+        <span className="flex items-center gap-1">
+          {row.status === 'correct' && <span className="text-emerald-600 dark:text-emerald-400 text-xs font-medium">Correct</span>}
+          {row.status === 'revealed' && <span className="text-red-500 text-xs font-medium">Revealed</span>}
+          {row.status === 'incorrect' && <span className="text-orange-500 text-xs font-medium">In progress</span>}
+          {row.status === 'unanswered' && <span className="text-gray-400 dark:text-gray-600 text-xs">Unanswered</span>}
+          {row.hintUsed && <span className="text-amber-500 text-[10px]" title="Hint used (-1/4)">💡</span>}
+        </span>
       </td>
       <td className={`py-1.5 px-2 text-center text-xs font-mono ${row.attempts > 1 ? attemptsTextColor(row.attempts) + ' font-bold' : 'text-gray-500'}`}>
         {row.attempts > 0 ? row.attempts : '—'}
@@ -102,14 +105,19 @@ export default function ReportModal({ sections, problems, settings, onClose }) {
             }
           }
 
-          const score = status === 'correct' ? computeScore(attempts, corrScore) :
+          let score = status === 'correct' ? computeScore(attempts, corrScore) :
                         status === 'revealed' ? 0 : null
+          const hintUsed = state && state.hintUsed
+
+          if (score !== null && hintUsed && score > 0) {
+            score = Math.max(0, score - 0.25)
+          }
 
           total++
           if (status !== 'unanswered') answered++
           if (score !== null) earned += score
 
-          rows.push({ num: p.num, text: p.text, attempts, status, score })
+          rows.push({ num: p.num, text: p.text, attempts, status, score, hintUsed })
         })
         groups.push({ instruction: mp.instruction || '', rows })
       })
