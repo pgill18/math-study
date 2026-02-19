@@ -533,7 +533,7 @@ export default function ProblemItem({ num, text, answer, info, hint, maxRetries,
                       )}
                       <div className={`pl-3 border-l-2 text-sm ${partCorrect ? 'border-emerald-400 dark:border-emerald-600 text-emerald-700 dark:text-emerald-400' : 'border-blue-400 dark:border-blue-600 text-blue-700 dark:text-blue-400'}`}>
                         <span className="font-medium">{partCorrect ? 'Correct! ' : 'Answer: '}</span>
-                        <MathText>{part.value}</MathText>
+                        <MathText>{part.value.replace(/^(Not complete|Incomplete|Complete):\s*/i, '')}</MathText>
                       </div>
                     </div>
                   </div>
