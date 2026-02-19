@@ -871,7 +871,8 @@
             {
               "num": 8,
               "text": "Describe how to use special product patterns to find $21^2$.",
-              "answer": "$21^2 = (20 + 1)^2 = 400 + 40 + 1 = 441$"
+              "answer": "$441$",
+              "hint": "Use $(20 + 1)^2 = 400 + 40 + 1 = 441$"
             }
           ]
         },
@@ -972,21 +973,21 @@
             {
               "num": 1,
               "text": "$29 \\times 31$",
-              "answer": "$899$ (Use $(30-1)(30+1) = 900-1$)",
+              "answer": "$899$",
               "info": "Mental math using sum-and-difference pattern",
               "hint": "Rewrite as $(30-1)(30+1)$. This is a difference of squares: $30^2 - 1^2$."
             },
             {
               "num": 2,
               "text": "$52^2$",
-              "answer": "$2704$ (Use $(50+2)^2 = 2500+200+4$)",
+              "answer": "$2704$",
               "info": "Mental math using square of binomial",
               "hint": "Rewrite as $(50+2)^2$. Apply $(a+b)^2 = a^2 + 2ab + b^2$ with $a=50$, $b=2$."
             },
             {
               "num": 3,
               "text": "$48 \\times 52$",
-              "answer": "$2496$ (Use $(50-2)(50+2) = 2500-4$)",
+              "answer": "$2496$",
               "info": "Mental math using sum-and-difference",
               "hint": "Rewrite as $(50-2)(50+2) = 50^2 - 2^2 = 2500 - 4$."
             }
@@ -1333,7 +1334,7 @@
             {
               "num": 3,
               "text": "A ball is thrown from a height of 6 ft. Its height $h = -16t^2 + 20t + 6$. When does it hit the ground? (Hint: Factor $-2(8t^2 - 10t - 3)$)",
-              "answer": "$t = 1.5$ seconds",
+              "answer": "$t = 1.5$",
               "info": "Real-life projectile problem requiring factoring",
               "hint": "Set $h = 0$ (ground level). Factor out $-2$, then factor the quadratic. Only positive time values make sense."
             }
