@@ -104,6 +104,18 @@ export default function ProblemItem({ num, text, answer, info, hint, maxRetries,
   const historyRef1 = useRef(null)
   const historyRef2 = useRef(null)
 
+  // Reset local state when progress is cleared (e.g. Reset All)
+  useEffect(() => {
+    if (!rawSaved) {
+      const blank = { attempts: 0, status: 'unanswered', userAnswers: parts.map(() => ''), history: [] }
+      setLocalState(blank)
+      setInputs(parts.map(() => ''))
+      setShowHistory(false)
+      setShowHintPopup(false)
+      setShowHintBtn(false)
+    }
+  }, [rawSaved])
+
   useEffect(() => {
     if (!showHintPopup && !showHistory && !showHintBtn) return
     const handler = (e) => {
