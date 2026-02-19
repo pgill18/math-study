@@ -176,7 +176,7 @@ export default function SettingsDropdown({ settings, onUpdate }) {
             </div>
             {showAutoConfirm && !settings.enableAutomation && (
               <div className="rounded-lg border border-indigo-200 dark:border-indigo-800 bg-indigo-50/80 dark:bg-indigo-950/30 p-2.5 space-y-2">
-                <p className="text-xs text-indigo-700 dark:text-indigo-400">Using automation deducts <strong>1/2 point</strong> base + <strong>1/10 point</strong> per revealed step. Do you want to enable automation?</p>
+                <p className="text-xs text-indigo-700 dark:text-indigo-400">Revealing steps costs <strong>0.1–0.4 pts</strong> each (later steps cost more). Posting the answer costs <strong>0.2 pts</strong>. Typing steps yourself is free. Enable automation?</p>
                 <div className="flex gap-1.5">
                   <button
                     onClick={() => {
@@ -197,7 +197,7 @@ export default function SettingsDropdown({ settings, onUpdate }) {
               </div>
             )}
             {settings.enableAutomation && (
-              <p className="text-xs text-indigo-600 dark:text-indigo-400">Active — automation deducts 1/2 point + per step</p>
+              <p className="text-xs text-indigo-600 dark:text-indigo-400">Active — step costs increase as you reveal more</p>
             )}
           </div>
 
