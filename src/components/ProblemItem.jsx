@@ -60,6 +60,49 @@ function factorsMatch(a, b) {
   return parensA.every((f, i) => f === parensB[i])
 }
 
+// Evaluate a math expression string at a given x value
+// Supports: numbers, x, +, -, *, ^, ², ³, parentheses, implicit multiplication
+function evalExpr(expr, xVal) {
+  try {
+    let s = expr
+      .replace(/²/g, '^2')
+      .replace(/³/g, '^3')
+      .replace(/sqrt\(([^)]+)\)/g, 'Math.sqrt($1)')
+    // Insert * for implicit multiplication: 2x, 2(, )(, x(, )x, number-after-paren
+    s = s.replace(/(\d)([a-wyz])/gi, '$1*$2')        // 2x → 2*x
+    s = s.replace(/(\d)\(/g, '$1*(')                   // 2( → 2*(
+    s = s.replace(/\)\(/g, ')*(')                      // )( → )*(
+    s = s.replace(/([a-wyz])\(/gi, '$1*(')             // x( → x*(
+    s = s.replace(/\)([a-wyz\d])/gi, ')*$1')           // )x → )*x, )2 → )*2
+    // Replace ^ with ** for JS exponentiation
+    s = s.replace(/\^/g, '**')
+    // Replace x with value
+    s = s.replace(/x/gi, `(${xVal})`)
+    // Evaluate safely
+    const result = Function('"use strict"; return (' + s + ')')()
+    return typeof result === 'number' && isFinite(result) ? result : null
+  } catch {
+    return null
+  }
+}
+
+// Check if two expressions are numerically equivalent polynomials
+// Test at several points - if they agree at enough points, they're equivalent
+function numericallyEquivalent(exprA, exprB) {
+  const testPoints = [0, 1, -1, 2, -2, 3, 0.5, -0.5]
+  let matchCount = 0
+  let validCount = 0
+  for (const x of testPoints) {
+    const a = evalExpr(exprA, x)
+    const b = evalExpr(exprB, x)
+    if (a === null || b === null) continue
+    validCount++
+    if (Math.abs(a - b) < 1e-9) matchCount++
+  }
+  // Need at least 5 valid test points and all must match
+  return validCount >= 5 && matchCount === validCount
+}
+
 function answersMatch(userAnswer, correctAnswer) {
   const normUser = normalizeAnswer(userAnswer)
   const normCorrect = normalizeAnswer(correctAnswer)
@@ -76,6 +119,10 @@ function answersMatch(userAnswer, correctAnswer) {
   if (stripVariable(stripped) === stripVariable(strippedUser)) return true
   if (strippedUser === stripVariable(stripped)) return true
   if (factorsMatch(strippedUser, stripped)) return true
+  // Fallback: numerical evaluation for equivalent expressions
+  // e.g. (x-2)(x+2)(x-1)(x+1) vs (x²-1)(x²-4)
+  if (numericallyEquivalent(normUser, normCorrect)) return true
+  if (numericallyEquivalent(strippedUser, stripped)) return true
   return false
 }
 
