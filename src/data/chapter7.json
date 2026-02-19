@@ -2674,14 +2674,14 @@
             {
               "num": 1,
               "text": "$3(x^2 - 4)$",
-              "answer": "Not complete: $3(x + 2)(x - 2)$",
-              "info": "Recognizing incomplete factoring",
+              "answer": "$3(x + 2)(x - 2)$",
+              "info": "Recognizing incomplete factoring — original expression is not fully factored",
               "hint": "Check if any factor can be factored further. $x^2 - 4$ is a difference of squares! But $x^2 + 1$ cannot be factored over integers."
             },
             {
               "num": 2,
               "text": "$2x(x^2 + 1)$",
-              "answer": "Complete (cannot factor further over integers)",
+              "answer": "Complete",
               "info": "Identifying when factoring IS complete",
               "hint": "$x^2 + 1$ has no real factors (sum of squares doesn't factor). This one is already completely factored."
             },
