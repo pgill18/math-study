@@ -60,7 +60,7 @@ export default function MonitoringProgress({ mp, maxRetries, progress = {}, onUp
             <InfoIcon />
           </button>
         </div>
-        {allDone && (
+        {completedProblems.length > 0 && (
           <button
             onClick={() => onResetAll(allKeys)}
             className="text-xs px-3 py-1 rounded-full border border-blue-300 dark:border-blue-700 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
