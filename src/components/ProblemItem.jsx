@@ -104,8 +104,10 @@ function numericallyEquivalent(exprA, exprB) {
 }
 
 function answersMatch(userAnswer, correctAnswer) {
+  // Strip prefixes like "Not complete: " from answer strings
+  const cleanCorrect = correctAnswer.replace(/^(Not complete|Incomplete|Complete):\s*/i, '')
   const normUser = normalizeAnswer(userAnswer)
-  const normCorrect = normalizeAnswer(correctAnswer)
+  const normCorrect = normalizeAnswer(cleanCorrect)
   if (normUser === normCorrect) return true
   // Also match without variable prefix (e.g. "0" matches "x=0")
   if (stripVariable(normUser) === stripVariable(normCorrect)) return true
@@ -113,7 +115,7 @@ function answersMatch(userAnswer, correctAnswer) {
   if (stripVariable(normUser) === normCorrect) return true
   // Check if factors match in any order (e.g. 2(x+4)(x+3) = 2(x+3)(x+4))
   if (factorsMatch(normUser, normCorrect)) return true
-  const stripped = correctAnswer.replace(/\$/g, '').replace(/\\/g, '').replace(/\s/g, '').toLowerCase()
+  const stripped = cleanCorrect.replace(/\$/g, '').replace(/\\/g, '').replace(/\s/g, '').toLowerCase()
   const strippedUser = userAnswer.replace(/\$/g, '').replace(/\\/g, '').replace(/\s/g, '').toLowerCase()
   if (stripped === strippedUser) return true
   if (stripVariable(stripped) === stripVariable(strippedUser)) return true
