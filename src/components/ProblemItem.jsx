@@ -273,14 +273,14 @@ export default function ProblemItem({ num, text, answer, info, hint, steps, maxR
     const historyEntry = { answers: [...inputs], results: [...results], correct: allCorrect }
     const history = [...(localState.history || []), historyEntry]
 
-    const newState = { attempts: newAttempts, cycleStart, status: newStatus, userAnswers: [...inputs], results, history }
+    const newState = { ...localState, attempts: newAttempts, cycleStart, status: newStatus, userAnswers: [...inputs], results, history }
     setLocalState(newState)
     onUpdateProgress(problemKey, newState)
   }
 
   const handleReset = () => {
-    // Keep accumulated attempts and history — only Reset All clears them
-    const newState = { attempts: localState.attempts, cycleStart: localState.attempts, status: 'unanswered', userAnswers: parts.map(() => ''), results: null, history: localState.history || [] }
+    // Keep accumulated attempts, history, and automation/hint state — only Reset All clears them
+    const newState = { ...localState, attempts: localState.attempts, cycleStart: localState.attempts, status: 'unanswered', userAnswers: parts.map(() => ''), results: null, history: localState.history || [] }
     setLocalState(newState)
     setInputs(parts.map(() => ''))
     onUpdateProgress(problemKey, newState)
