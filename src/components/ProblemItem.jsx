@@ -131,6 +131,33 @@ function answersMatch(userAnswer, correctAnswer, problemText) {
   // e.g. (x-2)(x+2)(x-1)(x+1) vs (x²-1)(x²-4)
   if (numericallyEquivalent(normUser, normCorrect)) return true
   if (numericallyEquivalent(strippedUser, stripped)) return true
+  // Comma-separated multi-solution answers in any order
+  // e.g. "x=-3,x=1/2" matches "x=1/2,x=-3"
+  if (normUser.includes(',') && normCorrect.includes(',')) {
+    const userParts = normUser.split(',').map(s => s.trim()).filter(Boolean)
+    const correctParts = normCorrect.split(',').map(s => s.trim()).filter(Boolean)
+    if (userParts.length === correctParts.length && userParts.length > 1) {
+      // Try bipartite matching: each user part matched to a correct part
+      const usedParts = new Array(correctParts.length).fill(false)
+      let allMatched = true
+      for (const up of userParts) {
+        let found = false
+        for (let j = 0; j < correctParts.length; j++) {
+          if (!usedParts[j]) {
+            const upNorm = stripVariable(up)
+            const cpNorm = stripVariable(correctParts[j])
+            if (up === correctParts[j] || upNorm === cpNorm || factorsMatch(up, correctParts[j]) || numericallyEquivalent(up, correctParts[j])) {
+              usedParts[j] = true
+              found = true
+              break
+            }
+          }
+        }
+        if (!found) { allMatched = false; break }
+      }
+      if (allMatched) return true
+    }
+  }
   return false
 }
 
