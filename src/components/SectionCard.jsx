@@ -59,7 +59,7 @@ export default function SectionCard({ section, isReviewed, problems, onReport, s
             let s = computeScore(attempts, correctionScore)
             if (s !== null) {
               if (state.hintUsed) s = Math.max(0, s - 0.25)
-              if (state.automationUsed) s = Math.max(0, s - (state.automationDeduction || 0.5))
+              if (state.automationUsed) s = Math.max(0, s - (state.automationDeduction || 0))
               pts += s
             }
           }
