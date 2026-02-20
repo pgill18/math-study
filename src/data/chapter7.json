@@ -455,7 +455,7 @@
                 }
               ],
               "info": "Degree 4 polynomial with negative leading coefficient",
-              "hint": "Rearrange terms by decreasing exponent. The leading term is the one with the highest power — watch the negative sign.",
+              "hint": "Rearrange terms by decreasing exponent. The leading term is the one with the highest power \u2014 watch the negative sign.",
               "steps": [
                 "Variable exponents: $y$ has exponent $1$, $y$ has exponent $3$, $y$ has exponent $2$, $y$ has exponent $4$",
                 "Sum the exponents: $1 + 3 + 2 + 4 = [{'label': 'Standard Form', 'value': '$-y^4 - 3y^3 + 2y^2 + 7y$'}, {'label': 'Degree', 'value': '4'}, {'label': 'Leading Coefficient', 'value': '$-1$'}, {'label': 'Classification', 'value': 'polynomial with 4 terms'}]$",
@@ -926,7 +926,7 @@
               ],
               "stepLabels": [
                 "Distribute x",
-                "Distribute −3",
+                "Distribute \u22123",
                 "Combine"
               ]
             }
@@ -1066,7 +1066,7 @@
               "text": "A rectangle has length $(x + 7)$ and width $(x - 3)$. Write a polynomial for the area.",
               "answer": "$x^2 + 4x - 21$",
               "info": "Area formula requiring polynomial multiplication",
-              "hint": "Area of rectangle = length × width. Multiply $(x + 7)(x - 3)$ using FOIL.",
+              "hint": "Area of rectangle = length \u00d7 width. Multiply $(x + 7)(x - 3)$ using FOIL.",
               "steps": [
                 "Area = length $\\times$ width $= (x + 7)(x - 3)$",
                 "FOIL: $x^2 - 3x + 7x - 21$",
@@ -1083,7 +1083,7 @@
               "text": "A box has dimensions $x$, $(x + 2)$, and $(x - 1)$. Write a polynomial for the volume.",
               "answer": "$x^3 + x^2 - 2x$",
               "info": "Volume formula with three factors",
-              "hint": "Volume = length × width × height. Multiply two factors first, then multiply by the third.",
+              "hint": "Volume = length \u00d7 width \u00d7 height. Multiply two factors first, then multiply by the third.",
               "steps": [
                 "First multiply $x(x + 2) = x^2 + 2x$",
                 "Then multiply by $(x - 1)$: $(x^2 + 2x)(x - 1)$",
@@ -1507,7 +1507,7 @@
               "info": "Sum and difference with two variables",
               "hint": "Use $(a - b)(a + b) = a^2 - b^2$. Identify $a$ and $b$ with their coefficients.",
               "steps": [
-                "Apply $(a±b)^2 = a^2 ± 2ab + b^2$",
+                "Apply $(a\u00b1b)^2 = a^2 \u00b1 2ab + b^2$",
                 "Result: $16x^2 - 9y^2$"
               ]
             },
@@ -2045,7 +2045,7 @@
               "text": "$(x + 3)^2 = 0$",
               "answer": "$x = -3$",
               "info": "Repeated factor (perfect square)",
-              "hint": "$(x + 3)^2 = 0$ means $x + 3 = 0$ — there's only one solution, but it's a 'double root'.",
+              "hint": "$(x + 3)^2 = 0$ means $x + 3 = 0$ \u2014 there's only one solution, but it's a 'double root'.",
               "steps": [
                 "Factor the polynomial",
                 "Set each factor to zero and solve: $x = -3$"
@@ -2152,7 +2152,7 @@
     },
     {
       "id": "7.5",
-      "title": "Factoring x² + bx + c",
+      "title": "Factoring x\u00b2 + bx + c",
       "coreConcepts": [
         {
           "id": "7.5.cc1",
@@ -2235,7 +2235,7 @@
         {
           "id": "7.5.ex1",
           "type": "example",
-          "title": "Factoring Trinomials — Worked Examples",
+          "title": "Factoring Trinomials \u2014 Worked Examples",
           "description": "Practice identifying the correct factor pairs for $x^2 + bx + c$.",
           "patterns": [],
           "extras": [
@@ -2610,7 +2610,7 @@
               "text": "$x^2 + 13x + 36$",
               "answer": "$(x + 4)(x + 9)$",
               "info": "Large positive constant requiring factor pairs of 36",
-              "hint": "Find two numbers that multiply to 36 and add to 13. List factor pairs: 1×36, 2×18, 3×12, 4×9...",
+              "hint": "Find two numbers that multiply to 36 and add to 13. List factor pairs: 1\u00d736, 2\u00d718, 3\u00d712, 4\u00d79...",
               "steps": [
                 "Find two numbers that multiply to the constant and add to the middle coefficient",
                 "Write the factorization: $(x + 4)(x + 9)$"
@@ -2654,7 +2654,7 @@
               "text": "$t^2 - 14t + 45$",
               "answer": "$(t - 5)(t - 9)$",
               "info": "Different variable name ($t$)",
-              "hint": "The variable name doesn't matter — the factoring process is identical. Factor $t^2 - 14t + 45$ just like $x^2 - 14x + 45$.",
+              "hint": "The variable name doesn't matter \u2014 the factoring process is identical. Factor $t^2 - 14t + 45$ just like $x^2 - 14x + 45$.",
               "steps": [
                 "Find two numbers that multiply to the constant and add to the middle coefficient",
                 "Write the factorization: $(t - 5)(t - 9)$"
@@ -2723,7 +2723,7 @@
                   "value": "$x = 8$"
                 }
               ],
-              "info": "Equation not in standard form — rearrange first",
+              "info": "Equation not in standard form \u2014 rearrange first",
               "hint": "Move all terms to one side first: $x^2 - x - 56 = 0$. Then factor and solve.",
               "steps": [
                 "Move all terms to one side: $x^2 - x - 56 = 0$",
@@ -2764,7 +2764,7 @@
     },
     {
       "id": "7.6",
-      "title": "Factoring ax² + bx + c",
+      "title": "Factoring ax\u00b2 + bx + c",
       "coreConcepts": [
         {
           "id": "7.6.ex1",
@@ -3011,7 +3011,7 @@
                 "Factor: $-(2y + 3)(y + 1)$"
               ],
               "stepLabels": [
-                "Factor out −1",
+                "Factor out \u22121",
                 "Find ac product",
                 "Rewrite & group",
                 "Result"
@@ -3028,7 +3028,7 @@
                 "Factor: $-(5m - 1)(m - 1)$"
               ],
               "stepLabels": [
-                "Factor out −1",
+                "Factor out \u22121",
                 "Find ac product",
                 "Rewrite & group",
                 "Result"
@@ -3045,7 +3045,7 @@
                 "Factor: $-(3x - 2)(x + 1)$"
               ],
               "stepLabels": [
-                "Factor out −1",
+                "Factor out \u22121",
                 "Find ac product",
                 "Rewrite & group",
                 "Result"
@@ -3169,7 +3169,7 @@
               "text": "$10x^2 + 19x + 6$",
               "answer": "$(2x + 3)(5x + 2)$",
               "info": "Large $ac$ product ($60$) with positive terms",
-              "hint": "Find two numbers multiplying to $60$ that add to $19$. Factor pairs of 60: 1×60, 2×30, 3×20, 4×15...",
+              "hint": "Find two numbers multiplying to $60$ that add to $19$. Factor pairs of 60: 1\u00d760, 2\u00d730, 3\u00d720, 4\u00d715...",
               "steps": [
                 "Factor out any GCF first",
                 "Use AC method or grouping to factor",
@@ -3459,7 +3459,7 @@
                 "Factor: $(x + 6)(x - 6)$"
               ],
               "stepLabels": [
-                "Recognize a² − b²",
+                "Recognize a\u00b2 \u2212 b\u00b2",
                 "Identify a, b",
                 "Factor"
               ]
@@ -3473,7 +3473,7 @@
                 "Factor: $(10 + m)(10 - m)$"
               ],
               "stepLabels": [
-                "Recognize a² − b²",
+                "Recognize a\u00b2 \u2212 b\u00b2",
                 "Factor"
               ]
             },
@@ -3486,7 +3486,7 @@
                 "Factor: $(3n + 4)(3n - 4)$"
               ],
               "stepLabels": [
-                "Recognize a² − b²",
+                "Recognize a\u00b2 \u2212 b\u00b2",
                 "Factor"
               ]
             },
@@ -3499,7 +3499,7 @@
                 "Factor: $(4b + 7)(4b - 7)$"
               ],
               "stepLabels": [
-                "Recognize a² − b²",
+                "Recognize a\u00b2 \u2212 b\u00b2",
                 "Factor"
               ]
             },
@@ -3512,7 +3512,7 @@
                 "Calculate: $(70)(2) = 140$"
               ],
               "stepLabels": [
-                "Rewrite as (a+b)(a−b)",
+                "Rewrite as (a+b)(a\u2212b)",
                 "Calculate"
               ]
             },
@@ -3525,7 +3525,7 @@
                 "Calculate: $(91)(3) = 273$"
               ],
               "stepLabels": [
-                "Rewrite as (a+b)(a−b)",
+                "Rewrite as (a+b)(a\u2212b)",
                 "Calculate"
               ]
             },
@@ -3538,7 +3538,7 @@
                 "Calculate: $(105)(5) = 525$"
               ],
               "stepLabels": [
-                "Rewrite as (a+b)(a−b)",
+                "Rewrite as (a+b)(a\u2212b)",
                 "Calculate"
               ]
             },
@@ -3551,7 +3551,7 @@
                 "Calculate: $(52)(4) = 208$"
               ],
               "stepLabels": [
-                "Rewrite as (a+b)(a−b)",
+                "Rewrite as (a+b)(a\u2212b)",
                 "Calculate"
               ]
             }
@@ -3578,7 +3578,7 @@
               ],
               "stepLabels": [
                 "Check pattern",
-                "Match (a−b)²",
+                "Match (a\u2212b)\u00b2",
                 "Factor"
               ]
             },
@@ -3593,7 +3593,7 @@
               ],
               "stepLabels": [
                 "Check pattern",
-                "Match (a−b)²",
+                "Match (a\u2212b)\u00b2",
                 "Factor"
               ]
             },
@@ -3685,7 +3685,7 @@
               ],
               "stepLabels": [
                 "Check pattern",
-                "Match (a+b)²",
+                "Match (a+b)\u00b2",
                 "Factor"
               ]
             },
@@ -3698,7 +3698,7 @@
                 "Factor: $(x + 5)(x - 5)$"
               ],
               "stepLabels": [
-                "Recognize a² − b²",
+                "Recognize a\u00b2 \u2212 b\u00b2",
                 "Factor"
               ]
             }
@@ -3725,7 +3725,7 @@
               ],
               "stepLabels": [
                 "Set h = 0",
-                "Isolate t²",
+                "Isolate t\u00b2",
                 "Solve"
               ]
             }
@@ -3782,7 +3782,7 @@
               "text": "$4a^2 - 28a + 49$",
               "answer": "$(2a - 7)^2$",
               "info": "Perfect square trinomial with negative middle term",
-              "hint": "This is $(2a - 7)^2$. Verify: $(2a)^2 = 4a^2$, $(-7)^2 = 49$, $2(2a)(-7) = -28a$. ✓",
+              "hint": "This is $(2a - 7)^2$. Verify: $(2a)^2 = 4a^2$, $(-7)^2 = 49$, $2(2a)(-7) = -28a$. \u2713",
               "steps": [
                 "Recognize: $a^2 - b^2 = (a+b)(a-b)$",
                 "Result: $(2a - 7)^2$"
@@ -3795,7 +3795,7 @@
               "info": "Two-variable difference of squares",
               "hint": "$(3x)^2 - (2y)^2 = (3x + 2y)(3x - 2y)$. The pattern works the same with two different variables.",
               "steps": [
-                "Rewrite using $(a-b)(a+b) = a^2 - b^2$ or $(a±b)^2$ pattern",
+                "Rewrite using $(a-b)(a+b) = a^2 - b^2$ or $(a\u00b1b)^2$ pattern",
                 "Result: $(3x + 2y)(3x - 2y)$"
               ]
             },
@@ -3806,7 +3806,7 @@
               "info": "Perfect square trinomial with large coefficients",
               "hint": "Check: $\\sqrt{16m^2} = 4m$, $\\sqrt{49} = 7$, and $2(4m)(7) = 56m$. Matches the middle term!",
               "steps": [
-                "Rewrite using $(a-b)(a+b) = a^2 - b^2$ or $(a±b)^2$ pattern",
+                "Rewrite using $(a-b)(a+b) = a^2 - b^2$ or $(a\u00b1b)^2$ pattern",
                 "Result: $(4m + 7)^2$"
               ]
             }
@@ -3932,7 +3932,7 @@
         {
           "id": "7.8.ex1",
           "type": "example",
-          "title": "Factoring by Grouping — More Examples",
+          "title": "Factoring by Grouping \u2014 More Examples",
           "description": "Practice factoring four-term polynomials by grouping.",
           "patterns": [],
           "extras": [
@@ -4383,7 +4383,7 @@
               "num": 1,
               "text": "$3(x^2 - 4)$",
               "answer": "$3(x + 2)(x - 2)$",
-              "info": "Recognizing incomplete factoring — original expression is not fully factored",
+              "info": "Recognizing incomplete factoring \u2014 original expression is not fully factored",
               "hint": "Check if any factor can be factored further. $x^2 - 4$ is a difference of squares! But $x^2 + 1$ cannot be factored over integers.",
               "steps": [
                 "Current form: $3(x^2 - 4)$. Can $x^2 - 4$ be factored further?",
@@ -4404,7 +4404,7 @@
               "hint": "$x^2 + 1$ has no real factors (sum of squares doesn't factor). This one is already completely factored.",
               "steps": [
                 "Current form: $2x(x^2 + 1)$. Can $x^2 + 1$ be factored further?",
-                "$x^2 + 1$ is a sum of squares — it does not factor over the reals",
+                "$x^2 + 1$ is a sum of squares \u2014 it does not factor over the reals",
                 "Already complete: $2x(x^2 + 1)$"
               ],
               "stepLabels": [
@@ -4418,7 +4418,7 @@
               "text": "$5x^2(x - 7)$",
               "answer": "Complete",
               "info": "Verifying complete factoring with monomial GCF",
-              "hint": "$5x^2(x-7)$ — check each factor: $5$ is prime, $x^2$ can't factor further, $(x-7)$ is linear. It's complete.",
+              "hint": "$5x^2(x-7)$ \u2014 check each factor: $5$ is prime, $x^2$ can't factor further, $(x-7)$ is linear. It's complete.",
               "steps": [
                 "Current form: $5x^2(x - 7)$. Can any factor be factored further?",
                 "$5$ is prime, $x^2$ has no further factors, and $(x - 7)$ is linear",
@@ -4435,6 +4435,401 @@
             "Multiple stages of factoring may be needed",
             "Apply each appropriate technique in sequence",
             "Ensure final result cannot be factored further"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7.test",
+      "title": "Chapter Test",
+      "monitoringProgress": [
+        {
+          "instruction": "Find the sum or difference. Then identify the degree of the sum or difference and classify it by the number of terms.",
+          "problems": [
+            {
+              "num": "1",
+              "text": "$(-2p + 4) - (p^2 - 6p + 8)$",
+              "answer": [
+                {
+                  "label": "Result",
+                  "value": "$-p^2 + 4p - 4$"
+                },
+                {
+                  "label": "Degree",
+                  "value": "$2$"
+                },
+                {
+                  "label": "Classification",
+                  "value": "trinomial"
+                }
+              ],
+              "steps": [
+                "Distribute the negative: $-2p + 4 - p^2 + 6p - 8$",
+                "Combine like terms: $-p^2 + (-2p + 6p) + (4 - 8) = -p^2 + 4p - 4$",
+                "Degree is $2$ (highest exponent), $3$ terms = trinomial"
+              ],
+              "stepLabels": [
+                "Distribute",
+                "Combine terms",
+                "Classify"
+              ]
+            },
+            {
+              "num": "2",
+              "text": "$(9c^6 - 5b^4) - (4c^6 - 5b^4)$",
+              "answer": [
+                {
+                  "label": "Result",
+                  "value": "$5c^6$"
+                },
+                {
+                  "label": "Degree",
+                  "value": "$6$"
+                },
+                {
+                  "label": "Classification",
+                  "value": "monomial"
+                }
+              ],
+              "steps": [
+                "Distribute the negative: $9c^6 - 5b^4 - 4c^6 + 5b^4$",
+                "Combine like terms: $(9c^6 - 4c^6) + (-5b^4 + 5b^4) = 5c^6$",
+                "Degree is $6$ (highest exponent), $1$ term = monomial"
+              ],
+              "stepLabels": [
+                "Distribute",
+                "Combine terms",
+                "Classify"
+              ]
+            },
+            {
+              "num": "3",
+              "text": "$(4s^4 + 2st + t) + (2s^4 - 2st - 4t)$",
+              "answer": [
+                {
+                  "label": "Result",
+                  "value": "$6s^4 - 3t$"
+                },
+                {
+                  "label": "Degree",
+                  "value": "$4$"
+                },
+                {
+                  "label": "Classification",
+                  "value": "binomial"
+                }
+              ],
+              "steps": [
+                "Combine like terms: $(4s^4 + 2s^4) + (2st - 2st) + (t - 4t)$",
+                "Simplify: $6s^4 + 0 - 3t = 6s^4 - 3t$",
+                "Degree is $4$ (highest exponent), $2$ terms = binomial"
+              ],
+              "stepLabels": [
+                "Group terms",
+                "Simplify",
+                "Classify"
+              ]
+            }
+          ]
+        },
+        {
+          "instruction": "Find the product.",
+          "problems": [
+            {
+              "num": "4",
+              "text": "$(h - 5)(h - 8)$",
+              "answer": "$h^2 - 13h + 40$",
+              "steps": [
+                "FOIL: $h \\cdot h + h \\cdot (-8) + (-5) \\cdot h + (-5)(-8)$",
+                "Simplify: $h^2 - 8h - 5h + 40$",
+                "Combine: $h^2 - 13h + 40$"
+              ],
+              "stepLabels": [
+                "FOIL",
+                "Multiply",
+                "Combine terms"
+              ]
+            },
+            {
+              "num": "5",
+              "text": "$(2w - 3)(3w + 5)$",
+              "answer": "$6w^2 + w - 15$",
+              "steps": [
+                "FOIL: $2w \\cdot 3w + 2w \\cdot 5 + (-3) \\cdot 3w + (-3) \\cdot 5$",
+                "Simplify: $6w^2 + 10w - 9w - 15$",
+                "Combine: $6w^2 + w - 15$"
+              ],
+              "stepLabels": [
+                "FOIL",
+                "Multiply",
+                "Combine terms"
+              ]
+            },
+            {
+              "num": "6",
+              "text": "$(z + 11)(z - 11)$",
+              "answer": "$z^2 - 121$",
+              "steps": [
+                "Use difference of squares: $(a + b)(a - b) = a^2 - b^2$",
+                "Apply: $z^2 - 11^2 = z^2 - 121$"
+              ],
+              "stepLabels": [
+                "Identify pattern",
+                "Apply formula"
+              ]
+            }
+          ]
+        },
+        {
+          "instruction": "Factor the polynomial completely.",
+          "problems": [
+            {
+              "num": "9",
+              "text": "$s^2 - 15s + 50$",
+              "answer": "$(s - 5)(s - 10)$",
+              "steps": [
+                "Find two numbers that multiply to $50$ and add to $-15$: $-5$ and $-10$",
+                "Factor: $(s - 5)(s - 10)$"
+              ],
+              "stepLabels": [
+                "Find pair",
+                "Write factored"
+              ]
+            },
+            {
+              "num": "10",
+              "text": "$h^3 + 2h^2 - 9h - 18$",
+              "answer": "$(h + 2)(h + 3)(h - 3)$",
+              "steps": [
+                "Factor by grouping: $h^2(h + 2) - 9(h + 2)$",
+                "Factor out $(h + 2)$: $(h^2 - 9)(h + 2)$",
+                "Factor difference of squares: $(h + 3)(h - 3)(h + 2)$"
+              ],
+              "stepLabels": [
+                "Group",
+                "Factor common",
+                "Factor DoS"
+              ]
+            },
+            {
+              "num": "11",
+              "text": "$-5k^2 - 22k + 15$",
+              "answer": "$-(5k - 3)(k + 5)$",
+              "steps": [
+                "Factor out $-1$: $-(5k^2 + 22k - 15)$",
+                "Find factors of $5 \\times (-15) = -75$ that add to $22$: $25$ and $-3$",
+                "Rewrite: $-(5k^2 + 25k - 3k - 15) = -(5k(k + 5) - 3(k + 5))$",
+                "Factor: $-(5k - 3)(k + 5)$"
+              ],
+              "stepLabels": [
+                "Factor -1",
+                "Find ac pair",
+                "Group",
+                "Write factored"
+              ]
+            }
+          ]
+        },
+        {
+          "instruction": "Solve the equation.",
+          "problems": [
+            {
+              "num": "12",
+              "text": "$(n - 1)(n + 6)(n + 5) = 0$",
+              "answer": [
+                {
+                  "label": "Solution 1",
+                  "value": "$n = 1$"
+                },
+                {
+                  "label": "Solution 2",
+                  "value": "$n = -6$"
+                },
+                {
+                  "label": "Solution 3",
+                  "value": "$n = -5$"
+                }
+              ],
+              "steps": [
+                "Apply zero-product property: each factor equals $0$",
+                "$n - 1 = 0 \\Rightarrow n = 1$; $n + 6 = 0 \\Rightarrow n = -6$; $n + 5 = 0 \\Rightarrow n = -5$"
+              ],
+              "stepLabels": [
+                "Zero-product",
+                "Solve each"
+              ]
+            },
+            {
+              "num": "13",
+              "text": "$d^2 + 14d + 49 = 0$",
+              "answer": "$d = -7$",
+              "steps": [
+                "Recognize perfect square: $d^2 + 14d + 49 = (d + 7)^2$",
+                "Set $(d + 7)^2 = 0$, so $d + 7 = 0$",
+                "Solution: $d = -7$"
+              ],
+              "stepLabels": [
+                "Factor",
+                "Square root",
+                "Solve"
+              ]
+            },
+            {
+              "num": "14",
+              "text": "$6x^4 + 8x^2 = 26x^3$",
+              "answer": [
+                {
+                  "label": "Solution 1",
+                  "value": "$x = 0$"
+                },
+                {
+                  "label": "Solution 2",
+                  "value": "$x = \\frac{1}{3}$"
+                },
+                {
+                  "label": "Solution 3",
+                  "value": "$x = 4$"
+                }
+              ],
+              "steps": [
+                "Rearrange: $6x^4 - 26x^3 + 8x^2 = 0$",
+                "Factor out $2x^2$: $2x^2(3x^2 - 13x + 4) = 0$",
+                "Factor trinomial: $2x^2(3x - 1)(x - 4) = 0$",
+                "Solutions: $x = 0$, $x = \\frac{1}{3}$, $x = 4$"
+              ],
+              "stepLabels": [
+                "Rearrange",
+                "Factor GCF",
+                "Factor trinomial",
+                "Solve"
+              ]
+            }
+          ]
+        },
+        {
+          "instruction": "Word problems and applications.",
+          "problems": [
+            {
+              "num": "15",
+              "text": "The expression $\\pi(r - 3)^2$ represents the area covered by the hour hand on a clock in one rotation, where $r$ is the radius of the entire clock. Write a polynomial in standard form that represents the area covered by the hour hand in one rotation.",
+              "answer": "$\\pi r^2 - 6\\pi r + 9\\pi$",
+              "steps": [
+                "Expand $(r - 3)^2 = r^2 - 6r + 9$",
+                "Multiply by $\\pi$: $\\pi r^2 - 6\\pi r + 9\\pi$"
+              ],
+              "stepLabels": [
+                "Expand square",
+                "Distribute \u03c0"
+              ]
+            },
+            {
+              "num": "16a",
+              "text": "A magician's stage has a trapdoor. The total area (in square feet) of the stage can be represented by $x^2 + 27x + 176$. Write an expression for the width of the stage.",
+              "answer": "$(x + 11)$",
+              "hint": "Factor $x^2 + 27x + 176$ to find the dimensions.",
+              "steps": [
+                "Factor $x^2 + 27x + 176$: find two numbers that multiply to $176$ and add to $27$",
+                "The numbers are $11$ and $16$: $(x + 11)(x + 16)$",
+                "Since length is $(x + 16)$ ft, width is $(x + 11)$ ft"
+              ],
+              "stepLabels": [
+                "Set up",
+                "Factor",
+                "Identify width"
+              ]
+            },
+            {
+              "num": "16b",
+              "text": "Write an expression for the perimeter of the stage.",
+              "answer": "$4x + 54$",
+              "steps": [
+                "Perimeter = $2(\\text{length} + \\text{width}) = 2((x + 16) + (x + 11))$",
+                "Simplify: $2(2x + 27) = 4x + 54$"
+              ],
+              "stepLabels": [
+                "Perimeter formula",
+                "Simplify"
+              ]
+            },
+            {
+              "num": "16c",
+              "text": "The area of the trapdoor is $10$ square feet. Find the value of $x$.",
+              "answer": "$x = 2$",
+              "steps": [
+                "Trapdoor area: $2x(x + \\frac{1}{2}) = 2x^2 + x = 10$",
+                "Rearrange: $2x^2 + x - 10 = 0$",
+                "Factor: $(2x + 5)(x - 2) = 0$, so $x = 2$ (discard negative)"
+              ],
+              "stepLabels": [
+                "Set up equation",
+                "Rearrange",
+                "Solve"
+              ]
+            },
+            {
+              "num": "18",
+              "text": "You are jumping on a trampoline. For one jump, your height $y$ (in feet) above the trampoline after $t$ seconds can be represented by $y = -16t^2 + 24t$. How many seconds are you in the air?",
+              "answer": "$\\frac{3}{2}$",
+              "hint": "Set y = 0 and factor to find when you land.",
+              "steps": [
+                "Set $y = 0$: $-16t^2 + 24t = 0$",
+                "Factor: $-8t(2t - 3) = 0$",
+                "Solutions: $t = 0$ or $t = \\frac{3}{2}$; time in air is $\\frac{3}{2}$ seconds"
+              ],
+              "stepLabels": [
+                "Set y = 0",
+                "Factor",
+                "Solve"
+              ]
+            },
+            {
+              "num": "19a",
+              "text": "A cardboard box in the shape of a rectangular prism has dimensions $(x + 6)$ in., $(x - 2)$ in., and $(x - 1)$ in. Write a polynomial that represents the volume of the box.",
+              "answer": "$x^3 + 3x^2 - 16x + 12$",
+              "steps": [
+                "Volume = $(x + 6)(x - 2)(x - 1)$",
+                "First multiply $(x - 2)(x - 1) = x^2 - 3x + 2$",
+                "Then $(x + 6)(x^2 - 3x + 2) = x^3 - 3x^2 + 2x + 6x^2 - 18x + 12$",
+                "Combine: $x^3 + 3x^2 - 16x + 12$"
+              ],
+              "stepLabels": [
+                "Set up",
+                "First product",
+                "Second product",
+                "Combine"
+              ]
+            },
+            {
+              "num": "19b",
+              "text": "The volume of the box is $60$ cubic inches. What are the length, width, and height of the box?",
+              "answer": [
+                {
+                  "label": "Length",
+                  "value": "$10$"
+                },
+                {
+                  "label": "Width",
+                  "value": "$2$"
+                },
+                {
+                  "label": "Height",
+                  "value": "$3$"
+                }
+              ],
+              "hint": "Set the volume polynomial equal to 60 and solve for x.",
+              "steps": [
+                "Set $x^3 + 3x^2 - 16x + 12 = 60$",
+                "Simplify: $x^3 + 3x^2 - 16x - 48 = 0$",
+                "Try $x = 4$: $64 + 48 - 64 - 48 = 0$ \u2713",
+                "Dimensions: $(4+6) = 10$, $(4-2) = 2$, $(4-1) = 3$ inches"
+              ],
+              "stepLabels": [
+                "Set up",
+                "Simplify",
+                "Find x",
+                "Calculate dims"
+              ]
+            }
           ]
         }
       ]

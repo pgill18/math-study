@@ -102,10 +102,10 @@ export default function SectionCard({ section, isReviewed, problems, onReport, s
         {section.title}
       </h3>
       <p className="text-sm text-gray-500 dark:text-gray-500">
-        {section.coreConcepts.length > 0
+        {(section.coreConcepts || []).length > 0
           ? `${section.coreConcepts.length} Core Concept${section.coreConcepts.length > 1 ? 's' : ''}`
           : ''}
-        {section.coreConcepts.length > 0 && section.monitoringProgress.length > 0 ? ' · ' : ''}
+        {(section.coreConcepts || []).length > 0 && (section.monitoringProgress || []).length > 0 ? ' · ' : ''}
         {totalProblems > 0
           ? `${totalProblems} Problems`
           : ''}

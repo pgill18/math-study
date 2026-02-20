@@ -52,9 +52,9 @@ export default function SectionPage({ settings }) {
     const result = []
     let mpIdx = 0
 
-    section.coreConcepts.forEach((cc) => {
+    ;(section.coreConcepts || []).forEach((cc) => {
       const cat = classifyCC(cc)
-      const mp = mpIdx < section.monitoringProgress.length ? section.monitoringProgress[mpIdx] : null
+      const mp = mpIdx < (section.monitoringProgress || []).length ? section.monitoringProgress[mpIdx] : null
       mpIdx++
 
       // Check visibility
@@ -66,7 +66,7 @@ export default function SectionPage({ settings }) {
     })
 
     // Any remaining MPs (unpaired)
-    while (mpIdx < section.monitoringProgress.length) {
+    while (mpIdx < (section.monitoringProgress || []).length) {
       result.push({ cc: null, mp: section.monitoringProgress[mpIdx], cat: 'extra' })
       mpIdx++
     }
